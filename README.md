@@ -39,6 +39,13 @@ We won't be using any API calls for this one.
 Most or all of this app will be plain HTML5, CSS, and vanilla JS. It's possible I'll use a utility library such as array2D to help wrangle the board / model as a 2D array ... but I'm not yet sure I'll need such a thing.
 **EDIT:** I will definitely be using the **array2D** utility library, as it has a number of functions that will make this project drastically easier and will allow a more "full" implementation of model + view.
 
+#### Technical challenges:
+
+* **Data structure**: it may take some trial and error to figure out how to instantiate an individual cell in the model layer -- will it be good to use OOP here and setup a 'cell' class? We'll have to see.
+* **Two-way data binding**: the cell grid VIEW needs to stay synced with the cell grid MODEL, _and_ changes will be initiated from both places.
+* **Smart game board edges**: This is listed in _Stage 2_ below -- the goal is to allow automata to wander off the edge of the map and loop back around to reappear on the other side. If I'm using a 'cell' class then I'll need to extend the class for these edge-cells because their computation model will be different.
+* **Testing**: If I'm creating a test suite I'll have to think hard about what is worth testing / how I'll run a test. I could run tests solely using the model layer without creating a view, but I'll have to have a clear understanding in advance of what automata should result from what kind of starting patterns.
+
 ## Feature list
 
 #### MVP / Stage 0:

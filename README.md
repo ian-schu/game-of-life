@@ -37,6 +37,7 @@ We won't be using any API calls for this one.
 ## What technologies do you plan to use?
 
 Most or all of this app will be plain HTML5, CSS, and vanilla JS. It's possible I'll use a utility library such as array2D to help wrangle the board / model as a 2D array ... but I'm not yet sure I'll need such a thing.
+**EDIT:** I will definitely be using the **array2D** utility library, as it has a number of functions that will make this project drastically easier and will allow a more "full" implementation of model + view.
 
 ## Feature list
 

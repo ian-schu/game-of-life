@@ -35,19 +35,24 @@ describe('New cell basics', () => {
 
 describe('Fundamental cell behavior', () => {
 	it('Neighbors method returns an array', () => {
-		expect(newCell.neighbors(grid)).to.be.an('array');
+		expect(newCell.getNeighborhood(grid)).to.be.an('array');
 	});
-	it('Corner cell sees 8 total neighbors', () => {
-		expect(newCell.neighbors(grid).length).to.equal(8);
+	it('Corner cell sees 9 total neighbors', () => {
+		expect(newCell.getNeighborhood(grid).length).to.equal(9);
 	});
-	it('Corner cell sees 3 actual neighbors', () => {
-		expect(newCell.neighbors(grid)).to.include.members([2, 4, middleCell]);
+	it('Corner cell sees 4 actual neighbors', () => {
+		expect(newCell.getNeighborhood(grid)).to.include.members([
+			newCell,
+			2,
+			4,
+			middleCell
+		]);
 	});
 	it('Middle cell sees 8 total neighbors', () => {
-		expect(middleCell.neighbors(grid).length).to.equal(8);
+		expect(middleCell.getNeighborhood(grid).length).to.equal(9);
 	});
 	it('Middle cell sees 8 actual neighbors', () => {
-		expect(middleCell.neighbors(grid)).to.include.members([
+		expect(middleCell.getNeighborhood(grid)).to.include.members([
 			newCell,
 			2,
 			3,
@@ -57,5 +62,11 @@ describe('Fundamental cell behavior', () => {
 			8,
 			9
 		]);
+	});
+	it('parseNeighbors returns an integer', () => {
+		newCell.born();
+		middleCell.born();
+		expect(middleCell.parseNeighborhood(grid)).to.be.a('number');
+		console.log(middleCell.parseNeighborhood(grid));
 	});
 });

@@ -54,6 +54,7 @@ Most or all of this app will be plain HTML5, CSS, and vanilla JS. It's possible 
 * User can "play" simulation continuously by clicking **Play** button
 * User can pause simulation by clicking **Stop** button
 * User can clear game board and start over by clicking **Reset** button
+* **TEST SUITE** started
 
 ##### Stage 2:
 

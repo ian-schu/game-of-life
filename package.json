@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "mocha test/*",
+		"bundle": "bundle-js src/index.js -o src/bundle.js",
 		"build-dev": "webpack --mode development",
 		"build-prod": "webpack --mode production"
 	},

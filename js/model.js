@@ -9,9 +9,9 @@ let Array2D = require('array2d');
 // cellGrid[0][1].born();
 // cellGrid;
 
-class Model {
+class Board {
 	constructor(width, height) {
-		this.board = Array2D.buildWith(width, height, this.cellsToGrid);
+		this.grid = Array2D.buildWith(width, height, this.cellsToGrid);
 	}
 
 	cellsToGrid(r, c) {
@@ -19,7 +19,7 @@ class Model {
 	}
 
 	render2D(t, f) {
-		return Array2D.map(this.board, cell => {
+		return Array2D.map(this.grid, cell => {
 			return cell.alive ? t : f;
 		});
 	}
@@ -29,36 +29,42 @@ class Model {
 	}
 
 	propagate() {
-		Array2D.eachCell(this.board, cell => {
-			cell.propagate(this.board);
+		Array2D.eachCell(this.grid, cell => {
+			cell.propagate(this.grid);
 		});
 	}
 
 	advance() {
-		Array2D.eachCell(this.board, cell => {
+		Array2D.eachCell(this.grid, cell => {
 			cell.advance();
 		});
 	}
 }
 
-var testModel = new Model(12, 20);
-testModel.board[4][3].born();
-testModel.board[4][4].born();
-testModel.board[4][5].born();
-testModel.board[4][6].born();
-testModel.board[4][7].born();
-testModel.board[5][3].born();
-testModel.board[5][4].born();
-testModel.board[5][5].born();
-testModel.board[5][6].born();
-testModel.board[5][7].born();
-// Array2D.neighborhood(testModel.board,2,3)
-// testModel.board[2][3].getNeighborhood(testModel.board);
-setInterval(function() {
-	console.clear();
-	console.log(testModel.render2D('🐞', '◼️'));
-	testModel.propagate(testModel.board);
-	testModel.advance();
-}, 500);
+// var testBoard = new Board(6, 5);
+// testBoard.grid[1][2].born();
+// testBoard.grid[1][3].born();
+// testBoard.grid[2][1].born();
+// testBoard.grid[2][4].born();
+// testBoard.grid[3][2].born();
+// testBoard.grid[3][3].born();
+//
+// testBoard.grid[4][3].born();
+// testBoard.grid[4][4].born();
+// testBoard.grid[4][5].born();
+// testBoard.grid[4][6].born();
+// testBoard.grid[4][7].born();
+// testBoard.grid[5][3].born();
+// testBoard.grid[5][4].born();
+// testBoard.grid[5][5].born();
+// testBoard.grid[5][6].born();
+// testBoard.grid[5][7].born();
 
-module.exports = Model;
+// setInterval(function() {
+// 	console.clear();
+// 	console.log(testBoard.render2D('🐞', '◼️'));
+// 	testBoard.propagate(testBoard.grid);
+// 	testBoard.advance();
+// }, 500);
+
+module.exports = Board;

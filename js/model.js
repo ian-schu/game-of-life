@@ -27,17 +27,38 @@ class Model {
 	renderFlat(t, f) {
 		return Array2D.flatten(this.render2D(t, f));
 	}
+
+	propagate() {
+		Array2D.eachCell(this.board, cell => {
+			cell.propagate(this.board);
+		});
+	}
+
+	advance() {
+		Array2D.eachCell(this.board, cell => {
+			cell.advance();
+		});
+	}
 }
 
-let thisModel = new Model(10, 15);
-let thisBoard = thisModel.board;
-thisModel.board[4][4];
-thisBoard[4][4].born();
-thisBoard[5][7].born();
-thisBoard[2][2].born();
-thisBoard[1][7].born();
-
-thisModel.render2D('X', ' ').length;
-thisModel.renderFlat('X', 'O');
+var testModel = new Model(12, 20);
+testModel.board[4][3].born();
+testModel.board[4][4].born();
+testModel.board[4][5].born();
+testModel.board[4][6].born();
+testModel.board[4][7].born();
+testModel.board[5][3].born();
+testModel.board[5][4].born();
+testModel.board[5][5].born();
+testModel.board[5][6].born();
+testModel.board[5][7].born();
+// Array2D.neighborhood(testModel.board,2,3)
+// testModel.board[2][3].getNeighborhood(testModel.board);
+setInterval(function() {
+	console.clear();
+	console.log(testModel.render2D('🐞', '◼️'));
+	testModel.propagate(testModel.board);
+	testModel.advance();
+}, 500);
 
 module.exports = Model;

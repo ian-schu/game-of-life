@@ -49,15 +49,16 @@ describe('Fundamental cell behavior', () => {
 			middleCell
 		]);
 	});
-	it('Middle cell sees 8 total neighbors', () => {
+	it('Middle cell sees neighborhood of 9 members', () => {
 		expect(middleCell.getNeighborhood(grid).length).to.equal(9);
 	});
-	it('Middle cell sees 8 actual neighbors', () => {
+	it('Middle cell sees correct 9 neighborhood members', () => {
 		expect(middleCell.getNeighborhood(grid)).to.include.members([
 			newCell,
 			2,
 			3,
 			4,
+			middleCell,
 			6,
 			7,
 			8,
@@ -68,6 +69,5 @@ describe('Fundamental cell behavior', () => {
 		newCell.born();
 		middleCell.born();
 		expect(middleCell.parseNeighborhood(grid)).to.be.a('number');
-		console.log(middleCell.parseNeighborhood(grid));
 	});
 });

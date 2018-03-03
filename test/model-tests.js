@@ -42,6 +42,21 @@ describe('Model rendering methods', () => {
 	it('Render2D has same width as model.board', () => {
 		expect(testModel.render2D('X', ' ')[0].length).to.equal(width);
 	});
+	it('RenderFlat has same length as board area', () => {
+		let renderFlatLength = testModel.renderFlat('X', ' ').length;
+		let originalArea = Array2D.area(testModel.board);
+		expect(renderFlatLength).to.equal(originalArea);
+	});
+	it('Random query 1 into Render2D returns a string', () => {
+		let row = Math.floor(Math.random() * height);
+		let column = Math.floor(Math.random() * width);
+		expect(testModel.render2D('X', ' ')[row][column]).to.be.a('string');
+	});
+	it('Random query 2 into Render2D returns a string', () => {
+		let row = Math.floor(Math.random() * height);
+		let column = Math.floor(Math.random() * width);
+		expect(testModel.render2D('X', ' ')[row][column]).to.be.a('string');
+	});
 });
 
 testModel.board.length;

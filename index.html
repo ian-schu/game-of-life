@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Game of Life</title>
-    <script src="./node_modules/array2d/Array2D.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <canvas id="test-canvas" height="500" width="700"></canvas>
-<script src="./js/main.js" charset="utf-8"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Game of Life</title>
+  <script src="./node_modules/array2d/Array2D.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="./style/styles.css">
+</head>
+
+<body>
+  <header id="header">
+    <div id="title">
+      Conway's Game of Life
+    </div>
+    <div id="subtitle">
+      Ian Schumann - Galvanize Web Development - Quarter 1
+    </div>
+  </header>
+  <div id="main">
+    <div id="playback" class="controls">
+      <button id="step" class="playback"></button>
+    </div>
+    <div id="gameboard">
+    </div>
+    <div id="palette" class="controls">
+      <button id="white" class="color"></button>
+      <button id="black" class="color color--selected"></button>
+    </div>
+  </div>
+  <div id="info">
+    <h4>What's going on here?</h4>
+    <p>This is Conway's Game of Life -- a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications.</p>
+    <p>
+      Black makes cells alive, white makes them dead. Hit the Propagate button to advance forward and see how your cells live or die.
+    </p>
+  </div>
+  <script src="./js/main.js" charset="utf-8"></script>
+</body>
+
 </html>

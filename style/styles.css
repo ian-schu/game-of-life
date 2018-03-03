@@ -1,0 +1,101 @@
+body,
+html {
+	font-family: 'Geneva', sans-serif;
+	background-color: lightgray;
+}
+
+#header {
+	display: block;
+	margin: 5px auto;
+	width: 800px;
+}
+
+#title {
+	font-weight: bold;
+	font-size: 2.2rem;
+}
+
+#subtitle {
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+#main {
+	margin: 5px auto;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+#gameboard {
+	height: 500px;
+	width: 800px;
+	border: 1px solid black;
+}
+
+.controls {
+	display: flex;
+	flex-direction: column;
+	margin: 0px 5px;
+	width: 100px;
+}
+
+.controls > button {
+	margin: 5px;
+}
+
+#palette {
+	align-items: flex-start;
+}
+
+#palette > button {
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+}
+
+button:hover {
+	box-shadow: 0px 0px 3px 3px white;
+}
+
+.color {
+}
+
+.color--selected {
+	box-shadow: 0px 0px 5px 2px aqua;
+}
+
+#white {
+	background-color: white;
+}
+
+#black {
+	background-color: black;
+}
+
+#playback {
+	align-items: flex-end;
+}
+
+#playback > button {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+}
+
+#info {
+	display: block;
+	margin: 5px auto;
+	width: 800px;
+}
+
+#info h4 {
+	font-weight: bold;
+	font-size: 1.2rem;
+	margin: 5px;
+}
+
+#info p {
+	margin: 5px;
+	font-size: 0.9rem;
+}

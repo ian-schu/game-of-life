@@ -1,14 +1,6 @@
 var Cell = require('./cell');
 let Array2D = require('array2d');
 
-// function cellToGrid(r, c) {
-// 	return new Cell(c, r);
-// }
-//
-// let cellGrid = Array2D.buildWith(3, 3, cellToGrid);
-// cellGrid[0][1].born();
-// cellGrid;
-
 class Board {
 	constructor(width, height) {
 		this.grid = Array2D.buildWith(width, height, this.cellsToGrid);

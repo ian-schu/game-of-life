@@ -56,19 +56,4 @@ class Cell {
 	}
 }
 
-Array2D.neighborhood([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 1, 1);
-
-// let aCell = new Cell(0, 0);
-// aCell.born();
-// let grid = [[aCell, 1, 2], [false, 'h', 5]];
-// aCell.getNeighborhood(grid);
-// aCell.parseNeighborhood(grid);
-
-// aCell;
-// aCell.born();
-// console.log(aCell.alive);
-// aCell.die();
-// console.log(aCell.alive);
-// aCell.neighbors(grid);
-
 module.exports = Cell;

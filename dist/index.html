@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <title>Game of Life</title>
-  <script src="./node_modules/array2d/Array2D.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="./style/styles.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <link rel="stylesheet" href="../style/styles.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
   </header>
   <div id="main">
     <div id="playback" class="controls">
-      <button id="step" class="playback"></button>
+      <button id="step" class="playback"><i class="fas fa-angle-right"></i></button>
     </div>
     <div id="gameboard">
     </div>
@@ -30,12 +30,12 @@
   </div>
   <div id="info">
     <h4>What's going on here?</h4>
-    <p>This is Conway's Game of Life -- a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications.</p>
+    <p>This is Conway's Game of Life -- a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications. You can read more about it all <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="blank">here</a>.</p>
     <p>
       Black makes cells alive, white makes them dead. Hit the Propagate button to advance forward and see how your cells live or die.
     </p>
   </div>
-  <script src="./js/main.js" charset="utf-8"></script>
+  <script src="bundle.js" charset="utf-8"></script>
 </body>
 
 </html>

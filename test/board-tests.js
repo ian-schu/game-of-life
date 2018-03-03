@@ -1,8 +1,8 @@
 var chai = require('chai');
 var expect = chai.expect;
-var Cell = require('../js/cell');
+var Cell = require('../src/cell');
 var Array2D = require('array2d');
-var Board = require('../js/model');
+var Board = require('../src/model');
 
 let width = 8;
 let height = 10;

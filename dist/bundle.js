@@ -76,9 +76,20 @@
   !*** ./src/index.js ***!
   \**********************/
 /*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// var Cell = require('../src/cell');\n// var Array2D = require('array2d');\n// var Board = require('../src/model');\nvar logThis = __webpack_require__(/*! ../src/test.js */ \"./src/test.js\");\n\n// let testBoard = new Board(10, 10);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/test.js":
+/*!*********************!*\
+  !*** ./src/test.js ***!
+  \*********************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("let testBoard = new Board(10, 10);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("function logThis(string) {\n\tconsole.log(string);\n}\n\nmodule.exports = logThis;\n\n\n//# sourceURL=webpack:///./src/test.js?");
 
 /***/ })
 

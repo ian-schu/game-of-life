@@ -2,7 +2,7 @@ var chai = require('chai');
 var expect = chai.expect;
 var Cell = require('../src/cell');
 var Array2D = require('array2d');
-var Model = require('../src/model');
+var Board = require('../src/model');
 
 var newCell;
 var middleCell;

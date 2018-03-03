@@ -1,5 +1,5 @@
-var Cell = require('./cell');
-let Array2D = require('array2d');
+// var Cell = require('./cell');
+// let Array2D = require('array2d');
 
 class Board {
 	constructor(width, height) {
@@ -33,30 +33,4 @@ class Board {
 	}
 }
 
-// var testBoard = new Board(6, 5);
-// testBoard.grid[1][2].born();
-// testBoard.grid[1][3].born();
-// testBoard.grid[2][1].born();
-// testBoard.grid[2][4].born();
-// testBoard.grid[3][2].born();
-// testBoard.grid[3][3].born();
-//
-// testBoard.grid[4][3].born();
-// testBoard.grid[4][4].born();
-// testBoard.grid[4][5].born();
-// testBoard.grid[4][6].born();
-// testBoard.grid[4][7].born();
-// testBoard.grid[5][3].born();
-// testBoard.grid[5][4].born();
-// testBoard.grid[5][5].born();
-// testBoard.grid[5][6].born();
-// testBoard.grid[5][7].born();
-
-// setInterval(function() {
-// 	console.clear();
-// 	console.log(testBoard.render2D('🐞', '◼️'));
-// 	testBoard.propagate(testBoard.grid);
-// 	testBoard.advance();
-// }, 500);
-
-module.exports = Board;
+// module.exports = Board;

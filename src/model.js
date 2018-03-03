@@ -1,5 +1,5 @@
-// var Cell = require('./cell');
-// let Array2D = require('array2d');
+var Cell = require('./cell');
+var Array2D = require('array2d');
 
 class Board {
 	constructor(width, height) {
@@ -33,4 +33,4 @@ class Board {
 	}
 }
 
-// module.exports = Board;
+module.exports = Board;

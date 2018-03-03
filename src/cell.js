@@ -1,4 +1,4 @@
-// var Array2D = require('array2d');
+var Array2D = require('array2d');
 
 class Cell {
 	constructor(x, y) {
@@ -56,4 +56,4 @@ class Cell {
 	}
 }
 
-// module.exports = Cell;
+module.exports = Cell;

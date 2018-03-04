@@ -135,6 +135,10 @@ class Board {
 	activateCell(x, y) {
 		this.grid[y][x].born();
 	}
+
+	killCell(x, y) {
+		this.grid[y][x].die();
+	}
 }
 
 // module.exports = Board;

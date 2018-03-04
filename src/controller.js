@@ -1,7 +1,8 @@
 class Controller {
-	constructor(view, model) {
+	constructor(view, model, startColor) {
 		this.view = view;
 		this.model = model;
+		this.currentColor = startColor;
 		this.isPlaying = false;
 		this.cellClick = this.cellClick.bind(this);
 	}
@@ -13,8 +14,12 @@ class Controller {
 		) {
 			let row = ev.target.dataset.y;
 			let column = ev.target.dataset.x;
-			this.model.activateCell(column, row);
-			this.view.colorCell(column, row, 'black');
+			if (this.currentColor.dataset.color === 'white') {
+				this.model.killCell(column, row);
+			} else {
+				this.model.activateCell(column, row);
+			}
+			this.view.colorCell(column, row, this.currentColor.dataset.color);
 			// console.log(this.model.grid[row][column]);
 			// console.log(this.view.grid[row][column]);
 		}

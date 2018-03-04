@@ -1,6 +1,6 @@
 body,
 html {
-	font-family: 'Geneva', sans-serif;
+	font-family: 'Oswald', sans-serif;
 	background-color: lightgray;
 }
 
@@ -11,12 +11,12 @@ html {
 }
 
 #title {
-	font-weight: bold;
+	/* font-weight: bold; */
 	font-size: 2.2rem;
 }
 
 #subtitle {
-	font-weight: bold;
+	/* font-weight: bold; */
 	font-size: 1.5rem;
 }
 
@@ -140,12 +140,13 @@ button:active {
 }
 
 #info h4 {
-	font-weight: bold;
+	/* font-weight: bold; */
 	font-size: 1.2rem;
 	margin: 5px;
 }
 
 #info p {
+	font-weight: 300;
 	margin: 5px;
-	font-size: 0.9rem;
+	font-size: 1rem;
 }

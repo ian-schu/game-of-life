@@ -90,10 +90,10 @@ Most or all of this app will be plain HTML5, CSS, and vanilla JS. It's possible 
 
 ##### Stage 3:
 
-* At start of game, user is prompted to **enter game board dimensions**, up to some practical limit e.g. 500x500 cells
+* Game board features **color palette** similar to Pixel Art Maker -- non-white **colors are interpolated during simulation** to produce neat visual effects
 
 ##### Stage 4 (fun / stretch goals):
 
-* Game board features **color palette** similar to Pixel Art Maker -- non-white **colors are interpolated during simulation** to produce neat visual effects
+* At start of game, user is prompted to **enter game board dimensions**, up to some practical limit e.g. 500x500 cells
 * User can select from a dropdown of **starting patterns e.g. Glider Guns, Oscillators, etc.**
 * App runs properly on **mobile devices**, with responsive layout, and touch input instead of mouse clicks

@@ -10,9 +10,13 @@ class Cell {
 	constructor(x, y) {
 		this.alive = false;
 		this.aliveNext = false;
+		this.color = 'white';
+		this.colorNext = 'white';
 		this.x = x;
 		this.y = y;
+		this.neighborhood = [];
 		this.getNeighborhood = this.getNeighborhood.bind(this);
+		this.setNeighborhood = this.setNeighborhood.bind(this);
 	}
 
 	born() {
@@ -23,7 +27,7 @@ class Cell {
 		this.alive = false;
 	}
 
-	getNeighborhood(board, boardHeight, boardWidth) {
+	setNeighborhood(board, boardHeight, boardWidth) {
 		let north, northeast, east, southeast, south, southwest, west, northwest;
 
 		north = this.y - 1;
@@ -43,7 +47,7 @@ class Cell {
 			east = 0;
 		}
 
-		return [
+		this.neighborhood = [
 			this,
 			board[north][this.x],
 			board[north][east],
@@ -54,8 +58,29 @@ class Cell {
 			board[this.y][west],
 			board[north][west]
 		];
+	}
 
-		// return Array2D.flatten(Array2D.neighborhood(grid, this.y, this.x));
+	getNeighborhood() {
+		// let north, northeast, east, southeast, south, southwest, west, northwest;
+		//
+		// north = this.y - 1;
+		// south = this.y + 1;
+		// east = this.x + 1;
+		// west = this.x - 1;
+		//
+		// if (this.y == 0) {
+		// 	north = boardHeight - 1;
+		// } else if (this.y == boardHeight - 1) {
+		// 	south = 0;
+		// }
+		//
+		// if (this.x == 0) {
+		// 	west = boardWidth - 1;
+		// } else if (this.x == boardWidth - 1) {
+		// 	east = 0;
+		// }
+
+		return this.neighborhood;
 	}
 
 	parseNeighborhood(board, boardHeight, boardWidth) {
@@ -88,15 +113,19 @@ class Cell {
 	}
 
 	advance() {
+		this.color = this.colorNext;
 		this.alive = this.aliveNext;
 	}
 }
 
 class Board {
 	constructor(width, height) {
-		this.grid = Array2D.buildWith(width, height, this.cellsToGrid);
 		this.width = width;
 		this.height = height;
+		this.grid = Array2D.buildWith(width, height, this.cellsToGrid);
+		Array2D.eachCell(this.grid, cell => {
+			cell.setNeighborhood(this.grid, this.height, this.width);
+		});
 	}
 
 	cellsToGrid(r, c) {

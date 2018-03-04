@@ -31,6 +31,17 @@ html {
 	height: 500px;
 	width: 800px;
 	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.cell {
+	width: 18px;
+	height: 18px;
+	border: 1px solid lightgray;
+	background: #ffffff;
+	margin: 0;
 }
 
 .controls {

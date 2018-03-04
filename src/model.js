@@ -1,5 +1,5 @@
-var Cell = require('./cell');
-var Array2D = require('array2d');
+// var Cell = require('./cell');
+// var Array2D = require('array2d');
 
 class Board {
 	constructor(width, height) {
@@ -31,6 +31,10 @@ class Board {
 			cell.advance();
 		});
 	}
+
+	activateCell(x, y) {
+		this.grid[y][x].born();
+	}
 }
 
-module.exports = Board;
+// module.exports = Board;

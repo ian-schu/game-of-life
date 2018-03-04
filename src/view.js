@@ -16,12 +16,12 @@
 
 class View {
 	constructor(width, height, DOMparent) {
-		this.grid = this.generateBoard(width, height, DOMparent);
+		this.grid = this.generateView(width, height, DOMparent);
 	}
 
-	generateBoard(width, height, DOMparent) {
-		return Array2D.buildWith(width, height, function(r, c) {
-			let thisCell = makeCell(c, r);
+	generateView(width, height, DOMparent) {
+		return Array2D.buildWith(width, height, (r, c) => {
+			let thisCell = this.makeCell(c, r, 'div');
 			DOMparent.appendChild(thisCell);
 			return thisCell;
 		});
@@ -33,5 +33,9 @@ class View {
 		cell.dataset.x = x;
 		cell.dataset.y = y;
 		return cell;
+	}
+
+	colorCell(x, y, color) {
+		this.grid[y][x].style.background = color;
 	}
 }

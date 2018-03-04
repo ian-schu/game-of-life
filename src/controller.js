@@ -10,6 +10,7 @@ gameboard.addEventListener('click', ev => {
 		let row = ev.target.dataset.y;
 		let column = ev.target.dataset.x;
 		boardModel.activateCell(column, row);
+		viewModel.colorCell(column, row, 'black');
 		console.log(boardModel.grid[row][column]);
 		console.log(viewModel.grid[row][column]);
 	}

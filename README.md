@@ -50,12 +50,14 @@ Most or all of this app will be plain HTML5, CSS, and vanilla JS. It's possible 
 
 #### MVP / Stage 0:
 
-* User sees **fixed-size game board**, 50x50 cells
-* User can use mouse clicks to **activate single cells**
-* User can use **click-and-drag** to activate a string of cells at once
-* User can advance the simulation forward indefinitely by clicking **Step** button
-* **¡¡Step function produces behavior consistent with Conway's Four Rules!!**
-* Game board edges are **dumb** aka cell automata will disappear / die at board edges
+**COMPLETE**
+
+√ User sees **fixed-size game board**, 50x50 cells
+√ User can use mouse clicks to **activate single cells**
+√ User can use **click-and-drag** to activate a string of cells at once
+√ User can advance the simulation forward indefinitely by clicking **Step** button
+√ **¡¡Step function produces behavior consistent with Conway's Four Rules!!**
+√ Game board edges are **dumb** aka cell automata will disappear / die at board edges
 
 #### Stage 1:
 

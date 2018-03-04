@@ -50,8 +50,6 @@ Most or all of this app will be plain HTML5, CSS, and vanilla JS. It's possible 
 
 #### MVP / Stage 0:
 
-**COMPLETE**
-
 * [x] User sees **fixed-size game board**, 50x50 cells
 * [x] User can use mouse clicks to **activate single cells**
 * [x] User can use **click-and-drag** to activate a string of cells at once
@@ -61,10 +59,10 @@ Most or all of this app will be plain HTML5, CSS, and vanilla JS. It's possible 
 
 #### Stage 1:
 
-* User can "play" simulation continuously by clicking **Play** button
-* User can pause simulation by clicking **Stop** button
-* User can clear game board and start over by clicking **Reset** button
-* **TEST SUITE** started
+* [x] User can "play" simulation continuously by clicking **Play** button
+* [x] User can pause simulation by clicking **Stop** button
+* [x] User can clear game board and start over by clicking **Reset** button
+* [x] **TEST SUITE** started
 
 ##### Stage 2:
 

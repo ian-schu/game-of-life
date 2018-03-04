@@ -2,6 +2,7 @@ class Controller {
 	constructor(view, model) {
 		this.view = view;
 		this.model = model;
+		this.isPlaying = false;
 		this.cellClick = this.cellClick.bind(this);
 	}
 
@@ -22,6 +23,24 @@ class Controller {
 	advance() {
 		this.model.propagate();
 		this.model.advance();
+		this.view.redraw(this.model.grid);
+	}
+
+	play() {
+		this.isPlaying = setInterval(() => {
+			this.advance();
+		}, 120);
+		playButton.classList.toggle('playback--active');
+	}
+
+	stop() {
+		clearInterval(this.isPlaying);
+		this.isPlaying = false;
+		playButton.classList.toggle('playback--active');
+	}
+
+	clear() {
+		this.model.clear();
 		this.view.redraw(this.model.grid);
 	}
 }

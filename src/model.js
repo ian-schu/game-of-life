@@ -73,6 +73,13 @@ class Board {
 		return Array2D.flatten(this.render2D(t, f));
 	}
 
+	clear() {
+		Array2D.eachCell(this.grid, cell => {
+			cell.die();
+			cell.aliveNext = false;
+		});
+	}
+
 	propagate() {
 		Array2D.eachCell(this.grid, cell => {
 			cell.propagate(this.grid);

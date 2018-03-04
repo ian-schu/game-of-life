@@ -1,8 +1,10 @@
-## Live demos:
+This app was built for my unit-1 independent study in the Galvanize Web Development Immersive program.
+
+# Live deploys:
 
 ### Version 0:
 
-My first from-scratch app utilizing a complete MVC architecture. 2-way data binding between cellular model and user view. Basic 'step' feature to advance the simulation:
+First time I've built an app from scratch with a complete(ish) MVC architecture. 2-way data binding between cellular model and user view. Basic 'step' feature to advance the simulation:
 
 http://ian-schu-game-of-life-0.surge.sh/
 

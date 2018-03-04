@@ -20,7 +20,7 @@
     </div>
   </header>
   <div id="main">
-    <div id="playback" class="controls">
+    <div id="playback" class="wing">
       <button id="stepButton" class="playback"><i class="fas fa-angle-right"></i></button>
       <button id="playButton" class="playback"><i class="fas fa-play"></i></button>
       <button id="stopButton" class="playback"><i class="fas fa-stop"></i></button>
@@ -28,21 +28,25 @@
     </div>
     <div id="gameboard">
     </div>
-    <div id="palette" class="controls">
-      <button data-color="white" class="color"></button>
-      <button data-color="black" class="color color--selected"></button>
+    <div id="info" class="wing">
+      <h4>What's going on here?</h4>
+      <p>This is Conway's Game of Life -- a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications. You can read more about it all <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="blank">here</a>.</p>
+      <p>
+        Black makes cells alive, white makes them dead. Hit the Propagate button to advance forward and see how your cells live or die.
+      </p>
     </div>
+
   </div>
-  <div id="info">
-    <h4>What's going on here?</h4>
-    <p>This is Conway's Game of Life -- a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications. You can read more about it all <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="blank">here</a>.</p>
-    <p>
-      Black makes cells alive, white makes them dead. Hit the Propagate button to advance forward and see how your cells live or die.
-    </p>
+  <div id="footer">
+    <div id="palette" class="controls">
+      <button data-color="black" style="background-color:black" class="color color--selected"></button>
+      <button data-color="white" style="background-color:white" class="color"></button>
+    </div>
   </div>
   <script src="src/view.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/model.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/controller.js" type="text/javascript" charset="utf-8"></script>
+  <script src="src/palette.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
 

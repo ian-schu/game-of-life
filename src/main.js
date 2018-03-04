@@ -1,3 +1,5 @@
+// VARIABLES
+
 var gameboard = document.getElementById('gameboard');
 var palette = document.getElementById('palette');
 var playback = document.getElementById('playback');
@@ -11,18 +13,7 @@ var theView = new View(40, 25, gameboard);
 var theModel = new Board(40, 25);
 var controller = new Controller(theView, theModel, findColor('black'));
 
-let allColors = document.querySelectorAll('.color');
-setColors(allColors);
-
-function setColors(setOfColors) {
-	for (let color of setOfColors) {
-		color.style.background = color.dataset.color;
-	}
-}
-
-function findColor(colorName) {
-	return document.querySelector(`.color[data-color=${colorName}]`);
-}
+// LISTENERS
 
 gameboard.addEventListener('mousedown', controller.cellClick, false);
 gameboard.addEventListener('mouseover', controller.cellClick, false);
@@ -49,3 +40,22 @@ document.addEventListener('keydown', ev => {
 		}
 	}
 });
+
+// Other init functions
+
+generatePalette(startingColors, palette);
+var allColors = document.querySelectorAll('.color');
+
+// COLOR PALETTE
+// let allColors = document.querySelectorAll('.color');
+// setColors(allColors);
+//
+// function setColors(setOfColors) {
+// 	for (let color of setOfColors) {
+// 		color.style.background = color.dataset.color;
+// 	}
+// }
+//
+// function findColor(colorName) {
+// 	return document.querySelector(`.color[data-color=${colorName}]`);
+// }

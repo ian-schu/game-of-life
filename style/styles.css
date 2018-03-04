@@ -44,25 +44,15 @@ html {
 	margin: 0;
 }
 
-.controls {
+.wing {
 	display: flex;
 	flex-direction: column;
 	margin: 0px 5px;
-	width: 100px;
+	width: 130px;
 }
 
-.controls > button {
+.wing > button {
 	margin: 5px;
-}
-
-#palette {
-	align-items: flex-start;
-}
-
-#palette > button {
-	width: 30px;
-	height: 30px;
-	border-radius: 15px;
 }
 
 button {
@@ -81,14 +71,6 @@ button:active {
 	box-shadow: 0px 0px 5px 5px aqua;
 }
 
-.color {
-}
-
-.color--selected,
-.color--selected:hover {
-	box-shadow: 0px 0px 5px 2px aqua;
-}
-
 #white {
 	background-color: white;
 }
@@ -99,6 +81,21 @@ button:active {
 
 #playback {
 	align-items: flex-end;
+}
+
+#info {
+	display: block;
+}
+
+#info h4 {
+	font-size: 1.2rem;
+	margin: 5px;
+}
+
+#info p {
+	font-weight: 300;
+	margin: 5px;
+	font-size: 0.9rem;
 }
 
 .playback {
@@ -134,20 +131,27 @@ button:active {
 	padding-left: 8px;
 }
 
-#info {
-	display: block;
-	margin: 5px auto;
+#footer {
 	width: 800px;
+	margin: 5px auto;
+	display: block;
 }
 
-#info h4 {
-	/* font-weight: bold; */
-	font-size: 1.2rem;
-	margin: 5px;
+#palette {
+	align-items: flex-start;
+	display: flex;
+	flex-wrap: wrap;
 }
 
-#info p {
-	font-weight: 300;
-	margin: 5px;
-	font-size: 1rem;
+.color {
+	width: 24px;
+	height: 24px;
+	margin: 2px;
+	border-radius: 12px;
+	border: 1px solid white;
+}
+
+.color--selected,
+.color--selected:hover {
+	box-shadow: 0px 0px 5px 2px aqua;
 }

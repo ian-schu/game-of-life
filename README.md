@@ -14,9 +14,11 @@ Board edges are now 'smart' -- automata can wander off the edge of the map and r
 
 http://ian-schu-game-of-life-1.surge.sh/
 
-## Q1 Project Proposal
+---
 
-## Conway's Game of Life
+## Original proposal submitted to course instructor:
+
+# Conway's Game of Life
 
 ## Project Description
 

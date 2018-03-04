@@ -1,4 +1,18 @@
-# Q1 Project Proposal
+## Live demos:
+
+### Version 0:
+
+My first from-scratch app utilizing a complete MVC architecture. 2-way data binding between cellular model and user view. Basic 'step' feature to advance the simulation:
+
+http://ian-schu-game-of-life-0.surge.sh/
+
+### Version 1:
+
+Board edges are now 'smart' -- automata can wander off the edge of the map and reappear on the other side. Added controls for constant play, stop, and clear.
+
+http://ian-schu-game-of-life-1.surge.sh/
+
+## Q1 Project Proposal
 
 ## Conway's Game of Life
 
@@ -66,7 +80,7 @@ Most or all of this app will be plain HTML5, CSS, and vanilla JS. It's possible 
 
 ##### Stage 2:
 
-* Game board edges are **smart** aka if automata wander off the map they will reappear at the other side (technically, this treats the game board as a toroidal projection)
+* [x] Game board edges are **smart** aka if automata wander off the map they will reappear at the other side (technically, this treats the game board as a toroidal projection)
 * [x] User can **activate cells during continuous-play mode**
 * User can control **step-speed** for continuous-play mode
 

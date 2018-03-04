@@ -17,6 +17,7 @@
 class View {
 	constructor(width, height, DOMparent) {
 		this.grid = this.generateView(width, height, DOMparent);
+		this.redraw = this.redraw.bind(this);
 	}
 
 	generateView(width, height, DOMparent) {
@@ -35,7 +36,17 @@ class View {
 		return cell;
 	}
 
-	colorCell(x, y, color) {
-		this.grid[y][x].style.background = color;
+	colorCell(col, row, color) {
+		this.grid[row][col].style.background = color;
+	}
+
+	redraw(modelGrid) {
+		Array2D.eachCell(modelGrid, (cell, r, c) => {
+			if (cell.alive) {
+				this.colorCell(c, r, 'black');
+			} else if (cell.alive === false) {
+				this.colorCell(c, r, 'white');
+			}
+		});
 	}
 }

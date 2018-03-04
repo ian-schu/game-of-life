@@ -29,7 +29,7 @@ class Controller {
 	play() {
 		this.isPlaying = setInterval(() => {
 			this.advance();
-		}, 120);
+		}, 100);
 		playButton.classList.toggle('playback--active');
 	}
 

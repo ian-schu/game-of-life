@@ -67,8 +67,8 @@ Most or all of this app will be plain HTML5, CSS, and vanilla JS. It's possible 
 ##### Stage 2:
 
 * Game board edges are **smart** aka if automata wander off the map they will reappear at the other side (technically, this treats the game board as a toroidal projection)
-* User can **activate cells during continuous-play mode**
-* User can control **step-speed** during continuous-play mode
+* [x] User can **activate cells during continuous-play mode**
+* User can control **step-speed** for continuous-play mode
 
 ##### Stage 3:
 

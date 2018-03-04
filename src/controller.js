@@ -3,6 +3,7 @@ class Controller {
 		this.view = view;
 		this.model = model;
 		this.currentColor = startColor;
+		this.playDelayMs = 250;
 		this.isPlaying = false;
 		this.cellClick = this.cellClick.bind(this);
 	}
@@ -17,7 +18,7 @@ class Controller {
 			if (this.currentColor.dataset.color === 'white') {
 				this.model.killCell(column, row);
 			} else {
-				this.model.activateCell(column, row);
+				this.model.activateCell(column, row, this.currentColor.dataset.color);
 			}
 			this.view.colorCell(column, row, this.currentColor.dataset.color);
 			// console.log(this.model.grid[row][column]);
@@ -34,7 +35,7 @@ class Controller {
 	play() {
 		this.isPlaying = setInterval(() => {
 			this.advance();
-		}, 50);
+		}, this.playDelayMs);
 		playButton.classList.toggle('playback--active');
 	}
 

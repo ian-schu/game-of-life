@@ -90,7 +90,7 @@ Most or all of this app will be plain HTML5, CSS, and vanilla JS. It's possible 
 
 ##### Stage 3:
 
-* Game board features **color palette** similar to Pixel Art Maker -- non-white **colors are interpolated during simulation** to produce neat visual effects
+* [x] Game board features **color palette** similar to Pixel Art Maker -- non-white **colors are interpolated during simulation** to produce neat visual effects
 
 ##### Stage 4 (fun / stretch goals):
 

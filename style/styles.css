@@ -131,6 +131,14 @@ button:active {
 	padding-left: 8px;
 }
 
+.playback-selector {
+	width: 130px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 0.8rem;
+	font-weight: 300;
+	margin: 0px 0px 10px;
+}
+
 #footer {
 	width: 812px;
 	margin: 5px auto;

@@ -27,7 +27,7 @@ class View {
 	redraw(modelGrid) {
 		Array2D.eachCell(modelGrid, (cell, r, c) => {
 			if (cell.alive) {
-				this.colorCell(c, r, 'black');
+				this.colorCell(c, r, cell.color);
 			} else if (cell.alive === false) {
 				this.colorCell(c, r, 'white');
 			}

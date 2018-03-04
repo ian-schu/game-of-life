@@ -60,7 +60,27 @@ class Cell {
 	}
 
 	parseNeighborhood() {
-		return this.neighborhood.filter(cell => cell.alive === true);
+		return this.neighborhood.filter(cell => cell.alive);
+	}
+
+	neighborhoodColors() {
+		return this.parseNeighborhood().map(cell => cell.color);
+	}
+
+	avgNeighborColors() {
+		return this.neighborhoodColors().reduce((acc, curr, i) => {
+			return d3.interpolate(acc, curr)(1 / (i + 1));
+		});
+	}
+
+	interpolateColorNext() {
+		if (this.alive) {
+			this.colorNext = d3.interpolate(this.avgNeighborColors(), this.color)(
+				0.5
+			);
+		} else if (this.aliveNext) {
+			this.colorNext = this.avgNeighborColors();
+		}
 	}
 
 	propagate() {
@@ -71,6 +91,7 @@ class Cell {
 		} else {
 			this.aliveNext = false;
 		}
+		this.interpolateColorNext();
 	}
 
 	advance() {
@@ -122,8 +143,9 @@ class Board {
 		});
 	}
 
-	activateCell(x, y) {
+	activateCell(x, y, color) {
 		this.grid[y][x].born();
+		this.grid[y][x].color = color;
 	}
 
 	killCell(x, y) {

@@ -15,7 +15,6 @@ class Cell {
 		this.x = x;
 		this.y = y;
 		this.neighborhood = [];
-		this.getNeighborhood = this.getNeighborhood.bind(this);
 		this.setNeighborhood = this.setNeighborhood.bind(this);
 	}
 
@@ -60,52 +59,14 @@ class Cell {
 		];
 	}
 
-	getNeighborhood() {
-		// let north, northeast, east, southeast, south, southwest, west, northwest;
-		//
-		// north = this.y - 1;
-		// south = this.y + 1;
-		// east = this.x + 1;
-		// west = this.x - 1;
-		//
-		// if (this.y == 0) {
-		// 	north = boardHeight - 1;
-		// } else if (this.y == boardHeight - 1) {
-		// 	south = 0;
-		// }
-		//
-		// if (this.x == 0) {
-		// 	west = boardWidth - 1;
-		// } else if (this.x == boardWidth - 1) {
-		// 	east = 0;
-		// }
-
-		return this.neighborhood;
+	parseNeighborhood() {
+		return this.neighborhood.filter(cell => cell.alive === true);
 	}
 
-	parseNeighborhood(board, boardHeight, boardWidth) {
-		let neighbors = this.getNeighborhood(board, boardHeight, boardWidth);
-		let neighborVals = neighbors.map(el => {
-			if (el && el.constructor.name === 'Cell') {
-				if (el.alive) {
-					return 1;
-				} else {
-					return 0;
-				}
-			} else {
-				return 0;
-			}
-		});
-		return neighborVals.reduce((acc, curr) => {
-			return acc + curr;
-		}, 0);
-	}
-
-	propagate(board, boardHeight, boardWidth) {
-		let sum = this.parseNeighborhood(board, boardHeight, boardWidth);
-		if (sum === 3) {
+	propagate() {
+		if (this.parseNeighborhood().length === 3) {
 			this.aliveNext = true;
-		} else if (sum === 4) {
+		} else if (this.parseNeighborhood().length === 4) {
 			this.aliveNext = this.alive;
 		} else {
 			this.aliveNext = false;
@@ -151,7 +112,7 @@ class Board {
 
 	propagate() {
 		Array2D.eachCell(this.grid, cell => {
-			cell.propagate(this.grid, this.height, this.width);
+			cell.propagate();
 		});
 	}
 

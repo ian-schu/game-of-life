@@ -3,7 +3,7 @@ class Controller {
 		this.view = view;
 		this.model = model;
 		this.currentColor = startColor;
-		this.playDelayMs = 250;
+		this.playDelayMs = 120;
 		this.isPlaying = false;
 		this.cellClick = this.cellClick.bind(this);
 	}

@@ -30,25 +30,27 @@ html {
 #gameboard {
 	height: 500px;
 	width: 800px;
-	border: 1px solid black;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	box-shadow: 0px 0px 2px black;
 }
 
 .cell {
-	width: 18px;
-	height: 18px;
+	width: 19px;
+	height: 19px;
 	border: 1px solid lightgray;
 	background: #ffffff;
 	margin: 0;
+	border-top: none;
+	border-left: none;
 }
 
 .wing {
 	display: flex;
 	flex-direction: column;
 	margin: 0px 5px;
-	width: 130px;
+	width: 160px;
 }
 
 .wing > button {

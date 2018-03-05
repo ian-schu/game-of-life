@@ -7,6 +7,7 @@
   <title>Game of Life</title>
 
   <!-- Explicit styles in head so they an be updated via JS -->
+  <!-- DO NOT CHANGE ORDER OF CSS RULES BELOW -->
   <style>
     .cell {
       transition: background-color 0.2s;
@@ -33,7 +34,7 @@
       <button id="playButton" class="playback"><i class="fas fa-play"></i></button>
       <button id="stopButton" class="playback"><i class="fas fa-stop"></i></button>
       <button id="clearButton" class="playback"><i class="fas fa-trash-alt"></i></button>
-      <label for="simSpeed">Sim Speed</label>
+      <label for="simSpeed">Simulation Speed</label>
       <select id="simSpeed" class="playback-selector" name="simSpeed">
         <option value="0">(0ms) - Ludicrous</option>
         <option value="50">(50ms) - Real fast</option>
@@ -44,7 +45,7 @@
         <option value="2000">(2s) - Glacial</option>
         <option value="3000">(3s) - Geologic</option>
       </select>
-      <label for="cellFade">Cell Fade</label>
+      <label for="cellFade">Cell Fade Speed</label>
       <select id="cellFade" class="playback-selector" name="cellFade">
         <option value="0s">(0ms) - Instant</option>
         <option value="0.1s" selected>(100ms) - Quick</option>
@@ -58,10 +59,10 @@
     </div>
     <div id="info" class="wing">
       <h4>What's going on here?</h4>
-      <p>This is Conway's Game of Life -- a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications. You can read more about it all <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+      <p>Conway's Game of Life is a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications. You can read more about it all <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
           target="blank">here</a>.</p>
       <p>
-        Black makes cells alive, white makes them dead. Hit the Propagate button to advance forward and see how your cells live or die.
+        Pick a color! Or several. Start drawing. Hit the play button. Change the simulation speed and/or cell fade speed for interesting color effects. Keep drawing while the sim runs. Create different colored populations and watch them mingle, spread, or die out. Have fun!
       </p>
     </div>
 

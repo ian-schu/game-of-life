@@ -9,6 +9,9 @@ var playButton = document.getElementById('playButton');
 var stopButton = document.getElementById('stopButton');
 var deleteButton = document.getElementById('deleteButton');
 
+var simSpeed = document.getElementById('simSpeed');
+var cellFade = document.getElementById('cellFade');
+
 var theView = new View(40, 25, gameboard);
 var theModel = new Board(40, 25);
 var controller = new Controller(theView, theModel, findColor('black'));
@@ -22,6 +25,15 @@ stepButton.addEventListener('click', () => controller.advance(), false);
 playButton.addEventListener('click', () => controller.play(), false);
 stopButton.addEventListener('click', () => controller.stop(), false);
 clearButton.addEventListener('click', () => controller.clear(), false);
+
+simSpeed.addEventListener('input', () => {
+	controller.playDelayMs = Number.parseInt(simSpeed.value);
+	document.body.focus();
+});
+cellFade.addEventListener('input', () => {
+	document.styleSheets[2].rules[0].style.transitionDuration = cellFade.value;
+	document.body.focus();
+});
 
 palette.addEventListener('click', ev => {
 	if (ev.target.classList.contains('color')) {
@@ -45,17 +57,3 @@ document.addEventListener('keydown', ev => {
 
 generatePalette(startingColors, palette);
 var allColors = document.querySelectorAll('.color');
-
-// COLOR PALETTE
-// let allColors = document.querySelectorAll('.color');
-// setColors(allColors);
-//
-// function setColors(setOfColors) {
-// 	for (let color of setOfColors) {
-// 		color.style.background = color.dataset.color;
-// 	}
-// }
-//
-// function findColor(colorName) {
-// 	return document.querySelector(`.color[data-color=${colorName}]`);
-// }

@@ -14,6 +14,12 @@ Board edges are now 'smart' -- automata can wander off the edge of the map and r
 
 http://ian-schu-game-of-life-1.surge.sh/
 
+### Version 2:
+
+Added _color interpolation_ using the d3 library, and a full color palette. You can now create populations in different colors and watch them intermingle, survive, die out, etc. Also added controls for playback speed and cell-background-transition speed.
+
+http://ian-schu-game-of-life-2.surge.sh/
+
 ---
 
 ## Original proposal submitted to course instructor:

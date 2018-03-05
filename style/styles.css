@@ -7,31 +7,36 @@ html {
 #header {
 	display: block;
 	margin: 5px auto;
-	width: 800px;
+	width: 70%;
 }
 
 #title {
-	/* font-weight: bold; */
 	font-size: 2.2rem;
 }
 
 #subtitle {
-	/* font-weight: bold; */
 	font-size: 1.5rem;
 }
 
 #menu {
-	width: 800px;
+	width: 70%;
 	display: flex;
 	justify-content: flex-start;
 	margin: 5px auto 0px;
+	opacity: 0.2;
+	transition: opacity 0.25s;
+	z-index: 1;
+}
+
+#menu:hover {
+	opacity: 1;
 }
 
 .menu-button {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	font-family: 'Oswald', sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	font-size: 1rem;
 	margin: 0px 5px 0 0;
 	width: 10%;
@@ -45,6 +50,10 @@ html {
 	background-color: powderblue;
 }
 
+#loadBoard {
+	background-color: lightpink;
+}
+
 #main {
 	margin: 0px auto 5px;
 	width: 100%;
@@ -54,10 +63,13 @@ html {
 
 #gameboard {
 	height: 500px;
-	width: 800px;
+	min-width: 60%;
+	border: 1px solid black;
 	box-shadow: 0px 0px 2px black;
 	line-height: 0;
 	cursor: crosshair;
+	max-width: 70%;
+	z-index: 2;
 }
 
 .cell {
@@ -75,6 +87,12 @@ html {
 	flex-direction: column;
 	margin: 0px 5px;
 	width: 160px;
+	opacity: 0.2;
+	transition: opacity 0.25s;
+}
+
+.wing:hover {
+	opacity: 1;
 }
 
 .wing > button {
@@ -166,7 +184,7 @@ button:active {
 }
 
 #footer {
-	width: 812px;
+	width: 70%;
 	margin: 5px auto;
 	display: block;
 }
@@ -176,14 +194,20 @@ button:active {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
+	opacity: 0.2;
+	transition: opacity 0.25s;
+}
+
+#palette:hover {
+	opacity: 1;
 }
 
 .color {
-	width: 24px;
-	height: 24px;
-	margin: 2px;
-	border-radius: 12px;
+	width: 20px;
+	height: 20px;
+	margin: 1px;
 	border: 1px solid white;
+	box-sizing: border-box;
 }
 
 .color--selected,

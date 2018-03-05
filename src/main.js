@@ -12,8 +12,8 @@ var deleteButton = document.getElementById('deleteButton');
 var simSpeed = document.getElementById('simSpeed');
 var cellFade = document.getElementById('cellFade');
 
-var theView = new View(50, 35, gameboard);
-var theModel = new Board(50, 35);
+var theView = new View(70, 40, gameboard);
+var theModel = new Board(70, 40);
 var theController = new Controller(theView, theModel, findColor('black'));
 
 // LISTENERS

@@ -13,6 +13,9 @@ var newBoard = document.getElementById('newBoard');
 var saveBoard = document.getElementById('saveBoard');
 var loadBoard = document.getElementById('loadBoard');
 
+var getInfo = document.getElementById('getInfo');
+var info = document.getElementById('info');
+
 var newGameDialog = document.getElementById('newGameDialog');
 var newBoardWidth = document.getElementById('newBoardWidth');
 var newBoardHeight = document.getElementById('newBoardHeight');
@@ -73,8 +76,18 @@ newBoard.addEventListener('click', () => {
 	showDialog(newGameDialog);
 });
 
-closeDialogs[0].addEventListener('click', () => {
-	showDialog(newGameDialog);
+for (let dialog of closeDialogs) {
+	dialog.addEventListener('click', ev => {
+		ev.target.parentElement.style.display = 'none';
+	});
+}
+
+// closeDialogs[0].addEventListener('click', () => {
+// 	showDialog(newGameDialog);
+// });
+
+getInfo.addEventListener('click', () => {
+	info.style.display = 'block';
 });
 
 newBoardSubmit.addEventListener('click', () => {

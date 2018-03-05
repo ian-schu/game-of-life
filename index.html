@@ -15,24 +15,25 @@
   </style>
 
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
 
 </head>
 
 <body>
-  <div id="newGameDialog">
+  <div class="floater" id="newGameDialog">
 
     <button class="closeDialog">X</button>
     <form id="newBoardForm">
-        <legend>Set dimensions for your new board:</legend>
-        <p>
-          <strong>Warning:</strong> this will <strong>totally wipe</strong> your existing board. If you want to keep what's here, make sure you've saved first.
-        </p>
-        <label for="newBoardWidth">Number of cells across</label>
-        <input id="newBoardWidth" type="number" name="newBoardWidth" value="60">
-        <label for="newBoardHeight">Number of cells high</label>
-        <input id="newBoardHeight" type="number" name="newBoardHeight" value="40">
-        <button class="dialogButton" id="newBoardSubmit" type="button" name="newBoardSubmit">Create New Board</button>
+      <legend>Set dimensions for your new board:</legend>
+      <p>
+        <strong>Warning:</strong> this will <strong>totally wipe</strong> your existing board. If you want to keep what's here, make sure you've saved first.
+      </p>
+      <label for="newBoardWidth">Number of cells across</label>
+      <input id="newBoardWidth" type="number" name="newBoardWidth" value="60">
+      <label for="newBoardHeight">Number of cells high</label>
+      <input id="newBoardHeight" type="number" name="newBoardHeight" value="40">
+      <button class="dialogButton" id="newBoardSubmit" type="button" name="newBoardSubmit">Create New Board</button>
     </form>
   </div>
   <header id="header">
@@ -43,14 +44,16 @@
       <div class="subtitle">Ian Schumann</div>
       <div class="subtitle">Galvanize Web Development - Quarter 1</div>
     </div>
-    <div id="info">
+    <div class="floater" id="info">
+      <button class="closeDialog">X</button>
       <h4>What's going on here?</h4>
-      <p>Conway's Game of Life is a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications. You can read more about it all <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
-          target="blank">here</a>.</p>
+      <p>Conway's Game of Life is a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications. You can read more about it all <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="blank">here</a>.</p>
       <p>
-        Pick a color! Or several. Start drawing. Hit the play button. Change the simulation speed and/or cell fade speed for interesting color effects. Keep drawing while the sim runs. Create different colored populations and watch them mingle, spread, or die out. Have fun!
+        Pick a color! Or several. Start drawing. Hit the play button. Change the simulation speed and/or cell fade speed for interesting color effects. Keep drawing while the sim runs. Create different colored populations and watch them mingle, spread, or die
+        out. Have fun!
       </p>
     </div>
+    <button id="getInfo" class="round-button"><i class="fas fa-question-circle"></i></button>
 
   </header>
   <div id="menu">
@@ -60,10 +63,10 @@
   </div>
   <div id="main">
     <div id="playback" class="wing">
-      <button id="stepButton" class="playback"><i class="fas fa-angle-right"></i></button>
-      <button id="playButton" class="playback"><i class="fas fa-play"></i></button>
-      <button id="stopButton" class="playback"><i class="fas fa-stop"></i></button>
-      <button id="clearButton" class="playback"><i class="fas fa-trash-alt"></i></button>
+      <button id="stepButton" class="playback round-button"><i class="fas fa-angle-right"></i></button>
+      <button id="playButton" class="playback round-button"><i class="fas fa-play"></i></button>
+      <button id="stopButton" class="playback round-button"><i class="fas fa-stop"></i></button>
+      <button id="clearButton" class="playback round-button"><i class="fas fa-trash-alt"></i></button>
       <label for="simSpeed">Simulation Speed</label>
       <select id="simSpeed" class="playback-selector" name="simSpeed">
         <option value="0">(0ms) - Ludicrous</option>
@@ -88,11 +91,11 @@
     <div id="gameboard">
     </div>
     <div id="stats" class="wing">
-        <span class="stat-label">Population Now:</span><span class="stat-readout" id="populationNow">0</span>
-        <span class="stat-label">Population Prior:</span><span class="stat-readout" id="populationLast">0</span>
-        <span class="stat-label">Birth Rate Now:</span><span class="stat-readout" id="birthRateNow">0</span>
-        <span class="stat-label">Death Rate Now:</span><span class="stat-readout" id="deathRateNow">0</span>
-        <span class="stat-label">Net Birth Rate:</span><span class="stat-readout" id="netBirthRate">0</span>
+      <span class="stat-label">Population Now:</span><span class="stat-readout" id="populationNow">0</span>
+      <span class="stat-label">Population Prior:</span><span class="stat-readout" id="populationLast">0</span>
+      <span class="stat-label">Birth Rate Now:</span><span class="stat-readout" id="birthRateNow">0</span>
+      <span class="stat-label">Death Rate Now:</span><span class="stat-readout" id="deathRateNow">0</span>
+      <span class="stat-label">Net Birth Rate:</span><span class="stat-readout" id="netBirthRate">0</span>
     </div>
 
   </div>

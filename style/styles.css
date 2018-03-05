@@ -18,36 +18,55 @@ html {
 	font-size: 2.2vw;
 }
 
-#subtitle {
+.subtitle {
+	display: block;
 	font-size: 1.5vw;
 }
 
+#getInfo {
+	align-self: flex-end;
+}
+
+.round-button {
+	width: 3vw;
+	height: 3vw;
+	border-radius: 1.5vw;
+	font-size: 2vw;
+	padding-left: 0.4vw;
+}
+
+.floater {
+	position: absolute;
+	display: none;
+	z-index: 3;
+	background-color: lightgray;
+	box-shadow: 0px 0px 2px darkgray;
+	border: 1px solid black;
+	padding: 1vw;
+}
+
 #info {
-	flex: 70% 3 1;
+	top: 20%;
+	right: 20%;
 }
 
 #info h4 {
-	font-size: 1.2rem;
-	margin: 0.5vh;
+	font-size: 1.3vw;
+	margin: 0;
 }
 
 #info p {
 	font-weight: 300;
-	margin: 0.3vh;
-	font-size: 0.8rem;
+	font-size: 1vw;
+	width: 30vw;
 }
 
 #newGameDialog {
 	width: 25%;
 	max-width: 300px;
-	position: absolute;
 	top: 20%;
 	left: 20%;
 	z-index: 3;
-	background-color: lightgray;
-	box-shadow: 0px 0px 2px darkgray;
-	border: 1px solid black;
-	display: none;
 }
 
 .closeDialog {
@@ -55,11 +74,13 @@ html {
 	height: 20px;
 	border-radius: 1px;
 	box-shadow: none;
-	float: right;
 	border: 1px solid black;
-	margin-top: -1px;
-	margin-right: -1px;
 	padding: 0px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	border-top: none;
+	border-right: none;
 }
 
 .closeDialog:hover {
@@ -68,7 +89,7 @@ html {
 }
 
 #newGameDialog form {
-	margin: 16px;
+	/* margin: 16px; */
 }
 
 #newGameDialog label {
@@ -188,6 +209,11 @@ html {
 	padding-right: 3vw;
 	box-sizing: border-box;
 	align-content: flex-start;
+	transition: opacity 0.25s;
+}
+
+#stats:hover {
+	opacity: 1;
 }
 
 .stat-label {
@@ -240,22 +266,22 @@ button:active {
 }
 
 #stepButton {
-	font-size: 2rem;
+	font-size: 2vw;
 	padding-left: 10px;
 }
 
 #playButton {
-	font-size: 1.4rem;
+	font-size: 1.4vw;
 	padding-left: 11px;
 }
 
 #stopButton {
-	font-size: 1.5rem;
+	font-size: 1.5vw;
 	padding-left: 8px;
 }
 
 #clearButton {
-	font-size: 1.5rem;
+	font-size: 1.5vw;
 	padding-left: 8px;
 }
 

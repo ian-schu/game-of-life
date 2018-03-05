@@ -150,8 +150,8 @@ class Board {
 		this.startDemographicCalcs();
 		this.propagateAllCells();
 		this.finishDemographicCalcs();
-		console.clear();
-		console.log(this.demographics);
+		// console.clear();
+		// console.log(this.demographics);
 	}
 
 	propagateAllCells() {

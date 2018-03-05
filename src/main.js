@@ -19,6 +19,14 @@ var newBoardHeight = document.getElementById('newBoardHeight');
 var newBoardSubmit = document.getElementById('newBoardSubmit');
 var closeDialogs = document.getElementsByClassName('closeDialog');
 
+var stats = document.getElementById('stats');
+
+var populationNow = document.getElementById('populationNow');
+var populationLast = document.getElementById('populationLast');
+var birthRateNow = document.getElementById('birthRateNow');
+var deathRateNow = document.getElementById('deathRateNow');
+var netBirthRate = document.getElementById('netBirthRate');
+
 var simSpeed = document.getElementById('simSpeed');
 var cellFade = document.getElementById('cellFade');
 
@@ -87,6 +95,14 @@ newBoardSubmit.addEventListener('click', () => {
 });
 
 // Init functions, etc.
+
+function updateStats() {
+	populationNow.textContent = theModel.demographics.populationNow;
+	populationLast.textContent = theModel.demographics.populationLast;
+	birthRateNow.textContent = theModel.demographics.birthRateInstant;
+	deathRateNow.textContent = theModel.demographics.deathRateInstant;
+	netBirthRate.textContent = theModel.demographics.netBirthRate;
+}
 
 function startNewBoard(width, height, boardElement) {
 	boardElement.innerHTML = '';

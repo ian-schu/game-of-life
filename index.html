@@ -36,12 +36,22 @@
     </form>
   </div>
   <header id="header">
-    <div id="title">
-      Conway's Game of Life
+    <div id="titles">
+      <div id="title">
+        Conway's Game of Life
+      </div>
+      <div class="subtitle">Ian Schumann</div>
+      <div class="subtitle">Galvanize Web Development - Quarter 1</div>
     </div>
-    <div id="subtitle">
-      Ian Schumann - Galvanize Web Development - Quarter 1
+    <div id="info">
+      <h4>What's going on here?</h4>
+      <p>Conway's Game of Life is a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications. You can read more about it all <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+          target="blank">here</a>.</p>
+      <p>
+        Pick a color! Or several. Start drawing. Hit the play button. Change the simulation speed and/or cell fade speed for interesting color effects. Keep drawing while the sim runs. Create different colored populations and watch them mingle, spread, or die out. Have fun!
+      </p>
     </div>
+
   </header>
   <div id="menu">
     <button id="newBoard" class="menu-button" type="button" name="newBoard">New</button>
@@ -77,13 +87,12 @@
     </div>
     <div id="gameboard">
     </div>
-    <div id="info" class="wing">
-      <h4>What's going on here?</h4>
-      <p>Conway's Game of Life is a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications. You can read more about it all <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
-          target="blank">here</a>.</p>
-      <p>
-        Pick a color! Or several. Start drawing. Hit the play button. Change the simulation speed and/or cell fade speed for interesting color effects. Keep drawing while the sim runs. Create different colored populations and watch them mingle, spread, or die out. Have fun!
-      </p>
+    <div id="stats" class="wing">
+        <span class="stat-label">Population Now:</span><span class="stat-readout" id="populationNow">0</span>
+        <span class="stat-label">Population Prior:</span><span class="stat-readout" id="populationLast">0</span>
+        <span class="stat-label">Birth Rate Now:</span><span class="stat-readout" id="birthRateNow">0</span>
+        <span class="stat-label">Death Rate Now:</span><span class="stat-readout" id="deathRateNow">0</span>
+        <span class="stat-label">Net Birth Rate:</span><span class="stat-readout" id="netBirthRate">0</span>
     </div>
 
   </div>

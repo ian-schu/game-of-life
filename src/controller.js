@@ -30,10 +30,12 @@ class Controller {
 		this.model.propagateBoard();
 		this.model.advance();
 		this.view.redraw(this.model.grid);
+		updateStats();
 	}
 
 	play() {
 		if (!this.isPlaying) {
+			stats.style.opacity = 1;
 			this.isPlaying = setInterval(() => {
 				this.advance();
 			}, this.playDelayMs);
@@ -42,6 +44,7 @@ class Controller {
 	}
 
 	stop() {
+		stats.style.opacity = 0.2;
 		clearInterval(this.isPlaying);
 		this.isPlaying = false;
 		playButton.classList.toggle('playback--active');
@@ -50,5 +53,6 @@ class Controller {
 	clear() {
 		this.model.clear();
 		this.view.redraw(this.model.grid);
+		updateStats();
 	}
 }

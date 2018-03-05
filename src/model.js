@@ -1,11 +1,3 @@
-// var Cell = require('./cell');
-// var Array2D = require('array2d');
-
-// let myCell = new Cell(1, 1);
-// let anArray = [[1, 2, 3], [4, myCell, 6], [7, 8, 9]];
-// myCell.getNeighborhood(anArray);
-// anArray[0][0];
-
 class Cell {
 	constructor(x, y) {
 		this.alive = false;

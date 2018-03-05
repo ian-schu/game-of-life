@@ -20,6 +20,20 @@
 </head>
 
 <body>
+  <div id="boardDialog">
+    <button id="closeBoardDialog">X</button>
+    <form id="newBoardForm">
+        <legend>Set dimensions for your new board:</legend>
+        <p>
+          <strong>Warning:</strong> this will <strong>totally wipe</strong> your existing board. If you want to keep what's here, make sure you've saved first.
+        </p>
+        <label for="newBoardWidth">Number of cells across</label>
+        <input id="newBoardWidth" type="number" name="newBoardWidth" value="60">
+        <label for="newBoardHeight">Number of cells high</label>
+        <input id="newBoardHeight" type="number" name="newBoardHeight" value="40">
+        <button class="dialogButton" id="newBoardSubmit" type="button" name="newBoardSubmit">Create New Board</button>
+    </form>
+  </div>
   <header id="header">
     <div id="title">
       Conway's Game of Life

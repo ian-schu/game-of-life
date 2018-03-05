@@ -18,6 +18,66 @@ html {
 	font-size: 1.5rem;
 }
 
+#boardDialog {
+	width: 25%;
+	max-width: 300px;
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	z-index: 3;
+	background-color: lightgray;
+	box-shadow: 0px 0px 2px darkgray;
+	border: 1px solid black;
+	display: none;
+}
+
+#closeBoardDialog {
+	width: 20px;
+	height: 20px;
+	border-radius: 1px;
+	box-shadow: none;
+	float: right;
+	border: 1px solid black;
+	margin-top: -1px;
+	margin-right: -1px;
+	padding: 0px;
+}
+
+#closeBoardDialog:hover {
+	background-color: lightpink;
+}
+
+#boardDialog form {
+	margin: 16px;
+}
+
+#boardDialog label {
+	display: inline-block;
+	font-size: 1.2rem;
+}
+
+#boardDialog p {
+	font-weight: 300;
+}
+
+#boardDialog input {
+	display: inline-block;
+	float: right;
+	width: 18%;
+	max-width: 100px;
+	font-size: 1rem;
+	margin: 4px 0px 0px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+#boardDialog .dialogButton {
+	display: block;
+	margin: 10px auto 5px;
+	font-size: 1.2rem;
+	padding: 5px 10px;
+}
+
 #menu {
 	width: 70%;
 	display: flex;

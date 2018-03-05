@@ -6,15 +6,20 @@ class View {
 
 	generateView(width, height, DOMparent) {
 		return Array2D.buildWith(width, height, (r, c) => {
-			let thisCell = this.makeCell(c, r, 'div');
+			let thisCell = this.makeCell(c, r, 'div', width, height);
+
 			DOMparent.appendChild(thisCell);
 			return thisCell;
 		});
 	}
 
-	makeCell(x, y, elementType) {
+	makeCell(x, y, elementType, boardWidth, boardHeight) {
+		let cellWidth = 100 / boardWidth;
+		let cellHeight = 100 / boardHeight;
 		let cell = document.createElement(elementType);
 		cell.className = 'cell';
+		cell.style.width = cellWidth + '%';
+		cell.style.height = cellHeight + '%';
 		cell.dataset.x = x;
 		cell.dataset.y = y;
 		return cell;

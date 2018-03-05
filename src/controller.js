@@ -33,10 +33,12 @@ class Controller {
 	}
 
 	play() {
-		this.isPlaying = setInterval(() => {
-			this.advance();
-		}, this.playDelayMs);
-		playButton.classList.toggle('playback--active');
+		if (!this.isPlaying) {
+			this.isPlaying = setInterval(() => {
+				this.advance();
+			}, this.playDelayMs);
+			playButton.classList.toggle('playback--active');
+		}
 	}
 
 	stop() {

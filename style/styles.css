@@ -30,20 +30,19 @@ html {
 #gameboard {
 	height: 500px;
 	width: 800px;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
 	box-shadow: 0px 0px 2px black;
+	line-height: 0;
+	cursor: crosshair;
 }
 
 .cell {
-	width: 19px;
-	height: 19px;
+	display: inline-block;
 	border: 1px solid lightgray;
 	background: #ffffff;
 	margin: 0;
 	border-top: none;
 	border-left: none;
+	box-sizing: border-box;
 }
 
 .wing {

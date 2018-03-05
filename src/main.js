@@ -12,22 +12,22 @@ var deleteButton = document.getElementById('deleteButton');
 var simSpeed = document.getElementById('simSpeed');
 var cellFade = document.getElementById('cellFade');
 
-var theView = new View(40, 25, gameboard);
-var theModel = new Board(40, 25);
-var controller = new Controller(theView, theModel, findColor('black'));
+var theView = new View(50, 35, gameboard);
+var theModel = new Board(50, 35);
+var theController = new Controller(theView, theModel, findColor('black'));
 
 // LISTENERS
 
-gameboard.addEventListener('mousedown', controller.cellClick, false);
-gameboard.addEventListener('mouseover', controller.cellClick, false);
+gameboard.addEventListener('mousedown', theController.cellClick, false);
+gameboard.addEventListener('mouseover', theController.cellClick, false);
 
-stepButton.addEventListener('click', () => controller.advance(), false);
-playButton.addEventListener('click', () => controller.play(), false);
-stopButton.addEventListener('click', () => controller.stop(), false);
-clearButton.addEventListener('click', () => controller.clear(), false);
+stepButton.addEventListener('click', () => theController.advance(), false);
+playButton.addEventListener('click', () => theController.play(), false);
+stopButton.addEventListener('click', () => theController.stop(), false);
+clearButton.addEventListener('click', () => theController.clear(), false);
 
 simSpeed.addEventListener('input', () => {
-	controller.playDelayMs = Number.parseInt(simSpeed.value);
+	theController.playDelayMs = Number.parseInt(simSpeed.value);
 	document.body.focus();
 });
 cellFade.addEventListener('input', () => {
@@ -38,14 +38,14 @@ cellFade.addEventListener('input', () => {
 palette.addEventListener('click', ev => {
 	if (ev.target.classList.contains('color')) {
 		ev.target.classList.add('color--selected');
-		controller.currentColor.classList.remove('color--selected');
-		controller.currentColor = ev.target;
+		theController.currentColor.classList.remove('color--selected');
+		theController.currentColor = ev.target;
 	}
 });
 
 document.addEventListener('keydown', ev => {
 	if (ev.key === ' ') {
-		if (!controller.isPlaying) {
+		if (!theController.isPlaying) {
 			playButton.click();
 		} else {
 			stopButton.click();

@@ -20,8 +20,33 @@ html {
 	font-size: 1.5rem;
 }
 
+#menu {
+	width: 800px;
+	display: flex;
+	justify-content: flex-start;
+	margin: 5px auto 0px;
+}
+
+.menu-button {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 300;
+	font-size: 1rem;
+	margin: 0px 5px 0 0;
+	width: 10%;
+}
+
+#newBoard {
+	background-color: lightgreen;
+}
+
+#saveBoard {
+	background-color: powderblue;
+}
+
 #main {
-	margin: 5px auto;
+	margin: 0px auto 5px;
 	width: 100%;
 	display: flex;
 	justify-content: center;

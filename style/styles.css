@@ -18,7 +18,7 @@ html {
 	font-size: 1.5rem;
 }
 
-#boardDialog {
+#newGameDialog {
 	width: 25%;
 	max-width: 300px;
 	position: absolute;
@@ -28,10 +28,10 @@ html {
 	background-color: lightgray;
 	box-shadow: 0px 0px 2px darkgray;
 	border: 1px solid black;
-	display: none;
+	display: block;
 }
 
-#closeBoardDialog {
+.closeDialog {
 	width: 20px;
 	height: 20px;
 	border-radius: 1px;
@@ -43,24 +43,25 @@ html {
 	padding: 0px;
 }
 
-#closeBoardDialog:hover {
+.closeDialog:hover {
 	background-color: lightpink;
+	box-shadow: none;
 }
 
-#boardDialog form {
+#newGameDialog form {
 	margin: 16px;
 }
 
-#boardDialog label {
+#newGameDialog label {
 	display: inline-block;
 	font-size: 1.2rem;
 }
 
-#boardDialog p {
+#newGameDialog p {
 	font-weight: 300;
 }
 
-#boardDialog input {
+#newGameDialog input {
 	display: inline-block;
 	float: right;
 	width: 18%;
@@ -71,7 +72,7 @@ html {
 	text-align: center;
 }
 
-#boardDialog .dialogButton {
+#newGameDialog .dialogButton {
 	display: block;
 	margin: 10px auto 5px;
 	font-size: 1.2rem;

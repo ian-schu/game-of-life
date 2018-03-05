@@ -97,9 +97,21 @@ class Board {
 		this.width = width;
 		this.height = height;
 		this.grid = Array2D.buildWith(width, height, this.cellsToGrid);
+		this.demographics = {
+			birthRateInstant: 0,
+			// birthRateRolling10: 0,
+			// birthRateRolling50: 0,
+			deathRateInstant: 0,
+			// deathRateRolling10: 0,
+			// deathRateRolling50: 0,
+			populationNow: 0,
+			populationLast: 0,
+			netBirthRate: 0
+		};
 		Array2D.eachCell(this.grid, cell => {
 			cell.setNeighborhood(this.grid, this.height, this.width);
 		});
+		this.getCellDemographics = this.getCellDemographics.bind(this);
 	}
 
 	cellsToGrid(r, c) {
@@ -121,11 +133,31 @@ class Board {
 			cell.die();
 			cell.aliveNext = false;
 		});
+		this.demographics = {
+			birthRateInstant: 0,
+			// birthRateRolling10: 0,
+			// birthRateRolling50: 0,
+			deathRateInstant: 0,
+			// deathRateRolling10: 0,
+			// deathRateRolling50: 0,
+			populationNow: 0,
+			populationLast: 0,
+			netBirthRate: 0
+		};
 	}
 
-	propagate() {
+	propagateBoard() {
+		this.startDemographicCalcs();
+		this.propagateAllCells();
+		this.finishDemographicCalcs();
+		console.clear();
+		console.log(this.demographics);
+	}
+
+	propagateAllCells() {
 		Array2D.eachCell(this.grid, cell => {
 			cell.propagate();
+			this.getCellDemographics(cell);
 		});
 	}
 
@@ -135,13 +167,41 @@ class Board {
 		});
 	}
 
+	getCellDemographics(cell) {
+		if (cell.alive) {
+			if (cell.aliveNext == false) {
+				this.demographics.deathRateInstant++;
+			}
+		}
+		if (cell.aliveNext) {
+			if (!cell.alive) {
+				this.demographics.birthRateInstant++;
+			}
+		}
+	}
+
+	startDemographicCalcs() {
+		this.demographics.birthRateInstant = 0;
+		this.demographics.deathRateInstant = 0;
+		this.demographics.populationLast = this.demographics.populationNow;
+	}
+
+	finishDemographicCalcs() {
+		this.demographics.netBirthRate =
+			this.demographics.birthRateInstant - this.demographics.deathRateInstant;
+		this.demographics.populationNow =
+			this.demographics.populationLast + this.demographics.netBirthRate;
+	}
+
 	activateCell(x, y, color) {
 		this.grid[y][x].born();
 		this.grid[y][x].color = color;
+		this.demographics.populationNow++;
 	}
 
 	killCell(x, y) {
 		this.grid[y][x].die();
+		this.demographics.populationNow--;
 	}
 }
 

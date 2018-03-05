@@ -13,11 +13,11 @@ var newBoard = document.getElementById('newBoard');
 var saveBoard = document.getElementById('saveBoard');
 var loadBoard = document.getElementById('loadBoard');
 
-var boardDialog = document.getElementById('boardDialog');
+var newGameDialog = document.getElementById('newGameDialog');
 var newBoardWidth = document.getElementById('newBoardWidth');
 var newBoardHeight = document.getElementById('newBoardHeight');
 var newBoardSubmit = document.getElementById('newBoardSubmit');
-var closeBoardDialog = document.getElementById('closeBoardDialog');
+var closeDialogs = document.getElementsByClassName('closeDialog');
 
 var simSpeed = document.getElementById('simSpeed');
 var cellFade = document.getElementById('cellFade');
@@ -62,11 +62,11 @@ document.addEventListener('keydown', ev => {
 });
 
 newBoard.addEventListener('click', () => {
-	showDialog(boardDialog);
+	showDialog(newGameDialog);
 });
 
-closeBoardDialog.addEventListener('click', () => {
-	showDialog(boardDialog);
+closeDialogs[0].addEventListener('click', () => {
+	showDialog(newGameDialog);
 });
 
 newBoardSubmit.addEventListener('click', () => {

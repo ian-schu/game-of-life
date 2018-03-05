@@ -21,13 +21,13 @@ class Controller {
 				this.model.activateCell(column, row, this.currentColor.dataset.color);
 			}
 			this.view.colorCell(column, row, this.currentColor.dataset.color);
-			console.log(this.model.grid[row][column]);
-			console.log(this.view.grid[row][column]);
+			// console.log(this.model.grid[row][column]);
+			// console.log(this.view.grid[row][column]);
 		}
 	}
 
 	advance() {
-		this.model.propagate();
+		this.model.propagateBoard();
 		this.model.advance();
 		this.view.redraw(this.model.grid);
 	}

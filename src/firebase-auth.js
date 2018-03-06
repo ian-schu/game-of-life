@@ -1,3 +1,15 @@
+// Initialize Firebase
+
+var config = {
+	apiKey: 'AIzaSyDimm2lbiquyE2GQeEma7Oxqv6SOr5fq8k',
+	authDomain: 'ian-schu-conway-game-of-life.firebaseapp.com',
+	databaseURL: 'https://ian-schu-conway-game-of-life.firebaseio.com',
+	projectId: 'ian-schu-conway-game-of-life',
+	storageBucket: '',
+	messagingSenderId: '139888044667'
+};
+firebase.initializeApp(config);
+
 // ui.start('#firebaseui-auth-container', {
 // 	signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID]
 // 	// Other config options...

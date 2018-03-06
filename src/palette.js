@@ -124,14 +124,6 @@ function generatePalette(colorArray, paletteElement) {
 	}
 }
 
-// setColors(allColors);
-
-// function setColors(setOfColors) {
-// 	for (let color of setOfColors) {
-// 		color.style.background = color.dataset.color;
-// 	}
-// }
-
 function findColor(colorName) {
 	return document.querySelector(`.color[data-color=${colorName}]`);
 }

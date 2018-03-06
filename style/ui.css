@@ -1,0 +1,221 @@
+#menu {
+	width: 70%;
+	display: flex;
+	justify-content: flex-start;
+	margin: 5px auto 0px;
+	opacity: 0.2;
+	transition: opacity 0.25s;
+	z-index: 1;
+}
+
+#menu:hover {
+	opacity: 1;
+}
+
+.menu-button {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	font-size: 1rem;
+	margin: 0px 5px 0 0;
+	width: 10%;
+	cursor: pointer;
+}
+
+#newBoard {
+	background-color: lightgreen;
+}
+
+#saveBoard {
+	background-color: powderblue;
+}
+
+#loadBoard {
+	background-color: lightpink;
+}
+
+#getInfo {
+	align-self: flex-end;
+}
+
+.round-button {
+	width: 3vw;
+	height: 3vw;
+	border-radius: 1.5vw;
+	font-size: 2vw;
+	padding-left: 0.4vw;
+	cursor: pointer;
+}
+
+.floater {
+	position: absolute;
+	display: none;
+	z-index: 3;
+	background-color: lightgray;
+	box-shadow: 0px 0px 2px darkgray;
+	border: 1px solid black;
+	padding: 1vw;
+}
+
+#infoFloater {
+	top: 20%;
+	left: 40%;
+}
+
+#infoFloater h4 {
+	font-size: 1.3vw;
+	margin: 0;
+}
+
+#infoFloater p {
+	font-weight: 300;
+	font-size: 1vw;
+	width: 30vw;
+}
+
+#newGameFloater {
+	width: 20vw;
+	max-width: 300px;
+	top: 20%;
+	left: 20%;
+	z-index: 3;
+}
+
+#newGameFloater form {
+	margin: 0px;
+}
+
+#newGameFloater h4 {
+	font-size: 1.1vw;
+	margin: 0.1vw;
+}
+
+#newGameFloater label {
+	display: inline-block;
+	font-size: 1vw;
+}
+
+#newGameFloater p {
+	font-weight: 300;
+	font-size: 0.9vw;
+}
+
+#newGameFloater input {
+	display: inline-block;
+	float: right;
+	width: 18%;
+	max-width: 100px;
+	font-size: 0.8vw;
+	margin: 4px 0px 0px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+#newGameFloater .dialogButton {
+	display: block;
+	margin: 10px auto 5px;
+	font-size: 1vw;
+	padding: 5px 10px;
+}
+
+.handle {
+	position: absolute;
+	top: 0px;
+	width: 60%;
+	left: 20%;
+	border-radius: 1px;
+	background-color: white;
+	border: 1px solid black;
+	height: 0.8vw;
+	border-top: none;
+	line-height: 0.7vw;
+	letter-spacing: 0.8vw;
+	text-align: center;
+	user-select: none;
+	cursor: move; /* fallback if grab cursor is unsupported */
+	cursor: grab;
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
+}
+
+.handle:hover {
+	background-color: lightblue;
+	box-shadow: none;
+}
+
+.handle:active {
+	background-color: blue;
+	box-shadow: none;
+	cursor: grabbing;
+	cursor: -moz-grabbing;
+	cursor: -webkit-grabbing;
+}
+
+.closeFloaterButton {
+	width: 20px;
+	height: 20px;
+	border-radius: 1px;
+	box-shadow: none;
+	border: 1px solid black;
+	padding: 0px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	border-top: none;
+	border-right: none;
+	cursor: pointer;
+}
+
+.closeFloaterButton:hover {
+	background-color: lightpink;
+	box-shadow: none;
+}
+
+.closeFloaterButton:active {
+	background-color: red;
+}
+
+button {
+	box-shadow: 1px 1px 1px gray;
+}
+
+button:focus {
+	outline: none;
+}
+
+button:hover {
+	box-shadow: 0px 0px 3px 3px white;
+}
+
+button:active {
+	box-shadow: 0px 0px 5px 5px aqua;
+}
+
+#stepButton {
+	font-size: 2vw;
+	padding-left: 10px;
+}
+
+#playButton {
+	font-size: 1.4vw;
+	padding-left: 11px;
+}
+
+#stopButton {
+	font-size: 1.5vw;
+	padding-left: 8px;
+}
+
+#clearButton {
+	font-size: 1.5vw;
+	padding-left: 8px;
+}
+
+.playback-selector {
+	width: 130px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 0.8rem;
+	font-weight: 300;
+	margin: 0px 0px 10px;
+}

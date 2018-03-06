@@ -2,7 +2,8 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="./style/styles.css">
+  <link rel="stylesheet" href="./style/main.css">
+  <link rel="stylesheet" href="./style/ui.css">
   <meta charset="utf-8">
   <title>Game of Life</title>
 
@@ -17,18 +18,20 @@
   <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 
-  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
 
 </head>
 
 <body>
+
   <div id="top-right-links">
     <span id="signIn-string">Sign In</span>
     <span id="user-string"></span>
     <span id="signOut-string">Logout</span>
   </div>
+
   <div id="auth-container">
     <h2>Sign into Conway's Game of Life</h2>
     <p>
@@ -53,6 +56,7 @@
       <button class="dialogButton" id="newBoardSubmit" type="button" name="newBoardSubmit">Create New Board</button>
     </form>
   </div>
+
   <header id="header">
     <div id="titles">
       <div id="title">
@@ -74,11 +78,13 @@
     <button id="getInfo" class="round-button"><i class="fas fa-question-circle"></i></button>
 
   </header>
+
   <div id="menu">
     <button id="newBoard" class="menu-button" type="button" name="newBoard">New</button>
     <button id="saveBoard" class="menu-button" type="button" name="saveBoard">Save</button>
     <button id="loadBoard" class="menu-button" type="button" name="loadBoard">Load</button>
   </div>
+
   <div id="main">
     <div id="playback" class="wing">
       <button id="stepButton" class="playback round-button"><i class="fas fa-angle-right"></i></button>
@@ -115,34 +121,24 @@
       <span class="stat-label">Death Rate Now:</span><span class="stat-readout" id="deathRateNow">0</span>
       <span class="stat-label">Net Birth Rate:</span><span class="stat-readout" id="netBirthRate">0</span>
     </div>
-
   </div>
+
   <div id="footer">
     <div id="palette" class="controls">
       <button data-color="black" style="background-color:black" class="color color--selected"></button>
       <button data-color="white" style="background-color:white" class="color"></button>
     </div>
   </div>
+
   <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: 'AIzaSyDimm2lbiquyE2GQeEma7Oxqv6SOr5fq8k',
-      authDomain: 'ian-schu-conway-game-of-life.firebaseapp.com',
-      databaseURL: 'https://ian-schu-conway-game-of-life.firebaseio.com',
-      projectId: 'ian-schu-conway-game-of-life',
-      storageBucket: '',
-      messagingSenderId: '139888044667'
-    };
-    firebase.initializeApp(config);
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/array2d@0.0.5/Array2D.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/view.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/model.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/controller.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/palette.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/main.js" type="text/javascript" charset="utf-8"></script>
-  <script defer src="src/firebase-extras.js" type="text/javascript" charset="utf-8"></script>
+  <script src="src/ui.js" type="text/javascript" charset="utf-8"></script>
+  <script defer src="src/firebase-auth.js" type="text/javascript" charset="utf-8"></script>
   <script src="https://d3js.org/d3-color.v1.min.js"></script>
   <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
 </body>

@@ -119,6 +119,9 @@ function generatePalette(colorArray, paletteElement) {
 		let newColor = document.createElement('button');
 		newColor.className = 'color';
 		newColor.dataset.color = colorArray[i];
+		let tooltip = colorArray[i].split('');
+		tooltip[0] = tooltip[0].toUpperCase();
+		newColor.title = tooltip.join('');
 		newColor.style.background = colorArray[i];
 		paletteElement.appendChild(newColor);
 	}

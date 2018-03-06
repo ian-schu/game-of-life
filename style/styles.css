@@ -37,7 +37,7 @@ html {
 
 .floater {
 	position: absolute;
-	display: none;
+	display: block;
 	z-index: 3;
 	background-color: lightgray;
 	box-shadow: 0px 0px 2px darkgray;
@@ -45,31 +45,93 @@ html {
 	padding: 1vw;
 }
 
-#info {
+#infoFloater {
 	top: 20%;
 	right: 20%;
 }
 
-#info h4 {
+#infoFloater h4 {
 	font-size: 1.3vw;
 	margin: 0;
 }
 
-#info p {
+#infoFloater p {
 	font-weight: 300;
 	font-size: 1vw;
 	width: 30vw;
 }
 
-#newGameDialog {
-	width: 25%;
+#newGameFloater {
+	width: 20vw;
 	max-width: 300px;
 	top: 20%;
 	left: 20%;
 	z-index: 3;
 }
 
-.closeDialog {
+#newGameFloater form {
+	margin: 0px;
+}
+
+#newGameFloater h4 {
+	font-size: 1.1vw;
+	margin: 0.1vw;
+}
+
+#newGameFloater label {
+	display: inline-block;
+	font-size: 1vw;
+}
+
+#newGameFloater p {
+	font-weight: 300;
+	font-size: 0.9vw;
+}
+
+#newGameFloater input {
+	display: inline-block;
+	float: right;
+	width: 18%;
+	max-width: 100px;
+	font-size: 0.8vw;
+	margin: 4px 0px 0px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+#newGameFloater .dialogButton {
+	display: block;
+	margin: 10px auto 5px;
+	font-size: 1vw;
+	padding: 5px 10px;
+}
+
+.handle {
+	position: absolute;
+	top: 0px;
+	width: 60%;
+	left: 20%;
+	border-radius: 1px;
+	background-color: white;
+	border: 1px solid black;
+	height: 0.6vw;
+	border-top: none;
+	line-height: 0.5vw;
+	letter-spacing: 0.8vw;
+	text-align: center;
+}
+
+.handle:hover {
+	background-color: lightblue;
+	box-shadow: none;
+}
+
+.handle:active {
+	background-color: blue;
+	box-shadow: none;
+}
+
+.closeFloaterButton {
 	width: 20px;
 	height: 20px;
 	border-radius: 1px;
@@ -83,40 +145,13 @@ html {
 	border-right: none;
 }
 
-.closeDialog:hover {
+.closeFloaterButton:hover {
 	background-color: lightpink;
 	box-shadow: none;
 }
 
-#newGameDialog form {
-	/* margin: 16px; */
-}
-
-#newGameDialog label {
-	display: inline-block;
-	font-size: 1.2rem;
-}
-
-#newGameDialog p {
-	font-weight: 300;
-}
-
-#newGameDialog input {
-	display: inline-block;
-	float: right;
-	width: 18%;
-	max-width: 100px;
-	font-size: 1rem;
-	margin: 4px 0px 0px;
-	box-sizing: border-box;
-	text-align: center;
-}
-
-#newGameDialog .dialogButton {
-	display: block;
-	margin: 10px auto 5px;
-	font-size: 1.2rem;
-	padding: 5px 10px;
+.closeFloaterButton:active {
+	background-color: red;
 }
 
 #menu {

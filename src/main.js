@@ -14,13 +14,13 @@ var saveBoard = document.getElementById('saveBoard');
 var loadBoard = document.getElementById('loadBoard');
 
 var getInfo = document.getElementById('getInfo');
-var info = document.getElementById('info');
+var infoFloater = document.getElementById('infoFloater');
 
-var newGameDialog = document.getElementById('newGameDialog');
+var newGameFloater = document.getElementById('newGameFloater');
 var newBoardWidth = document.getElementById('newBoardWidth');
 var newBoardHeight = document.getElementById('newBoardHeight');
 var newBoardSubmit = document.getElementById('newBoardSubmit');
-var closeDialogs = document.getElementsByClassName('closeDialog');
+var closeFloaterButtons = document.getElementsByClassName('closeFloaterButton');
 
 var stats = document.getElementById('stats');
 
@@ -73,21 +73,21 @@ document.addEventListener('keydown', ev => {
 });
 
 newBoard.addEventListener('click', () => {
-	showDialog(newGameDialog);
+	showDialog(newGameFloater);
 });
 
-for (let dialog of closeDialogs) {
-	dialog.addEventListener('click', ev => {
+for (let button of closeFloaterButtons) {
+	button.addEventListener('click', ev => {
 		ev.target.parentElement.style.display = 'none';
 	});
 }
 
-// closeDialogs[0].addEventListener('click', () => {
-// 	showDialog(newGameDialog);
+// closeFloaterButtons[0].addEventListener('click', () => {
+// 	showDialog(newGameFloater);
 // });
 
 getInfo.addEventListener('click', () => {
-	info.style.display = 'block';
+	showDialog(infoFloater);
 });
 
 newBoardSubmit.addEventListener('click', () => {

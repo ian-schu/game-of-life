@@ -21,11 +21,11 @@
 </head>
 
 <body>
-  <div class="floater" id="newGameDialog">
-
-    <button class="closeDialog">X</button>
+  <div class="floater" id="newGameFloater">
+    <div class="handle">--------</div>
+    <button class="closeFloaterButton">X</button>
     <form id="newBoardForm">
-      <legend>Set dimensions for your new board:</legend>
+      <h4>Set dimensions for your new board:</h4>
       <p>
         <strong>Warning:</strong> this will <strong>totally wipe</strong> your existing board. If you want to keep what's here, make sure you've saved first.
       </p>
@@ -44,8 +44,9 @@
       <div class="subtitle">Ian Schumann</div>
       <div class="subtitle">Galvanize Web Development - Quarter 1</div>
     </div>
-    <div class="floater" id="info">
-      <button class="closeDialog">X</button>
+    <div class="floater" id="infoFloater">
+          <div class="handle">--------------</div>
+      <button class="closeFloaterButton">X</button>
       <h4>What's going on here?</h4>
       <p>Conway's Game of Life is a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications. You can read more about it all <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="blank">here</a>.</p>
       <p>

@@ -32,6 +32,11 @@ function handleMoveElement(ev) {
 	}
 }
 
+function updateSaveDialog() {
+	saveLocalDimensions.textContent = `
+	${theModel.height} cells wide X ${theModel.width} cells tall`;
+}
+
 // INITs
 
 generatePalette(startingColors, palette);
@@ -105,6 +110,7 @@ newBoard.addEventListener('click', () => {
 });
 
 saveBoard.addEventListener('click', () => {
+	updateSaveDialog();
 	showDialog(saveFloater);
 });
 

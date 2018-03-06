@@ -65,7 +65,8 @@
     <h3>Save this cell pattern</h3>
     <p>Since you're not logged in, you can save this cell pattern locally to your browser, and it will be available next time you're here.</p>
     <p>If you enter the name of an existing saved pattern, we will simply <em>save over</em> the existing one.</p>
-    <span id="saveLocalDimensions"></span>
+    <p>Your pattern will saved with dimensions:</p>
+    <div id="saveLocalDimensions"></div>
     <form id="saveLocalForm">
       <label for="saveLocalName">Give your cell pattern a name:</label>
       <input id="saveLocalName" type="text" name="" placeholder="e.g. Black Death, Chimera, Cas9, etc" value="" required>
@@ -92,7 +93,7 @@
         out. Have fun!
       </p>
     </div>
-    <button id="getInfo" class="round-button"><i class="fas fa-question-circle"></i></button>
+    <button id="getInfo" class="round-button" data-tippy-placement="left" title="Get more info on wtf is going on here, see links to creator profile, Git, etc."><i class="fas fa-question-circle"></i></button>
 
   </header>
 

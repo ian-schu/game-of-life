@@ -147,13 +147,17 @@ class Board {
 		};
 	}
 
-	makeQuickSave() {
-		this.quickSave = Array2D.map(this.grid, cell => {
+	generateSaveArray() {
+		return Array2D.map(this.grid, cell => {
 			return {
 				alive: cell.alive,
 				color: cell.color
 			};
 		});
+	}
+
+	makeQuickSave() {
+		this.quickSave = this.generateSaveArray();
 	}
 
 	revertToQuickSave() {

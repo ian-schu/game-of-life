@@ -60,6 +60,10 @@
 	padding: 1vw;
 }
 
+.floater p {
+	margin: 1% 0;
+}
+
 #infoFloater {
 	top: 20%;
 	left: 40%;
@@ -83,10 +87,21 @@
 	max-width: 330px;
 }
 
+#saveLocalForm {
+	margin: 1% 0;
+}
+
 #saveLocalName {
 	display: block;
 	font-size: 0.8vw;
 	width: 100%;
+}
+
+#saveLocalDimensions {
+	font-size: 1.2vw;
+	color: red;
+	font-weight: 400;
+	margin: 1vw 0 0.5vw;
 }
 
 #newGameFloater {

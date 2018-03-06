@@ -59,6 +59,20 @@
     </form>
   </div>
 
+  <div class="floater" id="saveFloater">
+    <div class="handle">======</div>
+    <button class="closeFloaterButton">X</button>
+    <h3>Save this cell pattern</h3>
+    <p>Since you're not logged in, you can save this cell pattern locally to your browser, and it will be available next time you're here.</p>
+    <p>If you enter the name of an existing saved pattern, we will simply <em>save over</em> the existing one.</p>
+    <span id="saveLocalDimensions"></span>
+    <form id="saveLocalForm">
+      <label for="saveLocalName">Give your cell pattern a name:</label>
+      <input id="saveLocalName" type="text" name="" placeholder="e.g. Black Death, Chimera, Cas9, etc" value="" required>
+      <button id="saveLocalSubmit" class="dialogButton" type="button">Save Pattern Locally</button>
+    </form>
+  </div>
+
   <header id="header">
     <div id="titles">
       <div id="title">
@@ -67,6 +81,7 @@
       <div class="subtitle">Ian Schumann</div>
       <div class="subtitle">Galvanize Web Development - Quarter 1</div>
     </div>
+
     <div class="floater" id="infoFloater">
       <div class="handle">==============</div>
       <button class="closeFloaterButton">X</button>

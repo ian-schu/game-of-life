@@ -40,6 +40,9 @@ class Controller {
 	}
 
 	play() {
+		playButton.classList.toggle('playback--active');
+		playButton.classList.toggle('round-button--active');
+
 		if (!this.isPlaying) {
 			if (this.autoQuickSave) {
 				this.makeQuickSave();
@@ -48,7 +51,6 @@ class Controller {
 			this.isPlaying = setInterval(() => {
 				this.advance();
 			}, this.playDelayMs);
-			playButton.classList.toggle('playback--active');
 		}
 	}
 
@@ -57,6 +59,7 @@ class Controller {
 		clearInterval(this.isPlaying);
 		this.isPlaying = false;
 		playButton.classList.toggle('playback--active');
+		playButton.classList.toggle('round-button--active');
 	}
 
 	makeQuickSave() {

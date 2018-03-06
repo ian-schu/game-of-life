@@ -76,6 +76,19 @@
 	width: 30vw;
 }
 
+#saveFloater {
+	top: 20%;
+	left: 30%;
+	width: 20vw;
+	max-width: 330px;
+}
+
+#saveLocalName {
+	display: block;
+	font-size: 0.8vw;
+	width: 100%;
+}
+
 #newGameFloater {
 	width: 20vw;
 	max-width: 300px;
@@ -114,7 +127,7 @@
 	text-align: center;
 }
 
-#newGameFloater .dialogButton {
+.dialogButton {
 	display: block;
 	margin: 10px auto 5px;
 	font-size: 1vw;

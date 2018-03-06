@@ -21,6 +21,10 @@ var infoFloater = document.getElementById('infoFloater');
 var closeFloaterButtons = document.getElementsByClassName('closeFloaterButton');
 var floaterHandles = document.getElementsByClassName('handle');
 
+var saveFloater = document.getElementById('saveFloater');
+var saveLocalDimensions = document.getElementById('saveLocalDimensions');
+var saveLocalSubmit = document.getElementById('saveLocalSubmit');
+
 var floaterMover = {
 	movingNow: false,
 	element: null,

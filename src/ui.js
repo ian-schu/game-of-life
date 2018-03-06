@@ -104,6 +104,10 @@ newBoard.addEventListener('click', () => {
 	showDialog(newGameFloater);
 });
 
+saveBoard.addEventListener('click', () => {
+	showDialog(saveFloater);
+});
+
 window.addEventListener('mousemove', handleMoveElement);
 
 getInfo.addEventListener('click', () => {

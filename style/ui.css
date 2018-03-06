@@ -40,12 +40,14 @@
 }
 
 .round-button {
+	min-width: 40px;
 	width: 3vw;
 	height: 3vw;
-	border-radius: 1.5vw;
+	border-radius: 2.5vw;
 	font-size: 2vw;
 	padding-left: 0.4vw;
 	cursor: pointer;
+	min-height: 40px;
 }
 
 .floater {
@@ -192,6 +194,16 @@ button:active {
 	box-shadow: 0px 0px 5px 5px aqua;
 }
 
+#playback-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	height: 50%;
+	width: 50%;
+	justify-content: space-evenly;
+	align-content: space-between;
+}
+
 #stepButton {
 	font-size: 2vw;
 	padding-left: 10px;
@@ -212,8 +224,23 @@ button:active {
 	padding-left: 8px;
 }
 
+.round-button--active {
+	color: white;
+	background: darkcyan;
+	border: 2px solid white;
+}
+
+#playback-selectors {
+	display: flex;
+	flex-wrap: wrap;
+	min-width: 50%;
+	font-size: 1.2vw;
+	flex-direction: column;
+	text-align: right;
+}
+
 .playback-selector {
-	width: 130px;
+	width: 8vw;
 	font-family: 'Oswald', sans-serif;
 	font-size: 0.8rem;
 	font-weight: 300;

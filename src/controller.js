@@ -5,7 +5,12 @@ class Controller {
 		this.currentColor = startColor;
 		this.playDelayMs = 120;
 		this.isPlaying = false;
+		this.autoQuickSave = false;
 		this.cellClick = this.cellClick.bind(this);
+	}
+
+	toggleAutoQuickSave() {
+		this.autoQuickSave = this.autoQuickSave ? false : true;
 	}
 
 	cellClick(ev) {
@@ -36,6 +41,9 @@ class Controller {
 
 	play() {
 		if (!this.isPlaying) {
+			if (this.autoQuickSave) {
+				this.makeQuickSave();
+			}
 			stats.classList.toggle('stats--playing');
 			this.isPlaying = setInterval(() => {
 				this.advance();

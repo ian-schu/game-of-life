@@ -8,6 +8,9 @@ var stepButton = document.getElementById('stepButton');
 var playButton = document.getElementById('playButton');
 var stopButton = document.getElementById('stopButton');
 var deleteButton = document.getElementById('deleteButton');
+var quickSaveButton = document.getElementById('quickSaveButton');
+var autoQuickSaveButton = document.getElementById('autoQuickSaveButton');
+var revertToQuickSaveButton = document.getElementById('revertToQuickSaveButton');
 
 var newBoard = document.getElementById('newBoard');
 var saveBoard = document.getElementById('saveBoard');

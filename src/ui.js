@@ -62,6 +62,16 @@ stepButton.addEventListener('click', () => theController.advance(), false);
 playButton.addEventListener('click', () => theController.play(), false);
 stopButton.addEventListener('click', () => theController.stop(), false);
 clearButton.addEventListener('click', () => theController.clear(), false);
+quickSaveButton.addEventListener('click', () => theController.makeQuickSave(), false);
+revertToQuickSaveButton.addEventListener('click', () => theController.revertToQuickSave(), false);
+autoQuickSaveButton.addEventListener(
+	'click',
+	() => {
+		theController.toggleAutoQuickSave();
+		autoQuickSaveButton.classList.toggle('round-button--active');
+	},
+	false
+);
 
 simSpeed.addEventListener('input', () => {
 	theController.playDelayMs = Number.parseInt(simSpeed.value);

@@ -86,31 +86,39 @@
   </div>
 
   <div id="main">
-    <div id="playback" class="wing">
-      <button id="stepButton" class="playback round-button"><i class="fas fa-angle-right"></i></button>
-      <button id="playButton" class="playback round-button"><i class="fas fa-play"></i></button>
-      <button id="stopButton" class="playback round-button"><i class="fas fa-stop"></i></button>
-      <button id="clearButton" class="playback round-button"><i class="fas fa-trash-alt"></i></button>
-      <label for="simSpeed">Simulation Speed</label>
-      <select id="simSpeed" class="playback-selector" name="simSpeed">
-        <option value="0">(0ms) - Ludicrous</option>
-        <option value="50">(50ms) - Real fast</option>
-        <option value="120" selected>(120ms) - Fast</option>
-        <option value="250">(250ms) - Moderate</option>
-        <option value="500">(0.5s) - Leisurely</option>
-        <option value="1000">(1s) - Sluggish</option>
-        <option value="2000">(2s) - Glacial</option>
-        <option value="3000">(3s) - Geologic</option>
-      </select>
-      <label for="cellFade">Cell Fade Speed</label>
-      <select id="cellFade" class="playback-selector" name="cellFade">
-        <option value="0s">(0ms) - Instant</option>
-        <option value="0.1s" selected>(100ms) - Quick</option>
-        <option value="0.25s">(250ms) - Lively</option>
-        <option value="0.4s">(400ms) - Comfortable</option>
-        <option value="1s">(1s) - Lengthy</option>
-        <option value="2.5s">(2.5s) - Glacial</option>
-      </select>
+    <div id="playback-wing" class="wing">
+      <div id="playback-buttons">
+        <button id="stepButton" class="playback round-button"><i class="fas fa-angle-right"></i></button>
+        <button id="playButton" class="playback round-button"><i class="fas fa-play"></i></button>
+        <button id="stopButton" class="playback round-button"><i class="fas fa-stop"></i></button>
+        <button id="clearButton" class="playback round-button"><i class="fas fa-trash-alt"></i></button>
+        <button id="quickSaveButton" class="playback round-button"><i class="far fa-clipboard"></i></button>
+        <button id="autoQuickSaveButton" class="playback round-button"><i class="fas fa-clipboard-check"></i></i></button>
+        <button id="revertToQuickSaveButton" class="playback round-button"><i class="fas fa-history"></i></button>
+      </div>
+      <div id="playback-selectors">
+        <label for="simSpeed">Simulation Speed</label>
+        <select id="simSpeed" class="playback-selector" name="simSpeed">
+          <option value="0">(0ms) - Ludicrous</option>
+          <option value="50">(50ms) - Real fast</option>
+          <option value="120" selected>(120ms) - Fast</option>
+          <option value="250">(250ms) - Moderate</option>
+          <option value="500">(0.5s) - Leisurely</option>
+          <option value="1000">(1s) - Sluggish</option>
+          <option value="2000">(2s) - Glacial</option>
+          <option value="3000">(3s) - Geologic</option>
+        </select>
+        <label for="cellFade">Cell Fade Speed</label>
+        <select id="cellFade" class="playback-selector" name="cellFade">
+          <option value="0s">(0ms) - Instant</option>
+          <option value="0.1s" selected>(100ms) - Quick</option>
+          <option value="0.25s">(250ms) - Lively</option>
+          <option value="0.4s">(400ms) - Comfortable</option>
+          <option value="1s">(1s) - Lengthy</option>
+          <option value="2.5s">(2.5s) - Glacial</option>
+        </select>
+      </div>
+
     </div>
     <div id="gameboard">
     </div>

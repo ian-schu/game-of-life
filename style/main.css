@@ -104,8 +104,9 @@ html {
 	background-color: black;
 }
 
-#playback {
+#playback-wing {
 	align-items: flex-end;
+	justify-content: space-evenly;
 }
 
 .playback {

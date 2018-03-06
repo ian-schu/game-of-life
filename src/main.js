@@ -21,13 +21,18 @@ var loadBoard = document.getElementById('loadBoard');
 var getInfo = document.getElementById('getInfo');
 var infoFloater = document.getElementById('infoFloater');
 var closeFloaterButtons = document.getElementsByClassName('closeFloaterButton');
+var floaters = document.getElementsByClassName('floater');
 var floaterHandles = document.getElementsByClassName('handle');
+var floaterTopZIndex = 10;
 
 var saveLocalForm = document.getElementById('saveLocalForm');
 var saveFloater = document.getElementById('saveFloater');
 var saveLocalDimensions = document.getElementById('saveLocalDimensions');
 var saveLocalName = document.getElementById('saveLocalName');
 var saveLocalSubmit = document.getElementById('saveLocalSubmit');
+
+var loadFloater = document.getElementById('loadFloater');
+var loadResultsArea = document.getElementById('loadResultsArea');
 
 var floaterMover = {
 	movingNow: false,

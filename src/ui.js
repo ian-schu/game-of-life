@@ -50,6 +50,13 @@ for (let button of closeFloaterButtons) {
 	});
 }
 
+for (let thisFloater of floaters) {
+	thisFloater.addEventListener('mousedown', () => {
+		floaterTopZIndex++;
+		thisFloater.style.zIndex = floaterTopZIndex;
+	});
+}
+
 for (let handle of floaterHandles) {
 	handle.addEventListener('mousedown', handleMouseDown);
 	handle.addEventListener('mouseup', () => {
@@ -112,6 +119,10 @@ newBoard.addEventListener('click', () => {
 saveBoard.addEventListener('click', () => {
 	updateSaveDialog();
 	showDialog(saveFloater);
+});
+
+loadBoard.addEventListener('click', () => {
+	showDialog(loadFloater);
 });
 
 saveLocalSubmit.addEventListener('click', ev => {

@@ -53,12 +53,16 @@
 .floater {
 	position: absolute;
 	display: none;
-	z-index: 3;
+	z-index: 5;
 	background-color: lightgray;
 	box-shadow: 0px 0px 2px darkgray;
 	border: 1px solid black;
 	padding: 1vw;
 }
+
+/* .floater:hover {
+	z-index: 99;
+} */
 
 .floater p {
 	margin: 1% 0;
@@ -104,12 +108,18 @@
 	margin: 1vw 0 0.5vw;
 }
 
+#loadFloater {
+	top: 20%;
+	left: 40%;
+	width: 20vw;
+	max-width: 330px;
+}
+
 #newGameFloater {
 	width: 20vw;
 	max-width: 300px;
 	top: 20%;
 	left: 20%;
-	z-index: 3;
 }
 
 #newGameFloater form {

@@ -15,12 +15,20 @@ var loadBoard = document.getElementById('loadBoard');
 
 var getInfo = document.getElementById('getInfo');
 var infoFloater = document.getElementById('infoFloater');
+var closeFloaterButtons = document.getElementsByClassName('closeFloaterButton');
+var floaterHandles = document.getElementsByClassName('handle');
+
+var floaterMover = {
+	movingNow: false,
+	element: null,
+	bufferX: 0,
+	bufferY: 0
+};
 
 var newGameFloater = document.getElementById('newGameFloater');
 var newBoardWidth = document.getElementById('newBoardWidth');
 var newBoardHeight = document.getElementById('newBoardHeight');
 var newBoardSubmit = document.getElementById('newBoardSubmit');
-var closeFloaterButtons = document.getElementsByClassName('closeFloaterButton');
 
 var stats = document.getElementById('stats');
 
@@ -82,9 +90,17 @@ for (let button of closeFloaterButtons) {
 	});
 }
 
-// closeFloaterButtons[0].addEventListener('click', () => {
-// 	showDialog(newGameFloater);
-// });
+window.addEventListener('mousemove', handleMoveElement);
+
+for (let handle of floaterHandles) {
+	handle.addEventListener('mousedown', handleMouseDown);
+	handle.addEventListener('mouseup', () => {
+		floaterMover.movingNow = false;
+		floaterMover.element = null;
+		floaterMover.bufferX = null;
+		floaterMover.bufferY = null;
+	});
+}
 
 getInfo.addEventListener('click', () => {
 	showDialog(infoFloater);
@@ -133,6 +149,22 @@ function showDialog(dialogName) {
 		dialogName.style.display = 'none';
 	} else {
 		dialogName.style.display = 'block';
+	}
+}
+
+function handleMouseDown(ev) {
+	floaterMover.movingNow = true;
+	floaterMover.element = ev.target.parentElement;
+	floaterMover.bufferX = ev.clientX - floaterMover.element.offsetLeft;
+	floaterMover.bufferY = ev.clientY - floaterMover.element.offsetTop;
+}
+
+function handleMoveElement(ev) {
+	if (floaterMover.movingNow) {
+		floaterMover.element.style.left =
+			(ev.clientX - floaterMover.bufferX) / window.innerWidth * 100 + '%';
+		floaterMover.element.style.top =
+			(ev.clientY - floaterMover.bufferY) / window.innerHeight * 100 + '%';
 	}
 }
 

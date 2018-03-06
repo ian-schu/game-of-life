@@ -10,6 +10,7 @@ class Controller {
 
 	cellClick(ev) {
 		if (
+			floaterMover.movingNow === false &&
 			ev.target.className === 'cell' &&
 			(ev.buttons === 1 || ev.type === 'click')
 		) {
@@ -35,7 +36,7 @@ class Controller {
 
 	play() {
 		if (!this.isPlaying) {
-			stats.style.opacity = 1;
+			stats.classList.toggle('stats--playing');
 			this.isPlaying = setInterval(() => {
 				this.advance();
 			}, this.playDelayMs);
@@ -44,7 +45,7 @@ class Controller {
 	}
 
 	stop() {
-		stats.style.opacity = 0.2;
+		stats.classList.toggle('stats--playing');
 		clearInterval(this.isPlaying);
 		this.isPlaying = false;
 		playButton.classList.toggle('playback--active');

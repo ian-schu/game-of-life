@@ -1,3 +1,5 @@
+// let Array2D = require('array2d');
+
 class Cell {
 	constructor(x, y) {
 		this.alive = false;
@@ -67,9 +69,7 @@ class Cell {
 
 	interpolateColorNext() {
 		if (this.alive) {
-			this.colorNext = d3.interpolate(this.avgNeighborColors(), this.color)(
-				0.5
-			);
+			this.colorNext = d3.interpolate(this.avgNeighborColors(), this.color)(0.5);
 		} else if (this.aliveNext) {
 			this.colorNext = this.avgNeighborColors();
 		}
@@ -97,6 +97,7 @@ class Board {
 		this.width = width;
 		this.height = height;
 		this.grid = Array2D.buildWith(width, height, this.cellsToGrid);
+		this.quickSave = [];
 		this.demographics = {
 			birthRateInstant: 0,
 			// birthRateRolling10: 0,
@@ -144,6 +145,22 @@ class Board {
 			populationLast: 0,
 			netBirthRate: 0
 		};
+	}
+
+	makeQuickSave() {
+		this.quickSave = Array2D.map(this.grid, cell => {
+			return {
+				alive: cell.alive,
+				color: cell.color
+			};
+		});
+	}
+
+	revertToQuickSave() {
+		Array2D.eachCell(this.grid, (cell, r, c) => {
+			cell.alive = this.quickSave[r][c].alive;
+			cell.color = this.quickSave[r][c].color;
+		});
 	}
 
 	propagateBoard() {
@@ -205,4 +222,18 @@ class Board {
 	}
 }
 
-// module.exports = Board;
+// let testBoard = new Board(3, 3);
+//
+// testBoard.grid[1][1].born();
+// testBoard.grid[1][1].color = 'black';
+//
+// testBoard.makeQuickSave();
+//
+// Array2D.map(testBoard.grid, cell => cell.alive);
+// testBoard.grid
+//
+// testBoard.quickSave;
+//
+// testBoard.revertToQuickSave()
+//
+// testBoard.grid[1][1].die();

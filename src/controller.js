@@ -51,6 +51,16 @@ class Controller {
 		playButton.classList.toggle('playback--active');
 	}
 
+	makeQuickSave() {
+		this.model.makeQuickSave();
+	}
+
+	revertToQuickSave() {
+		this.model.revertToQuickSave();
+		this.view.redraw(this.model.grid);
+		updateStats();
+	}
+
 	clear() {
 		this.model.clear();
 		this.view.redraw(this.model.grid);

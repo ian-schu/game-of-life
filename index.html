@@ -14,6 +14,9 @@
     }
   </style>
 
+  <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
@@ -21,6 +24,20 @@
 </head>
 
 <body>
+  <div id="top-right-links">
+    <span id="signIn-string">Sign In</span>
+    <span id="user-string"></span>
+    <span id="signOut-string">Logout</span>
+  </div>
+  <div id="auth-container">
+    <h2>Sign into Conway's Game of Life</h2>
+    <p>
+      Save winning patterns, compete against high scores, make the app creator feel loved, etc.
+    </p>
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
+  </div>
+
   <div class="floater" id="newGameFloater">
     <div class="handle">========</div>
     <button class="closeFloaterButton">X</button>
@@ -45,7 +62,7 @@
       <div class="subtitle">Galvanize Web Development - Quarter 1</div>
     </div>
     <div class="floater" id="infoFloater">
-          <div class="handle">==============</div>
+      <div class="handle">==============</div>
       <button class="closeFloaterButton">X</button>
       <h4>What's going on here?</h4>
       <p>Conway's Game of Life is a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications. You can read more about it all <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="blank">here</a>.</p>
@@ -106,12 +123,26 @@
       <button data-color="white" style="background-color:white" class="color"></button>
     </div>
   </div>
+  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: 'AIzaSyDimm2lbiquyE2GQeEma7Oxqv6SOr5fq8k',
+      authDomain: 'ian-schu-conway-game-of-life.firebaseapp.com',
+      databaseURL: 'https://ian-schu-conway-game-of-life.firebaseio.com',
+      projectId: 'ian-schu-conway-game-of-life',
+      storageBucket: '',
+      messagingSenderId: '139888044667'
+    };
+    firebase.initializeApp(config);
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/array2d@0.0.5/Array2D.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/view.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/model.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/controller.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/palette.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/main.js" type="text/javascript" charset="utf-8"></script>
+  <script defer src="src/firebase-extras.js" type="text/javascript" charset="utf-8"></script>
   <script src="https://d3js.org/d3-color.v1.min.js"></script>
   <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
 </body>

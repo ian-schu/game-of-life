@@ -374,3 +374,58 @@ button:active {
 .color--selected:hover {
 	box-shadow: 0px 0px 5px 2px aqua;
 }
+
+#top-right-links {
+	position: absolute;
+	top: 1vh;
+	right: 16%;
+}
+
+#top-right-links span {
+	margin: 0 0.5vw;
+}
+
+#user-string {
+	display: none;
+}
+
+#signIn-string {
+	display: none;
+	cursor: pointer;
+}
+
+#signIn-string:hover {
+	color: lightcoral;
+}
+
+#signOut-string {
+	cursor: pointer;
+	display: none;
+}
+
+#signOut-string:hover {
+	color: lightcoral;
+}
+
+#auth-container {
+	padding: 1%;
+	width: 22%;
+	position: absolute;
+	top: 20%;
+	left: 39%;
+	z-index: 10;
+	background: white;
+	border: 1px solid black;
+	box-shadow: 1px 1px 3px darkgrey;
+	display: none;
+}
+
+#auth h2 {
+	margin: 0;
+	font-size: 1.3vw;
+}
+
+#auth p {
+	font-weight: 300;
+	font-size: 0.9vw;
+}

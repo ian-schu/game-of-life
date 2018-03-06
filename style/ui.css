@@ -3,13 +3,8 @@
 	display: flex;
 	justify-content: flex-start;
 	margin: 5px auto 0px;
-	opacity: 0.2;
 	transition: opacity 0.25s;
 	z-index: 1;
-}
-
-#menu:hover {
-	opacity: 1;
 }
 
 .menu-button {
@@ -21,6 +16,11 @@
 	margin: 0px 5px 0 0;
 	width: 10%;
 	cursor: pointer;
+	opacity: 0.2;
+}
+
+.menu-button:hover {
+	opacity: 1;
 }
 
 #newBoard {
@@ -188,6 +188,7 @@ button:focus {
 
 button:hover {
 	box-shadow: 0px 0px 3px 3px white;
+	opacity: 1;
 }
 
 button:active {
@@ -245,4 +246,21 @@ button:active {
 	font-size: 0.8rem;
 	font-weight: 300;
 	margin: 0px 0px 10px;
+}
+
+.tippy-tooltip.light-theme {
+	/* Your styling here. Example: */
+	background-color: #d8eff9;
+	border: 2px solid darkgrey;
+	border-radius: 3px;
+	color: black;
+	font-size: 0.8vw;
+	font-weight: 300;
+	max-width: 8vw;
+	padding: 0.5vw;
+}
+
+.tippy-tooltip h5 {
+	font-size: 1vw;
+	margin: 0;
 }

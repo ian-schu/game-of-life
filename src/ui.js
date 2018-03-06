@@ -122,3 +122,8 @@ newBoardSubmit.addEventListener('click', () => {
 	gameboard.addEventListener('mousedown', theController.cellClick, false);
 	gameboard.addEventListener('mouseover', theController.cellClick, false);
 });
+
+tippy('[title]', {
+	theme: 'light',
+	arrow: true
+});

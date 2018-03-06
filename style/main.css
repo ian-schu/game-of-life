@@ -76,7 +76,7 @@ html {
 	padding-left: 1vw;
 	padding-right: 3vw;
 	box-sizing: border-box;
-	align-content: flex-start;
+	align-content: space-evenly;
 	transition: opacity 0.25s;
 }
 

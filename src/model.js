@@ -157,10 +157,12 @@ class Board {
 	}
 
 	revertToQuickSave() {
-		Array2D.eachCell(this.grid, (cell, r, c) => {
-			cell.alive = this.quickSave[r][c].alive;
-			cell.color = this.quickSave[r][c].color;
-		});
+		if (this.quickSave.length) {
+			Array2D.eachCell(this.grid, (cell, r, c) => {
+				cell.alive = this.quickSave[r][c].alive;
+				cell.color = this.quickSave[r][c].color;
+			});
+		}
 	}
 
 	propagateBoard() {

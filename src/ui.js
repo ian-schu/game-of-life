@@ -96,7 +96,7 @@ palette.addEventListener('click', ev => {
 });
 
 document.addEventListener('keydown', ev => {
-	if (ev.key === ' ') {
+	if (ev.key === ' ' && document.activeElement.tagName != 'INPUT') {
 		if (!theController.isPlaying) {
 			playButton.click();
 		} else {
@@ -114,6 +114,15 @@ saveBoard.addEventListener('click', () => {
 	showDialog(saveFloater);
 });
 
+saveLocalSubmit.addEventListener('click', ev => {
+	if (saveLocalForm.checkValidity()) {
+		ev.preventDefault();
+		theController.makeFullSave(saveLocalName.value);
+	} else {
+		saveLocalForm.click();
+	}
+});
+
 window.addEventListener('mousemove', handleMoveElement);
 
 getInfo.addEventListener('click', () => {
@@ -124,8 +133,8 @@ newBoardSubmit.addEventListener('click', () => {
 	gameboard.removeEventListener('mousedown', theController.cellClick, false);
 	gameboard.removeEventListener('mouseover', theController.cellClick, false);
 
-	let newWidth = newBoardWidth.value;
-	let newHeight = newBoardHeight.value;
+	let newWidth = Number.parseInt(newBoardWidth.value);
+	let newHeight = Number.parseInt(newBoardHeight.value);
 
 	[theView, theModel, theController] = startNewBoard(newWidth, newHeight, gameboard);
 

@@ -1,5 +1,7 @@
 // VARIABLES
 
+var main = document.getElementById('main');
+
 var gameboard = document.getElementById('gameboard');
 var palette = document.getElementById('palette');
 var playback = document.getElementById('playback');
@@ -21,8 +23,10 @@ var infoFloater = document.getElementById('infoFloater');
 var closeFloaterButtons = document.getElementsByClassName('closeFloaterButton');
 var floaterHandles = document.getElementsByClassName('handle');
 
+var saveLocalForm = document.getElementById('saveLocalForm');
 var saveFloater = document.getElementById('saveFloater');
 var saveLocalDimensions = document.getElementById('saveLocalDimensions');
+var saveLocalName = document.getElementById('saveLocalName');
 var saveLocalSubmit = document.getElementById('saveLocalSubmit');
 
 var floaterMover = {

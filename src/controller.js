@@ -62,6 +62,11 @@ class Controller {
 		playButton.classList.toggle('round-button--active');
 	}
 
+	makeFullSave(saveName) {
+		let saveObj = this.model.generateFullSave();
+		localStorage.setItem(saveName, JSON.stringify(saveObj));
+	}
+
 	makeQuickSave() {
 		this.model.makeQuickSave();
 	}

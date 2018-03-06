@@ -156,6 +156,14 @@ class Board {
 		});
 	}
 
+	generateFullSave() {
+		return {
+			height: this.height,
+			width: this.width,
+			data: this.generateSaveArray()
+		};
+	}
+
 	makeQuickSave() {
 		this.quickSave = this.generateSaveArray();
 	}

@@ -1,12 +1,94 @@
-//// FUNCTIONS
+function findID(idString) {
+	return document.getElementById(idString);
+}
 
-// function updateStats() {
-// 	populationNow.textContent = theModel.demographics.populationNow;
-// 	populationLast.textContent = theModel.demographics.populationLast;
-// 	birthRateNow.textContent = theModel.demographics.birthRateInstant;
-// 	deathRateNow.textContent = theModel.demographics.deathRateInstant;
-// 	netBirthRate.textContent = theModel.demographics.netBirthRate;
-// }
+// Set up video, start form, and container interactions:
+var video = findID('videoBackground');
+var container = findID('container');
+var start = findID('start');
+var startGameForm = findID('startGameForm');
+var startBoardWidth = findID('startBoardWidth');
+var startBoardHeight = findID('startBoardHeight');
+var startGameSubmit = findID('startGameSubmit');
+
+/// Control items:
+var theView, theModel, theController;
+
+// VARIABLES
+var main = findID('main');
+var gameboard = findID('gameboard');
+var palette = findID('palette');
+
+// Playback Controls setup:
+
+var playbackControlManifest = {
+	playbackContainer: findID('playback'),
+	stepButton: findID('stepButton'),
+	playButton: findID('playButton'),
+	stopButton: findID('stopButton'),
+	clearButton: findID('deleteButton'),
+	quickSaveButton: findID('quickSaveButton'),
+	autoQuickSaveButton: findID('autoQuickSaveButton'),
+	revertButton: findID('revertToQuickSaveButton'),
+	speedSelector: findID('simSpeed'),
+	fadeSelector: findID('cellFade')
+};
+
+var thePlaybackControls = new PlaybackControls(playbackControlManifest);
+
+// File menu items:
+
+var newBoard = findID('newBoard');
+var saveBoard = findID('saveBoard');
+var loadBoard = findID('loadBoard');
+
+// File menu form elements
+var newGameFloater = findID('newGameFloater');
+var newBoardWidth = findID('newBoardWidth');
+var newBoardHeight = findID('newBoardHeight');
+var newBoardSubmit = findID('newBoardSubmit');
+
+var saveLocalForm = findID('saveLocalForm');
+var saveFloater = findID('saveFloater');
+var saveLocalDimensions = findID('saveLocalDimensions');
+var saveLocalName = findID('saveLocalName');
+var saveLocalSubmit = findID('saveLocalSubmit');
+
+var loadResults = [];
+var loadFloater = findID('loadFloater');
+var loadResultsArea = findID('loadResultsArea');
+var loadResultsSelector = findID('loadResultsSelector');
+
+// Misc UI components:
+var getInfo = findID('getInfo');
+var infoFloater = findID('infoFloater');
+var closeFloaterButtons = document.getElementsByClassName('closeFloaterButton');
+var floaters = document.getElementsByClassName('floater');
+var floaterHandles = document.getElementsByClassName('handle');
+var floaterTopZIndex = 10;
+
+var floaterMover = {
+	movingNow: false,
+	element: null,
+	bufferX: 0,
+	bufferY: 0
+};
+
+// Demographics setup:
+
+var stats = findID('stats');
+
+var demographicManifest = {
+	populationNow: findID('populationNow'),
+	populationLast: findID('populationLast'),
+	birthRateNow: findID('birthRateNow'),
+	deathRateNow: findID('deathRateNow'),
+	netBirthRate: findID('netBirthRate')
+};
+
+var theDemographics = new Demographics(demographicManifest);
+
+//// FUNCTIONS
 
 function showDialog(dialogName) {
 	if (dialogName.style.display == 'block') {
@@ -69,127 +151,3 @@ function updateLoadResultsArea(index) {
 	<p>Dimensions: ${width} wide X ${height} tall</p>`;
 	}, 200);
 }
-
-// INITs
-
-generatePalette(startingColors, palette);
-var allColors = document.querySelectorAll('.color');
-
-// LISTENERS
-
-for (let button of closeFloaterButtons) {
-	button.addEventListener('click', ev => {
-		ev.target.parentElement.style.display = 'none';
-	});
-}
-
-for (let thisFloater of floaters) {
-	thisFloater.addEventListener('mousedown', () => {
-		floaterTopZIndex++;
-		thisFloater.style.zIndex = floaterTopZIndex;
-	});
-}
-
-for (let handle of floaterHandles) {
-	handle.addEventListener('mousedown', handleMouseDown);
-	handle.addEventListener('mouseup', () => {
-		floaterMover.movingNow = false;
-		floaterMover.element = null;
-		floaterMover.bufferX = null;
-		floaterMover.bufferY = null;
-	});
-}
-
-gameboard.addEventListener('mousedown', theController.cellClick, false);
-gameboard.addEventListener('mouseover', theController.cellClick, false);
-
-stepButton.addEventListener('click', () => theController.advance(), false);
-playButton.addEventListener('click', () => theController.play(), false);
-clearButton.addEventListener('click', () => theController.clear(), false);
-quickSaveButton.addEventListener('click', () => theController.makeQuickSave(), false);
-revertToQuickSaveButton.addEventListener('click', () => theController.revertToQuickSave(), false);
-autoQuickSaveButton.addEventListener(
-	'click',
-	() => {
-		theController.toggleAutoQuickSave();
-	},
-	false
-);
-
-simSpeed.addEventListener('input', () => {
-	theController.playDelayMs = Number.parseInt(simSpeed.value);
-	document.body.focus();
-});
-cellFade.addEventListener('input', () => {
-	document.styleSheets[4].rules[0].style.transitionDuration = cellFade.value;
-	document.body.focus();
-});
-
-palette.addEventListener('click', ev => {
-	if (ev.target.classList.contains('color')) {
-		ev.target.classList.add('color--selected');
-		theController.currentColor.classList.remove('color--selected');
-		theController.currentColor = ev.target;
-	}
-});
-
-document.addEventListener('keydown', ev => {
-	if (ev.key === ' ' && document.activeElement.tagName != 'INPUT') {
-		if (!theController.isPlaying) {
-			playButton.click();
-		} else {
-			stopButton.click();
-		}
-	}
-});
-
-newBoard.addEventListener('click', () => {
-	showDialog(newGameFloater);
-});
-
-saveBoard.addEventListener('click', () => {
-	updateSaveDialog();
-	showDialog(saveFloater);
-});
-
-loadBoard.addEventListener('click', () => {
-	showDialog(loadFloater);
-	updateLoadResults();
-});
-
-loadResultsSelector.addEventListener('input', () => {
-	updateLoadResultsArea(loadResultsSelector.value);
-});
-
-saveLocalSubmit.addEventListener('click', ev => {
-	if (saveLocalForm.checkValidity()) {
-		ev.preventDefault();
-		theController.makeFullSave(saveLocalName.value);
-	} else {
-		saveLocalForm.click();
-	}
-});
-
-window.addEventListener('mousemove', handleMoveElement);
-
-getInfo.addEventListener('click', () => {
-	showDialog(infoFloater);
-});
-
-newBoardSubmit.addEventListener('click', () => {
-	gameboard.removeEventListener('mousedown', theController.cellClick, false);
-	gameboard.removeEventListener('mouseover', theController.cellClick, false);
-
-	let newWidth = Number.parseInt(newBoardWidth.value);
-	let newHeight = Number.parseInt(newBoardHeight.value);
-
-	[theView, theModel, theController] = startNewBoard(newWidth, newHeight, gameboard);
-
-	gameboard.addEventListener('mousedown', theController.cellClick, false);
-	gameboard.addEventListener('mouseover', theController.cellClick, false);
-});
-
-tippy('[title]', {
-	theme: 'light',
-	arrow: true
-});

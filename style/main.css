@@ -8,11 +8,12 @@ html {
 }
 
 #start {
-	width: 20%;
-	height: 40%;
+	min-width: 25%;
+	min-height: 40%;
+	max-height: 80%;
 	display: block;
 	position: absolute;
-	left: 40%;
+	left: 37.5%;
 	top: 20%;
 	background: hsla(0, 0%, 100%, 0.75);
 	border: 2px solid black;

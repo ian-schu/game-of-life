@@ -1,7 +1,73 @@
 body,
 html {
 	font-family: 'Oswald', sans-serif;
-	background-color: lightgray;
+	/* background-color: lightgray; */
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+#start {
+	width: 20%;
+	height: 40%;
+	display: block;
+	position: absolute;
+	left: 40%;
+	top: 20%;
+	background: hsla(0, 0%, 100%, 0.75);
+	border: 2px solid black;
+	padding: 1rem;
+	box-sizing: border-box;
+	font-size: 1.5rem;
+	transition: opacity 1s;
+}
+
+#start h2,
+#start h4 {
+	display: block;
+	text-align: center;
+	margin: 0.2rem auto;
+}
+
+#startGameForm {
+	text-align: center;
+	padding: 1.5rem 2rem;
+}
+
+#startGameForm label {
+	display: block;
+}
+
+#startGameForm input {
+	font-size: 1.2rem;
+	width: 25%;
+	text-align: center;
+}
+
+#startGameSubmit {
+	margin-top: 1.6rem;
+}
+
+#container {
+	z-index: 1;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	transition-property: background-color, opacity;
+	transition-duration: 1s;
+	position: fixed;
+	display: none;
+}
+
+#videoBackground {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	opacity: 0.9;
+	z-index: -1;
+	transition: opacity 90s;
 }
 
 #header {
@@ -106,7 +172,7 @@ html {
 
 #playback-wing {
 	align-items: flex-end;
-	justify-content: space-evenly;
+	justify-content: space-between;
 }
 
 .playback {

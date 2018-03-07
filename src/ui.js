@@ -1,12 +1,12 @@
 //// FUNCTIONS
 
-function updateStats() {
-	populationNow.textContent = theModel.demographics.populationNow;
-	populationLast.textContent = theModel.demographics.populationLast;
-	birthRateNow.textContent = theModel.demographics.birthRateInstant;
-	deathRateNow.textContent = theModel.demographics.deathRateInstant;
-	netBirthRate.textContent = theModel.demographics.netBirthRate;
-}
+// function updateStats() {
+// 	populationNow.textContent = theModel.demographics.populationNow;
+// 	populationLast.textContent = theModel.demographics.populationLast;
+// 	birthRateNow.textContent = theModel.demographics.birthRateInstant;
+// 	deathRateNow.textContent = theModel.demographics.deathRateInstant;
+// 	netBirthRate.textContent = theModel.demographics.netBirthRate;
+// }
 
 function showDialog(dialogName) {
 	if (dialogName.style.display == 'block') {
@@ -35,6 +35,39 @@ function handleMoveElement(ev) {
 function updateSaveDialog() {
 	saveLocalDimensions.textContent = `
 	${theModel.height} cells wide X ${theModel.width} cells tall`;
+}
+
+function updateLoadResults() {
+	loadResultsSelector.innerHTML = '';
+	getLoadResults();
+	loadResults.forEach((el, i) => {
+		let option = document.createElement('option');
+		option.value = i;
+		option.textContent = el.name || 'No name provided';
+		loadResultsSelector.appendChild(option);
+	});
+	setTimeout(() => {
+		updateLoadResultsArea(0);
+	}, 300);
+}
+
+function getLoadResults() {
+	loadResults = [];
+	for (let key in localStorage) {
+		loadResults.push(JSON.parse(localStorage.getItem(key)));
+	}
+	loadResults = loadResults.filter(el => el !== null);
+}
+
+function updateLoadResultsArea(index) {
+	loadResultsArea.innerHTML = '';
+	let width = loadResults[index].width;
+	let height = loadResults[index].height;
+	let name = loadResults[index].name;
+	setTimeout(() => {
+		loadResultsArea.innerHTML = `<p>Pattern Name: ${name}</p>
+	<p>Dimensions: ${width} wide X ${height} tall</p>`;
+	}, 200);
 }
 
 // INITs
@@ -72,7 +105,6 @@ gameboard.addEventListener('mouseover', theController.cellClick, false);
 
 stepButton.addEventListener('click', () => theController.advance(), false);
 playButton.addEventListener('click', () => theController.play(), false);
-stopButton.addEventListener('click', () => theController.stop(), false);
 clearButton.addEventListener('click', () => theController.clear(), false);
 quickSaveButton.addEventListener('click', () => theController.makeQuickSave(), false);
 revertToQuickSaveButton.addEventListener('click', () => theController.revertToQuickSave(), false);
@@ -80,7 +112,6 @@ autoQuickSaveButton.addEventListener(
 	'click',
 	() => {
 		theController.toggleAutoQuickSave();
-		autoQuickSaveButton.classList.toggle('round-button--active');
 	},
 	false
 );
@@ -90,7 +121,7 @@ simSpeed.addEventListener('input', () => {
 	document.body.focus();
 });
 cellFade.addEventListener('input', () => {
-	document.styleSheets[3].rules[0].style.transitionDuration = cellFade.value;
+	document.styleSheets[4].rules[0].style.transitionDuration = cellFade.value;
 	document.body.focus();
 });
 
@@ -123,6 +154,11 @@ saveBoard.addEventListener('click', () => {
 
 loadBoard.addEventListener('click', () => {
 	showDialog(loadFloater);
+	updateLoadResults();
+});
+
+loadResultsSelector.addEventListener('input', () => {
+	updateLoadResultsArea(loadResultsSelector.value);
 });
 
 saveLocalSubmit.addEventListener('click', ev => {

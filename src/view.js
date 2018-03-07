@@ -1,19 +1,21 @@
 class View {
 	constructor(width, height, DOMparent) {
 		this.grid = this.generateView(width, height, DOMparent);
+		this.currentColor = 'black';
+		this.deadColor = 'white';
 		this.redraw = this.redraw.bind(this);
 	}
 
 	generateView(width, height, DOMparent) {
 		return Array2D.buildWith(width, height, (r, c) => {
-			let thisCell = this.makeCell(c, r, 'div', width, height);
+			let thisCell = this.makeCellElement(c, r, 'div', width, height);
 
 			DOMparent.appendChild(thisCell);
 			return thisCell;
 		});
 	}
 
-	makeCell(x, y, elementType, boardWidth, boardHeight) {
+	makeCellElement(x, y, elementType, boardWidth, boardHeight) {
 		let cellWidth = 100 / boardWidth;
 		let cellHeight = 100 / boardHeight;
 		let cell = document.createElement(elementType);
@@ -29,12 +31,12 @@ class View {
 		this.grid[row][col].style.background = color;
 	}
 
-	redraw(modelGrid) {
-		Array2D.eachCell(modelGrid, (cell, r, c) => {
+	redraw(model) {
+		Array2D.eachCell(model.grid, (cell, r, c) => {
 			if (cell.alive) {
 				this.colorCell(c, r, cell.color);
 			} else if (cell.alive === false) {
-				this.colorCell(c, r, 'white');
+				this.colorCell(c, r, this.deadColor);
 			}
 		});
 	}

@@ -115,6 +115,20 @@
 	max-width: 330px;
 }
 
+#loadResultsSelector {
+	width: 8vw;
+	font-family: 'Oswald', sans-serif;
+	font-size: 1.2vw;
+	font-weight: 400;
+	margin: 0.5vh 0px;
+	width: 80%;
+}
+
+#loadResultsArea {
+	font-size: 1.2vw;
+	color: darkred;
+}
+
 #newGameFloater {
 	width: 20vw;
 	max-width: 300px;
@@ -237,7 +251,7 @@ button:active {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
-	height: 50%;
+	height: 40%;
 	width: 50%;
 	justify-content: space-evenly;
 	align-content: space-between;
@@ -292,9 +306,10 @@ button:active {
 	border: 2px solid darkgrey;
 	border-radius: 3px;
 	color: black;
-	font-size: 0.8vw;
+	font-size: 1vw;
 	font-weight: 300;
-	max-width: 8vw;
+	max-width: 12vw;
+	max-height: 7vw;
 	padding: 0.5vw;
 }
 

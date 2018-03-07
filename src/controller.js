@@ -1,5 +1,5 @@
 class Controller {
-	constructor(view, model, startColor) {
+	constructor(view, model, startColor, playbackObj, demographicsObj) {
 		this.view = view;
 		this.model = model;
 		this.currentColor = startColor;
@@ -7,10 +7,13 @@ class Controller {
 		this.isPlaying = false;
 		this.autoQuickSave = false;
 		this.cellClick = this.cellClick.bind(this);
+		this.playback = playbackObj;
+		this.demographics = demographicsObj;
 	}
 
 	toggleAutoQuickSave() {
 		this.autoQuickSave = this.autoQuickSave ? false : true;
+		this.playback.toggleAutoQuickSave();
 	}
 
 	cellClick(ev) {
@@ -27,6 +30,7 @@ class Controller {
 				this.model.activateCell(column, row, this.currentColor.dataset.color);
 			}
 			this.view.colorCell(column, row, this.currentColor.dataset.color);
+			this.demographics.updateDemographics(this.model.demographyData);
 			// console.log(this.model.grid[row][column]);
 			// console.log(this.view.grid[row][column]);
 		}
@@ -35,13 +39,12 @@ class Controller {
 	advance() {
 		this.model.propagateBoard();
 		this.model.advance();
-		this.view.redraw(this.model.grid);
-		updateStats();
+		this.view.redraw(this.model);
+		this.demographics.updateDemographics(this.model.demographyData);
 	}
 
 	play() {
-		playButton.classList.toggle('playback--active');
-		playButton.classList.toggle('round-button--active');
+		this.playback.play();
 
 		if (!this.isPlaying) {
 			if (this.autoQuickSave) {
@@ -64,6 +67,7 @@ class Controller {
 
 	makeFullSave(saveName) {
 		let saveObj = this.model.generateFullSave();
+		saveObj.name = saveName;
 		localStorage.setItem(saveName, JSON.stringify(saveObj));
 	}
 
@@ -74,12 +78,12 @@ class Controller {
 	revertToQuickSave() {
 		this.model.revertToQuickSave();
 		this.view.redraw(this.model.grid);
-		updateStats();
+		this.demographics.updateDemographics(this.model.demographyData);
 	}
 
 	clear() {
 		this.model.clear();
 		this.view.redraw(this.model.grid);
-		updateStats();
+		this.demographics.updateDemographics(this.model.demographyData);
 	}
 }

@@ -27,111 +27,129 @@
 </head>
 
 <body>
+  <video autoplay id="videoBackground">
+    <source src="background.mp4" type="video/mp4">
+  </video>
 
-  <div id="top-right-links">
-    <span id="signIn-string">Sign In</span>
-    <span id="user-string"></span>
-    <span id="signOut-string">Logout</span>
+  <div id="start">
+
+      <h2>Conway's Game of Life</h2>
+      <h4>Set dimensions for your new game:</h4>
+  <form id="startGameForm">
+      <label for="startBoardWidth">Cells across</label>
+      <input id="startBoardWidth" type="number" name="startBoardWidth" value="60" required>
+      <label for="startBoardHeight">Cells high</label>
+      <input id="startBoardHeight" type="number" name="startBoardHeight" value="40" required>
+      <button class="dialogButton" id="startGameSubmit" type="submit" name="startBoardSubmit">Start Game</button>
+    </form>
   </div>
 
-  <div id="auth-container">
-    <h2>Sign into Conway's Game of Life</h2>
-    <p>
-      Save winning patterns, compete against high scores, make the app creator feel loved, etc.
-    </p>
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
-  </div>
+  <div id="container">
 
-  <div class="floater" id="newGameFloater">
-    <div class="handle">========</div>
-    <button class="closeFloaterButton">X</button>
-    <form id="newBoardForm">
-      <h4>Set dimensions for your new board:</h4>
+
+    <div id="top-right-links">
+      <span id="signIn-string">Sign In</span>
+      <span id="user-string"></span>
+      <span id="signOut-string">Logout</span>
+    </div>
+
+    <div id="auth-container">
+      <h2>Sign into Conway's Game of Life</h2>
       <p>
-        <strong>Warning:</strong> this will <strong>totally wipe</strong> your existing board. If you want to keep what's here, make sure you've saved first.
+        Save winning patterns, compete against high scores, make the app creator feel loved, etc.
       </p>
-      <label for="newBoardWidth">Number of cells across</label>
-      <input id="newBoardWidth" type="number" name="newBoardWidth" value="60">
-      <label for="newBoardHeight">Number of cells high</label>
-      <input id="newBoardHeight" type="number" name="newBoardHeight" value="40">
-      <button class="dialogButton" id="newBoardSubmit" type="button" name="newBoardSubmit">Create New Board</button>
-    </form>
-  </div>
-
-  <div class="floater" id="saveFloater">
-    <div class="handle">======</div>
-    <button class="closeFloaterButton">X</button>
-    <h3>Save this cell pattern</h3>
-    <p>Since you're not logged in, you can save this cell pattern locally to your browser, and it will be available next time you're here.</p>
-    <p>If you enter the name of an existing saved pattern, we will simply <em>save over</em> the existing one.</p>
-    <p>Your pattern will saved with dimensions:</p>
-    <div id="saveLocalDimensions"></div>
-    <form id="saveLocalForm">
-      <label for="saveLocalName">Give your cell pattern a name:</label>
-      <input id="saveLocalName" type="text" name="" placeholder="e.g. Black Death, Chimera, Cas9, etc" value="" required>
-      <button id="saveLocalSubmit" class="dialogButton" type="submit">Save Pattern Locally</button>
-    </form>
-  </div>
-
-
-  <div class="floater" id="loadFloater">
-    <div class="handle">======</div>
-    <button class="closeFloaterButton">X</button>
-    <h3>Load a new cell pattern</h3>
-    <p>Since you're not logged in, we're just going to search through localStorage in your browser and see if you have anything here:</p>
-    <div id="loadResults">
-      
-    </div>
-  </div>
-
-  <header id="header">
-    <div id="titles">
-      <div id="title">
-        Conway's Game of Life
-      </div>
-      <div class="subtitle">Ian Schumann</div>
-      <div class="subtitle">Galvanize Web Development - Quarter 1</div>
+      <div id="firebaseui-auth-container"></div>
+      <div id="loader">Loading...</div>
     </div>
 
-    <div class="floater" id="infoFloater">
-      <div class="handle">==============</div>
+    <div class="floater" id="newGameFloater">
+      <div class="handle">========</div>
       <button class="closeFloaterButton">X</button>
-      <h4>What's going on here?</h4>
-      <p>Conway's Game of Life is a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications. You can read more about it all <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="blank">here</a>.</p>
-      <p>
-        Pick a color! Or several. Start drawing. Hit the play button. Change the simulation speed and/or cell fade speed for interesting color effects. Keep drawing while the sim runs. Create different colored populations and watch them mingle, spread, or die
-        out. Have fun!
-      </p>
+      <form id="newBoardForm">
+        <h4>Set dimensions for your new board:</h4>
+        <p>
+          <strong>Warning:</strong> this will <strong>totally wipe</strong> your existing board. If you want to keep what's here, make sure you've saved first.
+        </p>
+        <label for="newBoardWidth">Number of cells across</label>
+        <input id="newBoardWidth" type="number" name="newBoardWidth" value="60">
+        <label for="newBoardHeight">Number of cells high</label>
+        <input id="newBoardHeight" type="number" name="newBoardHeight" value="40">
+        <button class="dialogButton" id="newBoardSubmit" type="button" name="newBoardSubmit">Create New Board</button>
+      </form>
     </div>
-    <button id="getInfo" class="round-button" data-tippy-placement="left" title="Get more info on wtf is going on here, see links to creator profile, Git, etc."><i class="fas fa-question-circle"></i></button>
 
-  </header>
+    <div class="floater" id="saveFloater">
+      <div class="handle">======</div>
+      <button class="closeFloaterButton">X</button>
+      <h3>Save this cell pattern</h3>
+      <p>Since you're not logged in, you can save this cell pattern locally to your browser, and it will be available next time you're here.</p>
+      <p>If you enter the name of an existing saved pattern, we will simply <em>save over</em> the existing one.</p>
+      <p>Your pattern will saved with dimensions:</p>
+      <div id="saveLocalDimensions"></div>
+      <form id="saveLocalForm">
+        <label for="saveLocalName">Give your cell pattern a name:</label>
+        <input id="saveLocalName" type="text" name="" placeholder="e.g. Black Death, Chimera, Cas9, etc" value="" required>
+        <button id="saveLocalSubmit" class="dialogButton" type="submit">Save Pattern Locally</button>
+      </form>
+    </div>
 
-  <div id="menu">
-    <button id="newBoard" title="Start over with a new board" class="menu-button" type="button" name="newBoard">New</button>
-    <button id="saveBoard" title="Save this board locally or in the cloud" class="menu-button" type="button" name="saveBoard">Save</button>
-    <button id="loadBoard" title="Load a pattern of your own or from the cloud" class="menu-button" type="button" name="loadBoard">Load</button>
-  </div>
 
-  <div id="main">
-    <div id="playback-wing" class="wing">
-      <div id="playback-buttons">
-        <button id="stepButton" title="<h5>Step</h5>Advance forward one generation" class="playback round-button"><i class="fas fa-angle-right"></i></button>
-        <button id="playButton" title="<h5>Play</h5>Advance continuously at your chosen Simulation Speed<br/>
+    <div class="floater" id="loadFloater">
+      <div class="handle">======</div>
+      <button class="closeFloaterButton">X</button>
+      <h3>Load a new cell pattern</h3>
+      <p>Since you're not logged in, we're just pulling from local storage.</p>
+      <label for="loadResultsSelector">Available Patterns:</label>
+      <select id="loadResultsSelector"></select>
+      <div id="loadResultsArea">
+      </div>
+      <button class="dialogButton" id="loadSelectedPattern">Load Selected Pattern</button>
+    </div>
+
+    <header id="header">
+      <div id="titles">
+        <div id="title">
+          Conway's Game of Life
+        </div>
+        <div class="subtitle">Ian Schumann</div>
+        <div class="subtitle">Galvanize Web Development - Quarter 1</div>
+      </div>
+
+      <div class="floater" id="infoFloater">
+        <div class="handle">==============</div>
+        <button class="closeFloaterButton">X</button>
+        <h4>What's going on here?</h4>
+        <p>Conway's Game of Life is a cellular simulation created in 1970, which has spawned a cult following and a diverse set of practical applications. You can read more about it all <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="blank">here</a>.</p>
+        <p>
+          Pick a color! Or several. Start drawing. Hit the play button. Change the simulation speed and/or cell fade speed for interesting color effects. Keep drawing while the sim runs. Create different colored populations and watch them mingle, spread, or die
+          out. Have fun!
+        </p>
+      </div>
+      <button id="getInfo" class="round-button" data-tippy-placement="left" title="Get more info on wtf is going on here, see links to creator profile, Git, etc."><i class="fas fa-question-circle"></i></button>
+
+    </header>
+
+    <div id="menu">
+      <button id="newBoard" title="Start over with a new board" class="menu-button" type="button" name="newBoard">New</button>
+      <button id="saveBoard" title="Save this board locally or in the cloud" class="menu-button" type="button" name="saveBoard">Save</button>
+      <button id="loadBoard" title="Load a pattern of your own or from the cloud" class="menu-button" type="button" name="loadBoard">Load</button>
+    </div>
+
+    <div id="main">
+      <div id="playback-wing" class="wing">
+        <div id="playback-buttons">
+          <button id="stepButton" title="<h5>Step</h5>Advance forward one generation" class="playback round-button"><i class="fas fa-angle-right"></i></button>
+          <button id="playButton" title="<h5>Play</h5>Advance continuously at your chosen Simulation Speed; press again to stop<br/>
           (shortcut: spacebar)
         </br/>" class="playback round-button"><i class="fas fa-play"></i></button>
-        <button id="stopButton" data-tippy-placement="left" title="<h5>Stop</h5>Stop if playing<br/>
-          (shortcut:spacebar)
-        </br/>" class="playback round-button"><i class="fas fa-stop"></i></button>
-        <button id="clearButton" data-tippy-placement="right" title="<h5>Clear</h5>Completely wipe the gameboard" class="playback round-button"><i class="fas fa-trash-alt"></i></button>
-        <button id="quickSaveButton" data-tippy-placement="left" title="<h5>Quicksave</h5>Store a temporary copy of the board at this moment" class="playback round-button"><i class="far fa-clipboard"></i></button>
-        <button id="autoQuickSaveButton" data-tippy-placement="right" title="<h5>Enable Auto-Quicksave</h5>Run Quicksave automatically each time you press Play" class="playback round-button"><i class="fas fa-clipboard-check"></i></i></button>
-        <button id="revertToQuickSaveButton" data-tippy-placement="bottom" title="<h5>Revert to Quicksave</h5>If a Quicksave exists, revert the board back to it" class="playback round-button"><i class="fas fa-history"></i></button>
-      </div>
-      <div id="playback-selectors">
-        <label for="simSpeed">Simulation Speed</label>
-        <select data-tippy-placement="right" title="Select a speed (in ms) at which to advance during Play" id="simSpeed" class="playback-selector" name="simSpeed">
+          <button id="clearButton" data-tippy-placement="left" title="<h5>Clear</h5>Completely wipe the gameboard" class="playback round-button"><i class="fas fa-trash-alt"></i></button>
+          <button id="quickSaveButton" data-tippy-placement="right" title="<h5>Quicksave</h5>Store a temporary copy of the board at this moment (use this with <strong>Revert</strong> below)" class="playback round-button"><i class="far fa-clipboard"></i></button>
+          <button id="autoQuickSaveButton" data-tippy-placement="bottom" title="<h5>Enable Auto-Quicksave</h5>Run Quicksave automatically each time you press Play" class="playback round-button"><i class="fas fa-clipboard-check"></i></i></button>
+          <button id="revertToQuickSaveButton" data-tippy-placement="bottom" title="<h5>Revert to Quicksave</h5>If a Quicksave exists, revert the board back to it" class="playback round-button"><i class="fas fa-history"></i></button>
+        </div>
+        <div id="playback-selectors">
+          <label for="simSpeed">Simulation Speed</label>
+          <select data-tippy-placement="right" title="Select a speed (in ms) at which to advance during Play" id="simSpeed" class="playback-selector" name="simSpeed">
           <option value="0">(0ms) - Ludicrous</option>
           <option value="50">(50ms) - Real fast</option>
           <option value="120" selected>(120ms) - Fast</option>
@@ -141,8 +159,8 @@
           <option value="2000">(2s) - Glacial</option>
           <option value="3000">(3s) - Geologic</option>
         </select>
-        <label for="cellFade">Cell Fade Speed</label>
-        <select data-tippy-placement="right" title="Change the animation speed for all cells on the board<br/>
+          <label for="cellFade">Cell Fade Speed</label>
+          <select data-tippy-placement="right" title="Change the animation speed for all cells on the board<br/>
         (combine this with differen Sim Speeds for interesting effects)
       </br/>" id="cellFade" class="playback-selector" name="cellFade">
           <option value="0s">(0ms) - Instant</option>
@@ -152,24 +170,25 @@
           <option value="1s">(1s) - Lengthy</option>
           <option value="2.5s">(2.5s) - Glacial</option>
         </select>
+        </div>
+
       </div>
+      <div id="gameboard">
+      </div>
+      <div id="stats" data-tippy-placement="left" title="<h5>Population Statistics</h5>This readout will update with every step in your game. Watch these numbers to get an idea how your 'colony' of automata cells is doing." class="wing">
+        <span class="stat-label">Population Now:</span><span class="stat-readout" id="populationNow">0</span>
+        <span class="stat-label">Population Prior:</span><span class="stat-readout" id="populationLast">0</span>
+        <span class="stat-label">Birth Rate Now:</span><span class="stat-readout" id="birthRateNow">0</span>
+        <span class="stat-label">Death Rate Now:</span><span class="stat-readout" id="deathRateNow">0</span>
+        <span class="stat-label">Net Birth Rate:</span><span class="stat-readout" id="netBirthRate">0</span>
+      </div>
+    </div>
 
-    </div>
-    <div id="gameboard">
-    </div>
-    <div id="stats" data-tippy-placement="left" title="<h5>Population Statistics</h5>This readout will update with every step in your game. Watch these numbers to get an idea how your 'colony' of automata cells is doing." class="wing">
-      <span class="stat-label">Population Now:</span><span class="stat-readout" id="populationNow">0</span>
-      <span class="stat-label">Population Prior:</span><span class="stat-readout" id="populationLast">0</span>
-      <span class="stat-label">Birth Rate Now:</span><span class="stat-readout" id="birthRateNow">0</span>
-      <span class="stat-label">Death Rate Now:</span><span class="stat-readout" id="deathRateNow">0</span>
-      <span class="stat-label">Net Birth Rate:</span><span class="stat-readout" id="netBirthRate">0</span>
-    </div>
-  </div>
-
-  <div id="footer">
-    <div id="palette" class="controls">
-      <button data-color="black" style="background-color:black" class="color color--selected"></button>
-      <button data-color="white" style="background-color:white" class="color"></button>
+    <div id="footer">
+      <div id="palette" class="controls">
+        <button data-color="black" style="background-color:black" class="color color--selected"></button>
+        <button data-color="white" style="background-color:white" class="color"></button>
+      </div>
     </div>
   </div>
 
@@ -178,6 +197,8 @@
   <script src="src/view.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/model.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/controller.js" type="text/javascript" charset="utf-8"></script>
+  <script src="src/playbackControls.js" type="text/javascript" charset="utf-8"></script>
+  <script src="src/demographics.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/palette.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/main.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/ui.js" type="text/javascript" charset="utf-8"></script>

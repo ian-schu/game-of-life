@@ -98,11 +98,11 @@ class Board {
 		this.height = height;
 		this.grid = Array2D.buildWith(width, height, this.cellsToGrid);
 		this.quickSave = [];
-		this.demographics = {
-			birthRateInstant: 0,
+		this.demographyData = {
+			birthRateNow: 0,
 			// birthRateRolling10: 0,
 			// birthRateRolling50: 0,
-			deathRateInstant: 0,
+			deathRateNow: 0,
 			// deathRateRolling10: 0,
 			// deathRateRolling50: 0,
 			populationNow: 0,
@@ -134,11 +134,11 @@ class Board {
 			cell.die();
 			cell.aliveNext = false;
 		});
-		this.demographics = {
-			birthRateInstant: 0,
+		this.demographyData = {
+			birthRateNow: 0,
 			// birthRateRolling10: 0,
 			// birthRateRolling50: 0,
-			deathRateInstant: 0,
+			deathRateNow: 0,
 			// deathRateRolling10: 0,
 			// deathRateRolling50: 0,
 			populationNow: 0,
@@ -182,7 +182,7 @@ class Board {
 		this.propagateAllCells();
 		this.finishDemographicCalcs();
 		// console.clear();
-		// console.log(this.demographics);
+		// console.log(this.demographyData);
 	}
 
 	propagateAllCells() {
@@ -201,53 +201,38 @@ class Board {
 	getCellDemographics(cell) {
 		if (cell.alive) {
 			if (cell.aliveNext == false) {
-				this.demographics.deathRateInstant++;
+				this.demographyData.deathRateNow++;
 			}
 		}
 		if (cell.aliveNext) {
 			if (!cell.alive) {
-				this.demographics.birthRateInstant++;
+				this.demographyData.birthRateNow++;
 			}
 		}
 	}
 
 	startDemographicCalcs() {
-		this.demographics.birthRateInstant = 0;
-		this.demographics.deathRateInstant = 0;
-		this.demographics.populationLast = this.demographics.populationNow;
+		this.demographyData.birthRateNow = 0;
+		this.demographyData.deathRateNow = 0;
+		this.demographyData.populationLast = this.demographyData.populationNow;
+		// this.populationNow = 0;
 	}
 
 	finishDemographicCalcs() {
-		this.demographics.netBirthRate =
-			this.demographics.birthRateInstant - this.demographics.deathRateInstant;
-		this.demographics.populationNow =
-			this.demographics.populationLast + this.demographics.netBirthRate;
+		this.demographyData.netBirthRate =
+			this.demographyData.birthRateNow - this.demographyData.deathRateNow;
+		this.demographyData.populationNow =
+			this.demographyData.populationLast + this.demographyData.netBirthRate;
 	}
 
 	activateCell(x, y, color) {
 		this.grid[y][x].born();
 		this.grid[y][x].color = color;
-		this.demographics.populationNow++;
+		this.demographyData.populationNow++;
 	}
 
 	killCell(x, y) {
 		this.grid[y][x].die();
-		this.demographics.populationNow--;
+		this.demographyData.populationNow--;
 	}
 }
-
-// let testBoard = new Board(3, 3);
-//
-// testBoard.grid[1][1].born();
-// testBoard.grid[1][1].color = 'black';
-//
-// testBoard.makeQuickSave();
-//
-// Array2D.map(testBoard.grid, cell => cell.alive);
-// testBoard.grid
-//
-// testBoard.quickSave;
-//
-// testBoard.revertToQuickSave()
-//
-// testBoard.grid[1][1].die();

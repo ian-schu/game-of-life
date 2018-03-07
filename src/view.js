@@ -1,8 +1,6 @@
 class View {
 	constructor(width, height, DOMparent) {
 		this.grid = this.generateView(width, height, DOMparent);
-		this.currentColor = 'black';
-		this.deadColor = 'white';
 		this.redraw = this.redraw.bind(this);
 	}
 
@@ -27,16 +25,17 @@ class View {
 		return cell;
 	}
 
-	colorCell(col, row, color) {
-		this.grid[row][col].style.background = color;
+	cellChangeColor(row, col, color) {
+		let cell = this.grid[row][col];
+		cell.style.background = color;
 	}
 
-	redraw(model) {
-		Array2D.eachCell(model.grid, (cell, r, c) => {
+	redraw(model, deadcolor) {
+		Array2D.eachCell(model.grid, (cell, row, column) => {
 			if (cell.alive) {
-				this.colorCell(c, r, cell.color);
-			} else if (cell.alive === false) {
-				this.colorCell(c, r, this.deadColor);
+				this.cellChangeColor(row, column, cell.color);
+			} else if (!cell.alive) {
+				this.cellChangeColor(row, column, deadcolor);
 			}
 		});
 	}

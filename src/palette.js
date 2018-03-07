@@ -1,4 +1,42 @@
+class Palette {
+	constructor(colorArray, DOMParent) {
+		this.container = DOMParent;
+		this.colors = this.generatePalette(colorArray, this.container);
+		this.currentColor = this.colors[0].dataset.color;
+		this.currentColorElement = this.colors[0];
+		this.deadColor = 'white';
+
+		this.selectColor(this.colors[0]);
+	}
+
+	generatePalette(colorArray, DOMparent) {
+		return colorArray.map(colorEntry => {
+			// Create newColor dom element
+			let newColor = document.createElement('button');
+			newColor.className = 'color';
+			newColor.dataset.color = colorEntry;
+
+			let tooltip = colorEntry.split('');
+			tooltip[0] = tooltip[0].toUpperCase();
+			newColor.title = tooltip.join('');
+
+			newColor.style.background = colorEntry;
+			DOMparent.appendChild(newColor);
+			return newColor;
+		});
+	}
+
+	selectColor(selection) {
+		this.currentColorElement.classList.remove('color--selected');
+		this.currentColorElement = selection;
+		this.currentColorElement.classList.add('color--selected');
+		this.currentColor = this.currentColorElement.dataset.color;
+	}
+}
+
 var startingColors = [
+	'black',
+	'white',
 	'silver',
 	'darkgray',
 	'gray',
@@ -113,19 +151,6 @@ var startingColors = [
 	'crimson',
 	'darkmagenta'
 ];
-
-function generatePalette(colorArray, paletteElement) {
-	for (let i = 0; i < colorArray.length; i++) {
-		let newColor = document.createElement('button');
-		newColor.className = 'color';
-		newColor.dataset.color = colorArray[i];
-		let tooltip = colorArray[i].split('');
-		tooltip[0] = tooltip[0].toUpperCase();
-		newColor.title = tooltip.join('');
-		newColor.style.background = colorArray[i];
-		paletteElement.appendChild(newColor);
-	}
-}
 
 function findColor(colorName) {
 	return document.querySelector(`.color[data-color=${colorName}]`);

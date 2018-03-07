@@ -11,17 +11,15 @@ class PlaybackControls {
 		this.fadeSelector = DOMrefManifest.fadeSelector;
 	}
 	play() {
-		this.playButton.innerHTML = this.swapPlayButton();
-		this.playButton.classList.toggle('round-button--active');
-		this.isPlaying = this.isPlaying === true ? false : true;
+		this.playButton.innerHTML = '<i class="fas fa-pause"></i>';
+		this.playButton.classList.add('round-button--active');
+		this.isPlaying = true;
 	}
 
-	swapPlayButton() {
-		if (this.isPlaying) {
-			return '<i class="fas fa-play">';
-		} else {
-			return '<i class="fas fa-pause"></i>';
-		}
+	stop() {
+		this.playButton.innerHTML = '<i class="fas fa-play">';
+		this.playButton.classList.remove('round-button--active');
+		this.isPlaying = false;
 	}
 
 	toggleAutoQuickSave() {

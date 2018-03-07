@@ -22,11 +22,10 @@ var palette = findID('palette');
 // Playback Controls setup:
 
 var playbackControlManifest = {
-	playbackContainer: findID('playback'),
+	playbackContainer: findID('playback-selectors'),
 	stepButton: findID('stepButton'),
 	playButton: findID('playButton'),
-	stopButton: findID('stopButton'),
-	clearButton: findID('deleteButton'),
+	clearButton: findID('clearButton'),
 	quickSaveButton: findID('quickSaveButton'),
 	autoQuickSaveButton: findID('autoQuickSaveButton'),
 	revertButton: findID('revertToQuickSaveButton'),

@@ -10,6 +10,7 @@ class Cell {
 		this.y = y;
 		this.neighborhood = [];
 		this.setNeighborhood = this.setNeighborhood.bind(this);
+		this.deadColor = 'white';
 	}
 
 	born() {
@@ -18,6 +19,7 @@ class Cell {
 
 	die() {
 		this.alive = false;
+		this.color = this.deadColor;
 	}
 
 	setNeighborhood(board, boardHeight, boardWidth) {
@@ -129,10 +131,10 @@ class Board {
 		return Array2D.flatten(this.render2D(t, f));
 	}
 
-	clear() {
+	clear(deadColor) {
 		Array2D.eachCell(this.grid, cell => {
 			cell.die();
-			cell.aliveNext = false;
+			cell.color = deadColor;
 		});
 		this.demographyData = {
 			birthRateNow: 0,
@@ -199,15 +201,11 @@ class Board {
 	}
 
 	getCellDemographics(cell) {
-		if (cell.alive) {
-			if (cell.aliveNext == false) {
-				this.demographyData.deathRateNow++;
-			}
+		if (cell.alive && !cell.aliveNext) {
+			this.demographyData.deathRateNow++;
 		}
-		if (cell.aliveNext) {
-			if (!cell.alive) {
-				this.demographyData.birthRateNow++;
-			}
+		if (cell.aliveNext && !cell.alive) {
+			this.demographyData.birthRateNow++;
 		}
 	}
 
@@ -215,7 +213,7 @@ class Board {
 		this.demographyData.birthRateNow = 0;
 		this.demographyData.deathRateNow = 0;
 		this.demographyData.populationLast = this.demographyData.populationNow;
-		// this.populationNow = 0;
+		this.demographyData.populationNow = 0;
 	}
 
 	finishDemographicCalcs() {
@@ -225,14 +223,15 @@ class Board {
 			this.demographyData.populationLast + this.demographyData.netBirthRate;
 	}
 
-	activateCell(x, y, color) {
-		this.grid[y][x].born();
-		this.grid[y][x].color = color;
-		this.demographyData.populationNow++;
-	}
-
-	killCell(x, y) {
-		this.grid[y][x].die();
-		this.demographyData.populationNow--;
+	cellClick(row, column, newColor, makeAlive) {
+		let cell = this.grid[row][column];
+		cell.color = newColor;
+		if (!makeAlive && cell.alive) {
+			cell.die();
+			this.demographyData.populationNow--;
+		} else if (makeAlive && !cell.alive) {
+			cell.born();
+			this.demographyData.populationNow++;
+		}
 	}
 }

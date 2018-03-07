@@ -2,7 +2,8 @@
 
 // INITs
 
-generatePalette(startingColors, palette);
+var thePalette = new Palette(startingColors, palette);
+
 var allColors = document.querySelectorAll('.color');
 
 // LISTENERS
@@ -34,43 +35,18 @@ function addListeners() {
 	gameboard.addEventListener('mousedown', theController.cellClick, false);
 	gameboard.addEventListener('mouseover', theController.cellClick, false);
 
-	stepButton.addEventListener('click', () => theController.advance(), false);
-	playButton.addEventListener('click', () => theController.play(), false);
-	clearButton.addEventListener('click', () => theController.clear(), false);
-	quickSaveButton.addEventListener('click', () => theController.makeQuickSave(), false);
-	revertToQuickSaveButton.addEventListener('click', () => theController.revertToQuickSave(), false);
-	autoQuickSaveButton.addEventListener(
-		'click',
-		() => {
-			theController.toggleAutoQuickSave();
-		},
-		false
-	);
-
-	simSpeed.addEventListener('input', () => {
-		theController.playDelayMs = Number.parseInt(simSpeed.value);
-		document.body.focus();
-	});
-	cellFade.addEventListener('input', () => {
-		document.styleSheets[4].rules[0].style.transitionDuration = cellFade.value;
-		document.body.focus();
-	});
-
 	palette.addEventListener('click', ev => {
 		if (ev.target.classList.contains('color')) {
-			ev.target.classList.add('color--selected');
-			theController.currentColor.classList.remove('color--selected');
-			theController.currentColor = ev.target;
+			theController.selectColor(ev.target);
 		}
 	});
 
-	document.addEventListener('keydown', ev => {
-		if (ev.key === ' ' && document.activeElement.tagName != 'INPUT') {
-			if (!theController.isPlaying) {
-				playButton.click();
-			} else {
-				stopButton.click();
-			}
+	document.addEventListener('keypress', ev => {
+		let active = document.activeElement;
+		if (ev.key === ' ' && active.tagName != 'INPUT') {
+			ev.preventDefault();
+			active.blur();
+			theController.clickPlay();
 		}
 	});
 
@@ -175,6 +151,6 @@ function startNewBoard(width, height, boardElement) {
 	return [
 		newView,
 		newModel,
-		new Controller(newView, newModel, findColor('black'), thePlaybackControls, theDemographics)
+		new Controller(newView, newModel, thePalette, thePlaybackControls, theDemographics)
 	];
 }

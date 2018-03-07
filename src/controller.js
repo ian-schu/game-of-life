@@ -1,19 +1,60 @@
 class Controller {
-	constructor(view, model, startColor, playbackObj, demographicsObj) {
+	constructor(view, model, palette, playbackObj, demographicsObj) {
 		this.view = view;
 		this.model = model;
-		this.currentColor = startColor;
+		this.palette = palette;
 		this.playDelayMs = 120;
 		this.isPlaying = false;
+		this.playInterval = 0;
 		this.autoQuickSave = false;
-		this.cellClick = this.cellClick.bind(this);
 		this.playback = playbackObj;
 		this.demographics = demographicsObj;
+
+		// Bind all the THIS's
+		this.cellClick = this.cellClick.bind(this);
+		this.advance = this.advance.bind(this);
+		this.clickPlay = this.clickPlay.bind(this);
+		this.play = this.play.bind(this);
+		this.stop = this.stop.bind(this);
+		this.clear = this.clear.bind(this);
+		this.changePlaybackSpeed = this.changePlaybackSpeed.bind(this);
+		this.changeCellFade = this.changeCellFade.bind(this);
+		this.addPlaybackListeners = this.addPlaybackListeners.bind(this);
+		this.makeQuickSave = this.makeQuickSave.bind(this);
+		this.revertToQuickSave = this.revertToQuickSave.bind(this);
+		this.toggleAutoQuickSave = this.toggleAutoQuickSave.bind(this);
+
+		this.addPlaybackListeners();
+	}
+
+	addPlaybackListeners() {
+		this.playback.stepButton.addEventListener('click', this.advance, false);
+		this.playback.playButton.addEventListener('click', this.clickPlay, false);
+
+		this.playback.clearButton.addEventListener('click', this.clear, false);
+		this.playback.quickSaveButton.addEventListener('click', this.makeQuickSave, false);
+		this.playback.revertButton.addEventListener('click', this.revertToQuickSave, false);
+		this.playback.autoQuickSaveButton.addEventListener('click', this.toggleAutoQuickSave, false);
+
+		this.playback.speedSelector.addEventListener('input', this.changePlaybackSpeed, false);
+		this.playback.fadeSelector.addEventListener('input', this.changeCellFade, false);
+	}
+
+	changePlaybackSpeed() {
+		this.playDelayMs = Number.parseInt(this.playback.speedSelector.value);
+	}
+
+	changeCellFade() {
+		document.styleSheets[4].rules[0].style.transitionDuration = this.playback.fadeSelector.value;
 	}
 
 	toggleAutoQuickSave() {
 		this.autoQuickSave = this.autoQuickSave ? false : true;
 		this.playback.toggleAutoQuickSave();
+	}
+
+	selectColor(selection) {
+		this.palette.selectColor(selection);
 	}
 
 	cellClick(ev) {
@@ -24,45 +65,59 @@ class Controller {
 		) {
 			let row = ev.target.dataset.y;
 			let column = ev.target.dataset.x;
-			if (this.currentColor.dataset.color === 'white') {
-				this.model.killCell(column, row);
+
+			if (this.palette.currentColor == this.palette.deadColor) {
+				this.model.cellClick(row, column, this.palette.currentColor, false);
+				this.cellChangeColor(row, column);
 			} else {
-				this.model.activateCell(column, row, this.currentColor.dataset.color);
+				this.model.cellClick(row, column, this.palette.currentColor, true);
+				this.cellChangeColor(row, column);
 			}
-			this.view.colorCell(column, row, this.currentColor.dataset.color);
+
 			this.demographics.updateDemographics(this.model.demographyData);
 			// console.log(this.model.grid[row][column]);
 			// console.log(this.view.grid[row][column]);
 		}
 	}
 
+	cellChangeColor(row, column) {
+		this.view.cellChangeColor(row, column, this.palette.currentColor);
+	}
+
 	advance() {
 		this.model.propagateBoard();
 		this.model.advance();
-		this.view.redraw(this.model);
+		this.view.redraw(this.model, this.palette.deadColor);
 		this.demographics.updateDemographics(this.model.demographyData);
+	}
+
+	clickPlay() {
+		if (this.isPlaying) {
+			this.stop();
+		} else if (!this.isPlaying && this.autoQuickSave) {
+			this.makeQuickSave();
+			this.play();
+		} else {
+			this.play();
+		}
 	}
 
 	play() {
 		this.playback.play();
-
-		if (!this.isPlaying) {
-			if (this.autoQuickSave) {
-				this.makeQuickSave();
-			}
-			stats.classList.toggle('stats--playing');
-			this.isPlaying = setInterval(() => {
-				this.advance();
-			}, this.playDelayMs);
-		}
+		stats.classList.add('stats--playing');
+		this.playInterval = setInterval(() => {
+			this.advance();
+		}, this.playDelayMs);
+		this.isPlaying = true;
+		document.body.focus();
 	}
 
 	stop() {
-		stats.classList.toggle('stats--playing');
-		clearInterval(this.isPlaying);
+		this.playback.stop();
+		stats.classList.remove('stats--playing');
+		clearInterval(this.playInterval);
 		this.isPlaying = false;
-		playButton.classList.toggle('playback--active');
-		playButton.classList.toggle('round-button--active');
+		document.body.focus();
 	}
 
 	makeFullSave(saveName) {
@@ -77,13 +132,13 @@ class Controller {
 
 	revertToQuickSave() {
 		this.model.revertToQuickSave();
-		this.view.redraw(this.model.grid);
+		this.view.redraw(this.model, this.palette.deadColor);
 		this.demographics.updateDemographics(this.model.demographyData);
 	}
 
 	clear() {
-		this.model.clear();
-		this.view.redraw(this.model.grid);
+		this.model.clear(this.palette.deadColor);
+		this.view.redraw(this.model, this.palette.deadColor);
 		this.demographics.updateDemographics(this.model.demographyData);
 	}
 }

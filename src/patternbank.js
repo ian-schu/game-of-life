@@ -37,6 +37,7 @@ var gliderBoard = findID('container-glider');
 var gliderRawPattern = [
 	[_, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, 1, _, _, _, _, _, _, _, _, _],
 	[_, _, _, 1, _, _, _, _, _, _, _, _],
 	[_, 1, 1, 1, _, _, _, _, _, _, _, _],
@@ -44,14 +45,19 @@ var gliderRawPattern = [
 	[_, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _]
 ];
 
-var gliderView = new View(12, 10, gliderBoard);
-var gliderModel = new Board(12, 10);
+var gliderView = new View(12, 12, gliderBoard);
+var gliderModel = new Board(12, 12);
 gliderModel.quickSave = gliderModel.rawArrayToQuickSave(gliderRawPattern);
 gliderModel.revertToQuickSave();
 var gliderMini = new miniController(gliderView, gliderModel, gliderBoard, 80);
+
+findID('glider-get').addEventListener('click', gliderMini.get, false);
+findID('glider-rotate').addEventListener('click', gliderMini.rotate, false);
+findID('glider-flip').addEventListener('click', gliderMini.flip, false);
 
 //// PENTA
 
@@ -63,7 +69,16 @@ var pentaRawPattern = [
 	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
@@ -71,11 +86,15 @@ var pentaRawPattern = [
 	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _]
 ];
 
-var pentaView = new View(20, 11, pentaBoard);
-var pentaModel = new Board(20, 11);
+var pentaView = new View(20, 20, pentaBoard);
+var pentaModel = new Board(20, 20);
 pentaModel.quickSave = pentaModel.rawArrayToQuickSave(pentaRawPattern);
 pentaModel.revertToQuickSave();
 var pentaMini = new miniController(pentaView, pentaModel, pentaBoard, 150);
+
+findID('penta-get').addEventListener('click', pentaMini.get, false);
+findID('penta-rotate').addEventListener('click', pentaMini.rotate, false);
+findID('penta-flip').addEventListener('click', pentaMini.flip, false);
 
 //// PULSAR
 
@@ -84,6 +103,7 @@ var pulsarBoard = findID('container-pulsar');
 var pulsarRawPattern = [
 	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, 1, 1, 1, _, _, _, 1, 1, 1, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, 1, _, _, _, _, 1, _, 1, _, _, _, _, 1, _, _, _],
@@ -97,15 +117,20 @@ var pulsarRawPattern = [
 	[_, _, _, 1, _, _, _, _, 1, _, 1, _, _, _, _, 1, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, 1, 1, 1, _, _, _, 1, 1, 1, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _]
 ];
 
-var pulsarView = new View(19, 17, pulsarBoard);
-var pulsarModel = new Board(19, 17);
+var pulsarView = new View(19, 19, pulsarBoard);
+var pulsarModel = new Board(19, 19);
 pulsarModel.quickSave = pulsarModel.rawArrayToQuickSave(pulsarRawPattern);
 pulsarModel.revertToQuickSave();
 var pulsarMini = new miniController(pulsarView, pulsarModel, pulsarBoard, 200);
+
+findID('pulsar-get').addEventListener('click', pulsarMini.get, false);
+findID('pulsar-rotate').addEventListener('click', pulsarMini.rotate, false);
+findID('pulsar-flip').addEventListener('click', pulsarMini.flip, false);
 
 //// LWSS
 
@@ -121,43 +146,55 @@ var lwssRawPattern = [
 	[_, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _],
 	[_, _, _, _, _, _, _, _, _, _, _, _]
 ];
 
-var lwssView = new View(12, 10, lwssBoard);
-var lwssModel = new Board(12, 10);
+var lwssView = new View(12, 12, lwssBoard);
+var lwssModel = new Board(12, 12);
 lwssModel.quickSave = lwssModel.rawArrayToQuickSave(lwssRawPattern);
 lwssModel.revertToQuickSave();
 var lwssMini = new miniController(lwssView, lwssModel, lwssBoard, 80);
+
+findID('lwss-get').addEventListener('click', lwssMini.get, false);
+findID('lwss-rotate').addEventListener('click', lwssMini.rotate, false);
+findID('lwss-flip').addEventListener('click', lwssMini.flip, false);
 
 //// DART
 
 var dartBoard = findID('container-dart');
 
 var dartRawPattern = [
-	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, _, _, _, 1, _, _, _, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, _, _, 1, _, 1, _, _, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, _, 1, _, _, _, 1, _, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, _, _, 1, 1, 1, _, _, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, 1, 1, _, _, _, 1, 1, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, 1, _, _, _, 1, _, 1, _, _, _, 1, _, _, _, _, _, _],
-	[_, _, _, _, _, 1, 1, _, _, _, 1, _, 1, _, _, _, 1, 1, _, _, _, _, _],
-	[_, _, _, _, 1, _, _, _, _, _, 1, _, 1, _, _, _, _, _, 1, _, _, _, _],
-	[_, _, _, _, _, 1, _, 1, 1, _, 1, _, 1, _, 1, 1, _, 1, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
-	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _]
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, 1, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, 1, _, 1, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, 1, _, _, _, 1, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, 1, 1, 1, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, 1, 1, _, _, _, 1, 1, _, _, _, _, _, _, _],
+	[_, _, _, _, _, 1, _, _, _, 1, _, 1, _, _, _, 1, _, _, _, _, _],
+	[_, _, _, _, 1, 1, _, _, _, 1, _, 1, _, _, _, 1, 1, _, _, _, _],
+	[_, _, _, 1, _, _, _, _, _, 1, _, 1, _, _, _, _, _, 1, _, _, _],
+	[_, _, _, _, 1, _, 1, 1, _, 1, _, 1, _, 1, 1, _, 1, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
+	[_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _]
 ];
 
-var dartView = new View(23, 19, dartBoard);
-var dartModel = new Board(23, 19);
+var dartView = new View(21, 21, dartBoard);
+var dartModel = new Board(21, 21);
 dartModel.quickSave = dartModel.rawArrayToQuickSave(dartRawPattern);
 dartModel.revertToQuickSave();
 var dartMini = new miniController(dartView, dartModel, dartBoard, 80);
+
+findID('dart-get').addEventListener('click', dartMini.get, false);
+findID('dart-rotate').addEventListener('click', dartMini.rotate, false);
+findID('dart-flip').addEventListener('click', dartMini.flip, false);

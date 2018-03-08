@@ -13,13 +13,16 @@ class miniController {
 		this.stop = this.stop.bind(this);
 		this.advance = this.advance.bind(this);
 		this.clickPlay = this.clickPlay.bind(this);
+		this.rotate = this.rotate.bind(this);
+		this.flip = this.flip.bind(this);
 
 		this.addPlaybackListeners();
 		this.view.redraw(this.model, 'white');
 	}
 
 	addPlaybackListeners() {
-		this.player.addEventListener('click', this.clickPlay, false);
+		this.player.addEventListener('mouseenter', this.clickPlay, false);
+		this.player.addEventListener('mouseleave', this.stop, false);
 	}
 
 	clickPlay() {
@@ -47,6 +50,16 @@ class miniController {
 	advance() {
 		this.model.propagateBoard();
 		this.model.advance();
+		this.view.redraw(this.model, 'white');
+	}
+
+	rotate() {
+		this.model.rotate();
+		this.view.redraw(this.model, 'white');
+	}
+
+	flip() {
+		this.model.flip();
 		this.view.redraw(this.model, 'white');
 	}
 }

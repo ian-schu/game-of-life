@@ -16,6 +16,7 @@ html {
 	border: 3px solid black;
 	z-index: 200;
 	transition: left 0.75s;
+	box-shadow: -2px 0px 4px black;
 }
 
 .patternbank-edge-button {
@@ -46,14 +47,15 @@ html {
 }
 
 .pattern-container {
-	width: 98%;
+	width: 100%;
 	height: 20%;
 	margin-top: 0.1vw;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: center;
-	align-content: flex-start;
+	justify-content: flex-start;
+	align-content: center;
+	padding-left: 2%;
 }
 
 .pattern-container:hover {
@@ -62,18 +64,63 @@ html {
 
 .pattern-title {
 	font-size: 1vw;
+	width: 80%;
 }
 
 .pattern-board {
 	display: flex;
 	height: 85%;
-	width: 95%;
+	width: 80%;
 	flex-wrap: wrap;
 	justify-content: center;
+	box-sizing: border-box;
 }
 
-.pattern-board > .cell:hover {
-	background: white;
+.pattern-board:hover {
+	border: 3px solid aqua;
+}
+
+.pattern-board:active {
+	border: 3px solid red;
+}
+
+.pattern-button-container {
+	width: 19%;
+	height: 85%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-content: space-between;
+}
+
+.pattern-button {
+	height: auto;
+	width: 100%;
+	display: block;
+	font-size: 1.7rem;
+	text-align: center;
+}
+
+.pattern-get:hover {
+	color: yellow;
+}
+.pattern-get:active {
+	color: cyan;
+}
+
+.pattern-rotate:hover {
+	color: green;
+}
+.pattern-rotate:active {
+	color: lightgreen;
+}
+
+.pattern-flip:hover {
+	color: purple;
+}
+.pattern-flip:active {
+	color: lightpink;
 }
 
 #expand {

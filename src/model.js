@@ -114,7 +114,10 @@ class Board {
 		Array2D.eachCell(this.grid, cell => {
 			cell.setNeighborhood(this.grid, this.height, this.width);
 		});
+
 		this.getCellDemographics = this.getCellDemographics.bind(this);
+		this.rotate = this.rotate.bind(this);
+		this.flip = this.flip.bind(this);
 	}
 
 	cellsToGrid(r, c) {
@@ -243,5 +246,15 @@ class Board {
 				return { alive: false, color: 'white' };
 			}
 		});
+	}
+
+	rotate() {
+		this.grid = Array2D.rrotate(this.grid);
+		this.quickSave = Array2D.rrotate(this.quickSave);
+	}
+
+	flip() {
+		this.grid = Array2D.hflip(this.grid);
+		this.quickSave = Array2D.hflip(this.quickSave);
 	}
 }

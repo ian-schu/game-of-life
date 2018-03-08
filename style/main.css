@@ -8,7 +8,7 @@ html {
 }
 
 #start {
-	min-width: 25%;
+	width: 25%;
 	min-height: 40%;
 	max-height: 80%;
 	display: block;
@@ -24,6 +24,7 @@ html {
 }
 
 #start h2,
+#start h3,
 #start h4 {
 	display: block;
 	text-align: center;
@@ -106,16 +107,19 @@ html {
 	cursor: crosshair;
 	max-width: 70%;
 	z-index: 2;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .cell {
-	display: inline-block;
-	border: 1px solid lightgray;
+	border: none;
 	background: #ffffff;
 	margin: 0;
-	border-top: none;
-	border-left: none;
-	box-sizing: border-box;
+	box-sizing: content-box;
+}
+
+.cell:hover {
+	background: aqua;
 }
 
 .wing {

@@ -17,8 +17,7 @@
 
   <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
-
-  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
 
@@ -143,7 +142,7 @@
       <div id="playback-wing" class="wing">
         <div id="playback-buttons">
           <button id="stepButton" title="<h5>Step</h5>Advance forward one generation" class="playback round-button"><i class="fas fa-angle-right"></i></button>
-          <button id="playButton" title="<h5>Play</h5>Advance continuously at your chosen Simulation Speed; press again to stop<br/>
+          <button id="playButton" data-tippy-placement="right" title="<h5>Play</h5>Advance continuously at your chosen Simulation Speed; press again to stop<br/>
           (shortcut: spacebar)
         </br/>" class="playback round-button"><i class="fas fa-play"></i></button>
           <button id="clearButton" data-tippy-placement="left" title="<h5>Clear</h5>Completely wipe the gameboard" class="playback round-button"><i class="fas fa-trash-alt"></i></button>

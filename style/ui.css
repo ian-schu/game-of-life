@@ -328,10 +328,10 @@ button:active {
 	border: 2px solid darkgrey;
 	border-radius: 3px;
 	color: black;
-	font-size: 0.85vw;
+	font-size: 0.9vw;
 	font-weight: 300;
-	max-width: 12vw;
-	max-height: 8vw;
+	max-width: 15vw;
+	max-height: 12vw;
 	padding: 0.5vw;
 }
 

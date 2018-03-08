@@ -37,9 +37,8 @@ html {
 	display: block;
 	width: 100%;
 	height: 100%;
-	overflow: scroll;
-	overflow-y: scroll;
-	overflow-x: hidden;
+	position: absolute;
+	top: 0%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -47,10 +46,34 @@ html {
 }
 
 .pattern-container {
-	width: 95%;
+	width: 98%;
 	height: 20%;
-	margin-top: 0.25vw;
-	border: 1px solid gray;
+	margin-top: 0.1vw;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: flex-start;
+}
+
+.pattern-container:hover {
+	background-color: #cbf2ff;
+}
+
+.pattern-title {
+	font-size: 1vw;
+}
+
+.pattern-board {
+	display: flex;
+	height: 85%;
+	width: 95%;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.pattern-board > .cell:hover {
+	background: white;
 }
 
 #expand {

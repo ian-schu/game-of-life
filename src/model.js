@@ -234,4 +234,14 @@ class Board {
 			this.demographyData.populationNow++;
 		}
 	}
+
+	rawArrayToQuickSave(rawArray) {
+		return Array2D.map(rawArray, (cell, row, column) => {
+			if (cell == 1) {
+				return { alive: true, color: 'black' };
+			} else {
+				return { alive: false, color: 'white' };
+			}
+		});
+	}
 }

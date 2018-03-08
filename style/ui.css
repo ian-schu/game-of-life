@@ -322,6 +322,19 @@ button:active {
 	padding: 0.5vw;
 }
 
+.tippy-tooltip.pattern-theme {
+	/* Your styling here. Example: */
+	background-color: #d8eff9;
+	border: 2px solid darkgrey;
+	border-radius: 3px;
+	color: black;
+	font-size: 0.85vw;
+	font-weight: 300;
+	max-width: 12vw;
+	max-height: 8vw;
+	padding: 0.5vw;
+}
+
 .tippy-tooltip h5 {
 	font-size: 1vw;
 	margin: 0;

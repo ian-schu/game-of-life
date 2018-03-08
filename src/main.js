@@ -133,6 +133,7 @@ function initialStartGame() {
 	let height = startBoardHeight.value;
 	[theView, theModel, theController] = startNewBoard(width, height, gameboard);
 	container.style.display = 'block';
+	video.style.opacity = 0;
 	setTimeout(() => {
 		container.style.opacity = 1;
 		start.style.opacity = 0;
@@ -151,7 +152,6 @@ function initialStartGame() {
 }
 
 video.playbackRate = 0.75;
-video.style.opacity = 0;
 
 // var [theView, theModel, theController] = startNewBoard(70, 40, gameboard);
 

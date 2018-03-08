@@ -64,6 +64,19 @@ function addListeners() {
 		updateLoadResults();
 	});
 
+	tooltipToggle.addEventListener('change', () => {
+		let elsWithTips = document.querySelectorAll('[data-tippy]');
+		if (tooltipToggle.checked) {
+			for (let el of elsWithTips) {
+				el._tippy.enable();
+			}
+		} else {
+			for (let el of elsWithTips) {
+				el._tippy.disable();
+			}
+		}
+	});
+
 	loadResultsSelector.addEventListener('input', () => {
 		updateLoadResultsArea(loadResultsSelector.value);
 	});

@@ -35,6 +35,15 @@
 	background-color: lightpink;
 }
 
+#tooltip-toggle-container {
+	margin: 0 0.5vw;
+	padding: 0vw 0 0.1vw;
+}
+
+#tooltip-toggle {
+	font-size: 1.1vw;
+}
+
 #getInfo {
 	align-self: flex-end;
 }

@@ -35,11 +35,12 @@ var playbackControlManifest = {
 
 var thePlaybackControls = new PlaybackControls(playbackControlManifest);
 
-// File menu items:
+// Menu bar items:
 
 var newBoard = findID('newBoard');
 var saveBoard = findID('saveBoard');
 var loadBoard = findID('loadBoard');
+var tooltipToggle = findID('tooltip-toggle');
 
 // File menu form elements
 var newGameFloater = findID('newGameFloater');

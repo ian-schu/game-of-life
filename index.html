@@ -2,8 +2,8 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="./style/main.css">
-  <link rel="stylesheet" href="./style/ui.css">
+  <link type="text/css" rel="stylesheet" href="./style/main.css">
+  <link type="text/css" rel="stylesheet" href="./style/ui.css">
   <meta charset="utf-8">
   <title>Game of Life</title>
 
@@ -14,7 +14,8 @@
       transition: background-color 0.2s;
     }
   </style>
-
+  <script src="https://d3js.org/d3-color.v1.min.js"></script>
+  <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
   <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
   <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
@@ -45,7 +46,26 @@
   </div>
 
   <div id="container">
+    <div id="patternbank">
+      <button class="patternbank-edge-button" id="expand"><i class="fas fa-angle-double-left"></i></button>
+      <button class="patternbank-edge-button" id="collapse"><i class="fas fa-angle-double-right"></i></button>
 
+      <div id="patternbank-inner">
+        <div class="pattern-container">
+        </div>
+        <div class="pattern-container">
+        </div>
+        <div class="pattern-container">
+        </div>
+        <div class="pattern-container">
+        </div>
+        <div class="pattern-container">
+        </div>
+        <div class="pattern-container">
+        </div>
+      </div>
+
+    </div>
 
     <div id="top-right-links">
       <span id="signIn-string">Sign In</span>
@@ -210,9 +230,8 @@
   <script src="src/palette.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/ui.js" type="text/javascript" charset="utf-8"></script>
   <script src="src/main.js" type="text/javascript" charset="utf-8"></script>
+  <script src="src/patternbank.js" type="text/javascript" charset="utf-8"></script>
   <script defer src="src/firebase-auth.js" type="text/javascript" charset="utf-8"></script>
-  <script src="https://d3js.org/d3-color.v1.min.js"></script>
-  <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
 </body>
 
 </html>

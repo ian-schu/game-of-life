@@ -14,7 +14,7 @@ var startGameSubmit = findID('startGameSubmit');
 /// Control items:
 var theView, theModel, theController;
 
-// VARIABLES
+// Main game items
 var main = findID('main');
 var gameboard = findID('gameboard');
 var palette = findID('palette');

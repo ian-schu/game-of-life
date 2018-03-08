@@ -123,6 +123,40 @@ html {
 	color: lightpink;
 }
 
+#patternDropperFloater {
+	top: 25%;
+	right: 25%;
+	background-color: rgba(200, 230, 255, 0.5);
+	width: 30%;
+	height: 30%;
+	display: none;
+	text-align: center;
+}
+
+#dropperBoard {
+	border: 1px solid black;
+	line-height: 0;
+	z-index: 5;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+}
+
+.dropperCell {
+	background-color: rgba(255, 255, 255, 0.1);
+	border: none;
+	margin: 0;
+	box-sizing: content-box;
+}
+
+#dropPatternButton {
+	font-size: 1.5rem;
+	background-color: rgba (200, 200, 200, 0.6);
+	display: block;
+	width: 30%;
+	margin: 0.5rem auto;
+}
+
 #expand {
 	bottom: 1%;
 	background: lightblue;

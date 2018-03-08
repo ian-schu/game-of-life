@@ -198,3 +198,40 @@ var dartMini = new miniController(dartView, dartModel, dartBoard, 80);
 findID('dart-get').addEventListener('click', dartMini.get, false);
 findID('dart-rotate').addEventListener('click', dartMini.rotate, false);
 findID('dart-flip').addEventListener('click', dartMini.flip, false);
+
+//// PATTERN DROPPER FLOATER
+
+patternDropper = document.getElementById('patternDropperFloater');
+dropperBoard = document.getElementById('dropperBoard');
+dropperGrid = [];
+
+function loadDropper(quickSave) {
+	dropperGrid = [];
+	dropperBoard.innerHTML = '';
+	let newHeight = quickSave.length;
+	let cellHeight = theView.grid[0][0].clientHeight;
+	let newWidth = quickSave[0].length;
+	let cellWidth = theView.grid[0][0].clientWidth;
+
+	dropperBoard.style.width = `${newWidth * cellWidth}px`;
+	dropperBoard.style.height = `${newHeight * cellHeight}px`;
+	patternDropper.style.width = `${newWidth * cellWidth + 50}px`;
+	patternDropper.style.height = `${newHeight * cellHeight + 50}px`;
+
+	Array2D.eachCell(quickSave, (cell, row, column) => {
+		let newCell = document.createElement('div');
+		newCell.className = 'dropperCell';
+		newCell.dataset.x = column;
+		newCell.dataset.y = row;
+		newCell.style.width = `${cellWidth}px`;
+		newCell.style.height = `${cellHeight}px`;
+		if (cell.alive) {
+			newCell.style.background = thePalette.currentColor;
+			newCell.dataset.alive = 'true';
+		}
+		dropperBoard.appendChild(newCell);
+		dropperGrid.push(newCell);
+	});
+}
+
+dropPatternButton = document.getElementById('dropPatternButton');

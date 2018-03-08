@@ -15,6 +15,7 @@ class miniController {
 		this.clickPlay = this.clickPlay.bind(this);
 		this.rotate = this.rotate.bind(this);
 		this.flip = this.flip.bind(this);
+		this.get = this.get.bind(this);
 
 		this.addPlaybackListeners();
 		this.view.redraw(this.model, 'white');
@@ -61,5 +62,10 @@ class miniController {
 	flip() {
 		this.model.flip();
 		this.view.redraw(this.model, 'white');
+	}
+
+	get() {
+		patternDropper.style.display = 'block';
+		loadDropper(this.model.quickSave);
 	}
 }

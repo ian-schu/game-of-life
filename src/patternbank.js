@@ -7,12 +7,16 @@ var patternbankInner = findID('patternbank-inner');
 patternbankInner.style.top = '0%';
 
 expand.addEventListener('click', () => {
-	patternbank.style.left = '85%';
+	if (patternbank.style.left === '85%') {
+		patternbank.style.left = '99.5%';
+		expand.style.transform = 'scaleX(1)';
+	} else {
+		patternbank.style.left = '85%';
+		expand.style.transform = 'scaleX(-1)';
+	}
 });
 
-collapse.addEventListener('click', () => {
-	patternbank.style.left = '99.5%';
-});
+// collapse.addEventListener('click', () => {});
 
 patternbank.addEventListener('wheel', ev => {
 	let fractionalChange = ev.deltaY / window.innerHeight;

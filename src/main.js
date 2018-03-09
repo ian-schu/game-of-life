@@ -127,7 +127,7 @@ function addListeners() {
 		let newHeight = Number.parseInt(newBoardHeight.value);
 
 		[theView, theModel, theController] = startNewBoard(newWidth, newHeight, gameboard);
-
+		createToast(`Created new board with dimensions ${newWidth} x ${newHeight}`);
 		gameboard.addEventListener('mousedown', theController.cellClick, false);
 		gameboard.addEventListener('mouseover', theController.cellClick, false);
 	});

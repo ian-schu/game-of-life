@@ -48,6 +48,12 @@ function addListeners() {
 			active.blur();
 			theController.clickPlay();
 		}
+		if (ev.key === '\\') {
+			expand.click();
+		}
+		if ((event.which == 13 || event.keyCode == 13) && patternDropper.style.display === 'block') {
+			dropPatternButton.click();
+		}
 	});
 
 	newBoard.addEventListener('click', () => {

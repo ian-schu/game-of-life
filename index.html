@@ -29,7 +29,7 @@
   <video autoplay loop id="videoBackground">
     <source src="background.mp4" type="video/mp4">
   </video>
-
+<div id="startWrapper">
   <div id="start">
 
       <h2>Welcome to ChromaCon!</h2>
@@ -39,10 +39,12 @@
       <label for="startBoardWidth">Cells across</label>
       <input id="startBoardWidth" type="number" name="startBoardWidth" value="60" required>
       <label for="startBoardHeight">Cells high</label>
-      <input id="startBoardHeight" type="number" name="startBoardHeight" value="40" required>
+      <input id="startBoardHeight" type="number" name="startBoardHeight" value="30" required>
       <button class="dialogButton" id="startGameSubmit" type="submit" name="startBoardSubmit">Start Game</button>
     </form>
   </div>
+</div>
+
 
   <div id="container">
     <div id="patternbank">
@@ -160,7 +162,6 @@
       </form>
     </div>
 
-
     <div class="floater" id="loadFloater">
       <div class="handle">======</div>
       <button class="closeFloaterButton">X</button>
@@ -205,7 +206,7 @@
       <button id="loadBoard" title="Load a pattern of your own or from the cloud" class="menu-button" type="button" name="loadBoard">Load</button>
       <div id="tooltip-toggle-container">
         <input id="tooltip-toggle" type="checkbox" name="Show tooltips" value="" checked>
-        <label for="tooltip-toggle">Show Tooltips</label>
+        <label title="Ironically there is a tooltip on this :-)" for="tooltip-toggle">Show Tooltips</label>
       </div>
     </div>
 
@@ -249,7 +250,7 @@
       </div>
       <div id="gameboard">
       </div>
-      <div id="stats" data-tippy-placement="left" title="<h5>Population Statistics</h5>This readout will update with every step in your game. Watch these numbers to get an idea how your 'colony' of automata cells is doing." class="wing">
+      <div id="stats" data-tippy-placement="left" title="<h5>Population Statistics</h5>This readout will update with every step in your game. Watch these numbers to get an idea how your 'colony' of automata is doing." class="wing">
         <span class="stat-label">Population Now:</span><span class="stat-readout" id="populationNow">0</span>
         <span class="stat-label">Population Prior:</span><span class="stat-readout" id="populationLast">0</span>
         <span class="stat-label">Birth Rate Now:</span><span class="stat-readout" id="birthRateNow">0</span>

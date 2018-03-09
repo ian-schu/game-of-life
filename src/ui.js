@@ -6,6 +6,7 @@ function findID(idString) {
 var video = findID('videoBackground');
 var container = findID('container');
 var start = findID('start');
+var startWrapper = findID('startWrapper');
 var startGameForm = findID('startGameForm');
 var startBoardWidth = findID('startBoardWidth');
 var startBoardHeight = findID('startBoardHeight');

@@ -36,12 +36,12 @@
 }
 
 #tooltip-toggle-container {
-	margin: 0 0.5vw;
-	padding: 0vw 0 0.1vw;
+	margin: 0 0.5rem;
+	padding: 0rem 0 0.1rem;
 }
 
 #tooltip-toggle {
-	font-size: 1.1vw;
+	font-size: 1.1rem;
 }
 
 #getInfo {
@@ -50,11 +50,11 @@
 
 .round-button {
 	min-width: 40px;
-	width: 3vw;
-	height: 3vw;
-	border-radius: 2.5vw;
-	font-size: 2vw;
-	padding-left: 0.4vw;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 2.5rem;
+	font-size: 2rem;
+	padding-left: 0.4rem;
 	cursor: pointer;
 	min-height: 40px;
 }
@@ -66,7 +66,7 @@
 	background-color: lightgray;
 	box-shadow: 0px 0px 2px darkgray;
 	border: 1px solid black;
-	padding: 1vw;
+	padding: 1rem;
 }
 
 /* .floater:hover {
@@ -83,20 +83,20 @@
 }
 
 #infoFloater h4 {
-	font-size: 1.3vw;
+	font-size: 1.3rem;
 	margin: 0;
 }
 
 #infoFloater p {
 	font-weight: 300;
-	font-size: 1vw;
-	width: 30vw;
+	font-size: 1rem;
+	width: 30rem;
 }
 
 #saveFloater {
 	top: 20%;
 	left: 30%;
-	width: 20vw;
+	width: 20rem;
 	max-width: 330px;
 }
 
@@ -106,40 +106,40 @@
 
 #saveLocalName {
 	display: block;
-	font-size: 0.8vw;
+	font-size: 0.8rem;
 	width: 100%;
 }
 
 #saveLocalDimensions {
-	font-size: 1.2vw;
+	font-size: 1.2rem;
 	color: red;
 	font-weight: 400;
-	margin: 1vw 0 0.5vw;
+	margin: 1rem 0 0.5rem;
 }
 
 #loadFloater {
 	top: 20%;
 	left: 40%;
-	width: 20vw;
+	width: 20rem;
 	max-width: 330px;
 }
 
 #loadResultsSelector {
-	width: 8vw;
+	width: 8rem;
 	font-family: 'Oswald', sans-serif;
-	font-size: 1.2vw;
+	font-size: 1.2rem;
 	font-weight: 400;
 	margin: 0.5vh 0px;
 	width: 80%;
 }
 
 #loadResultsArea {
-	font-size: 1.2vw;
+	font-size: 1.2rem;
 	color: darkred;
 }
 
 #newGameFloater {
-	width: 20vw;
+	width: 20rem;
 	max-width: 300px;
 	top: 20%;
 	left: 20%;
@@ -150,18 +150,18 @@
 }
 
 #newGameFloater h4 {
-	font-size: 1.1vw;
-	margin: 0.1vw;
+	font-size: 1.4rem;
+	margin: 0.1rem;
 }
 
 #newGameFloater label {
 	display: inline-block;
-	font-size: 1vw;
+	font-size: 1.1rem;
 }
 
 #newGameFloater p {
 	font-weight: 300;
-	font-size: 0.9vw;
+	font-size: 1rem;
 }
 
 #newGameFloater input {
@@ -169,7 +169,7 @@
 	float: right;
 	width: 18%;
 	max-width: 100px;
-	font-size: 0.8vw;
+	font-size: 0.8rem;
 	margin: 4px 0px 0px;
 	box-sizing: border-box;
 	text-align: center;
@@ -178,7 +178,7 @@
 .dialogButton {
 	display: block;
 	margin: 10px auto 5px;
-	font-size: 1vw;
+	font-size: 1.5rem;
 	padding: 5px 10px;
 }
 
@@ -190,10 +190,10 @@
 	border-radius: 1px;
 	background-color: white;
 	border: 1px solid black;
-	height: 0.8vw;
+	height: 0.8rem;
 	border-top: none;
-	line-height: 0.7vw;
-	letter-spacing: 0.8vw;
+	line-height: 0.7rem;
+	letter-spacing: 0.8rem;
 	text-align: center;
 	user-select: none;
 	cursor: move; /* fallback if grab cursor is unsupported */
@@ -267,22 +267,22 @@ button:active {
 }
 
 #stepButton {
-	font-size: 2vw;
+	font-size: 2rem;
 	padding-left: 10px;
 }
 
 #playButton {
-	font-size: 1.4vw;
+	font-size: 1.4rem;
 	padding-left: 11px;
 }
 
 #stopButton {
-	font-size: 1.5vw;
+	font-size: 1.5rem;
 	padding-left: 8px;
 }
 
 #clearButton {
-	font-size: 1.5vw;
+	font-size: 1.5rem;
 	padding-left: 8px;
 }
 
@@ -296,13 +296,13 @@ button:active {
 	display: flex;
 	flex-wrap: wrap;
 	min-width: 50%;
-	font-size: 1.2vw;
+	font-size: 1.2rem;
 	flex-direction: column;
 	text-align: right;
 }
 
 .playback-selector {
-	width: 8vw;
+	width: 8rem;
 	font-family: 'Oswald', sans-serif;
 	font-size: 0.8rem;
 	font-weight: 300;
@@ -315,11 +315,11 @@ button:active {
 	border: 2px solid darkgrey;
 	border-radius: 3px;
 	color: black;
-	font-size: 1vw;
+	font-size: 1rem;
 	font-weight: 300;
-	max-width: 12vw;
-	max-height: 7vw;
-	padding: 0.5vw;
+	max-width: 12rem;
+	max-height: 7rem;
+	padding: 0.5rem;
 }
 
 .tippy-tooltip.pattern-theme {
@@ -328,14 +328,14 @@ button:active {
 	border: 2px solid darkgrey;
 	border-radius: 3px;
 	color: black;
-	font-size: 0.9vw;
+	font-size: 0.9rem;
 	font-weight: 300;
-	max-width: 15vw;
-	max-height: 12vw;
-	padding: 0.5vw;
+	max-width: 15rem;
+	max-height: 12rem;
+	padding: 0.5rem;
 }
 
 .tippy-tooltip h5 {
-	font-size: 1vw;
+	font-size: 1rem;
 	margin: 0;
 }

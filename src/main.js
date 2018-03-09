@@ -145,6 +145,8 @@ function initialStartGame() {
 	setTimeout(() => {
 		start.display = 'none';
 		start.remove();
+		startWrapper.display = 'none';
+		startWrapper.remove();
 	}, 1500);
 	setTimeout(() => {
 		video.remove();

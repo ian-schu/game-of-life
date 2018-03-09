@@ -10,9 +10,11 @@ expand.addEventListener('click', () => {
 	if (patternbank.style.left === '85%') {
 		patternbank.style.left = '99.5%';
 		expand.style.transform = 'scaleX(1)';
+		createToast('Closing pattern bank', 'yellow');
 	} else {
 		patternbank.style.left = '85%';
 		expand.style.transform = 'scaleX(-1)';
+		createToast('Opening pattern bank', 'green');
 	}
 });
 
@@ -262,4 +264,5 @@ function dropHere() {
 	});
 	patternDropper.style.display = 'block';
 	theView.redraw(theModel, 'white');
+	createToast(`Dropped pattern on the board`);
 }

@@ -43,6 +43,7 @@ function addListeners() {
 
 	document.addEventListener('keypress', ev => {
 		let active = document.activeElement;
+		// console.log(ev);
 		if (ev.key === ' ' && active.tagName != 'INPUT') {
 			ev.preventDefault();
 			active.blur();
@@ -51,8 +52,24 @@ function addListeners() {
 		if (ev.key === '\\') {
 			expand.click();
 		}
-		if ((event.which == 13 || event.keyCode == 13) && patternDropper.style.display === 'block') {
+		if ((ev.which == 13 || ev.keyCode == 13) && patternDropper.style.display === 'block') {
 			dropPatternButton.click();
+		}
+		if (ev.key == '.' && active.tagName != 'INPUT') {
+			playbackControlManifest.stepButton.click();
+			createToast('Advancing one step', 'green');
+		}
+		if (ev.code == 'KeyD' && active.tagName != 'INPUT') {
+			playbackControlManifest.clearButton.click();
+		}
+		if (ev.code == 'KeyR' && active.tagName != 'INPUT') {
+			playbackControlManifest.revertButton.click();
+		}
+		if (ev.code == 'KeyA' && active.tagName != 'INPUT') {
+			playbackControlManifest.autoQuickSaveButton.click();
+		}
+		if (ev.code == 'KeyQ' && active.tagName != 'INPUT') {
+			playbackControlManifest.quickSaveButton.click();
 		}
 	});
 
@@ -178,7 +195,5 @@ function startNewBoard(width, height, boardElement) {
 
 thePalette.colors[32].addEventListener('dblclick', () => {
 	theController.timMode = true;
-	console.log(
-		'Timothy Mode enabled! Keep your cell population over 200 to unlock further achievements.'
-	);
+	createToast(`Tim Mode enabled!`, 'yellow');
 });

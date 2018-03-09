@@ -311,6 +311,37 @@ button:active {
 	margin: 0px 0px 10px;
 }
 
+#toastContainer {
+	display: flex;
+	position: absolute;
+	top: 0%;
+	z-index: 500;
+	height: 4%;
+	padding: 0.5rem 0;
+	width: 100%;
+	align-content: center;
+	flex-direction: column;
+}
+
+.toast {
+	display: block;
+	margin: 5px auto;
+	border-radius: 0.2rem;
+	height: 1.7rem;
+	max-height: 6rem;
+	max-width: 25rem;
+	font-size: 0.95rem;
+	font-weight: 300;
+	color: white;
+	border: 1px solid #d7f1f9;
+	background: #90bae0;
+	text-align: center;
+	box-shadow: 0px 0px 2px darkgrey;
+	line-height: 1.65rem;
+	padding: 0px 1rem;
+	transition: opacity 1.5s;
+}
+
 .tippy-tooltip.light-theme {
 	/* Your styling here. Example: */
 	background-color: #d8eff9;

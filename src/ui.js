@@ -42,6 +42,7 @@ var newBoard = findID('newBoard');
 var saveBoard = findID('saveBoard');
 var loadBoard = findID('loadBoard');
 var tooltipToggle = findID('tooltip-toggle');
+var toastContainer = findID('toastContainer');
 
 // File menu form elements
 var newGameFloater = findID('newGameFloater');
@@ -132,6 +133,32 @@ function updateLoadResults() {
 	setTimeout(() => {
 		updateLoadResultsArea(0);
 	}, 300);
+}
+
+function createToast(text, color) {
+	let newToast = document.createElement('div');
+	newToast.className = 'toast';
+	newToast.textContent = text;
+	if (color === 'yellow') {
+		newToast.style.backgroundColor = 'yellow';
+		newToast.style.color = 'black';
+		newToast.style.borderColor = 'white';
+	}
+	if (color === 'red') {
+		newToast.style.backgroundColor = 'red';
+		newToast.style.borderColor = 'lightpink';
+	}
+	if (color === 'green') {
+		newToast.style.backgroundColor = 'lightgreen';
+		newToast.style.borderColor = 'green';
+	}
+	toastContainer.appendChild(newToast);
+	setTimeout(() => {
+		newToast.style.opacity = 0;
+	}, 2000);
+	setTimeout(() => {
+		newToast.remove();
+	}, 3500);
 }
 
 function getLoadResults() {

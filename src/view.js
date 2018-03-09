@@ -2,6 +2,7 @@ class View {
 	constructor(width, height, DOMparent) {
 		this.grid = this.generateView(width, height, DOMparent);
 		this.redraw = this.redraw.bind(this);
+		this.redrawTim = this.redrawTim.bind(this);
 	}
 
 	generateView(width, height, DOMparent) {
@@ -30,12 +31,30 @@ class View {
 		cell.style.background = color;
 	}
 
+	cellChangeColorTim(row, col) {
+		let cell = this.grid[row][col];
+		cell.style.background = 'white';
+		cell.innerHTML = `<img src="turtle.png">`;
+	}
+
 	redraw(model, deadcolor) {
 		Array2D.eachCell(model.grid, (cell, row, column) => {
 			if (cell.alive) {
 				this.cellChangeColor(row, column, cell.color);
 			} else if (!cell.alive) {
 				this.cellChangeColor(row, column, deadcolor);
+			}
+		});
+	}
+
+	redrawTim(model) {
+		Array2D.eachCell(model.grid, (cell, row, column) => {
+			if (cell.alive) {
+				this.grid[row][column].backgroundColor = 'white';
+				this.grid[row][column].innerHTML = `<img src="turtle.png">`;
+			} else if (!cell.alive) {
+				this.grid[row][column].backgroundColor = 'white';
+				this.grid[row][column].innerHTML = ``;
 			}
 		});
 	}

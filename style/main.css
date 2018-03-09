@@ -285,6 +285,7 @@ html {
 	background: #ffffff;
 	margin: 0;
 	box-sizing: content-box;
+	user-select: none;
 }
 
 .cell:hover {

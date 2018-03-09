@@ -9,6 +9,7 @@ class Controller {
 		this.autoQuickSave = false;
 		this.playback = playbackObj;
 		this.demographics = demographicsObj;
+		this.timMode = false;
 
 		// Bind all the THIS's
 		this.cellClick = this.cellClick.bind(this);
@@ -23,6 +24,7 @@ class Controller {
 		this.makeQuickSave = this.makeQuickSave.bind(this);
 		this.revertToQuickSave = this.revertToQuickSave.bind(this);
 		this.toggleAutoQuickSave = this.toggleAutoQuickSave.bind(this);
+		this.operationTimothy = this.operationTimothy.bind(this);
 
 		this.addPlaybackListeners();
 	}
@@ -89,6 +91,9 @@ class Controller {
 		this.model.advance();
 		this.view.redraw(this.model, this.palette.deadColor);
 		this.demographics.updateDemographics(this.model.demographyData);
+		if (this.timMode) {
+			this.operationTimothy();
+		}
 	}
 
 	clickPlay() {
@@ -140,5 +145,15 @@ class Controller {
 		this.model.clear(this.palette.deadColor);
 		this.view.redraw(this.model, this.palette.deadColor);
 		this.demographics.updateDemographics(this.model.demographyData);
+	}
+
+	operationTimothy() {
+		if (this.model.demographyData.populationNow >= 200) {
+			let randomPick = Math.floor(Math.random() * 2477);
+			let randomEmoji = theEmojis[randomPick];
+			let randomRow = Math.floor(Math.random() * this.model.height);
+			let randomColumn = Math.floor(Math.random() * this.model.width);
+			this.view.grid[randomRow][randomColumn].textContent = randomEmoji;
+		}
 	}
 }

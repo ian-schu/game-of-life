@@ -167,3 +167,10 @@ function startNewBoard(width, height, boardElement) {
 		new Controller(newView, newModel, thePalette, thePlaybackControls, theDemographics)
 	];
 }
+
+thePalette.colors[32].addEventListener('dblclick', () => {
+	theController.timMode = true;
+	console.log(
+		'Timothy Mode enabled! Keep your cell population over 200 to unlock further achievements.'
+	);
+});

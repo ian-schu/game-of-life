@@ -18,6 +18,7 @@
 	"homepage": "https://github.com/ian-schu/game-of-life#readme",
 	"dependencies": {
 		"array2d": "0.0.5",
+		"emoji-chars": "^1.0.10",
 		"font-awesome-svg-png": "^1.2.2"
 	},
 	"devDependencies": {

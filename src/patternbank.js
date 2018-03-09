@@ -253,7 +253,7 @@ function dropHere() {
 			currentRow = startRow + Number.parseInt(cell.dataset.y);
 			currentColumn = startColumn + Number.parseInt(cell.dataset.x);
 			theModel.grid[currentRow][currentColumn].born();
-			theModel.grid[currentRow][currentColumn].color = cell.style.backgroundColor;
+			theModel.grid[currentRow][currentColumn].color = thePalette.currentColor;
 		}
 	});
 	patternDropper.style.display = 'block';

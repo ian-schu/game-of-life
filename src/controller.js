@@ -47,7 +47,10 @@ class Controller {
 	}
 
 	changeCellFade() {
-		document.styleSheets[4].rules[0].style.transitionDuration = this.playback.fadeSelector.value;
+		Array2D.eachCell(this.view.grid, cell => {
+			cell.style.transitionDuration = this.playback.fadeSelector.value;
+		});
+		// document.styleSheets[4].rules[0].style.transitionDuration = this.playback.fadeSelector.value;
 	}
 
 	toggleAutoQuickSave() {

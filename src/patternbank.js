@@ -235,3 +235,27 @@ function loadDropper(quickSave) {
 }
 
 dropPatternButton = document.getElementById('dropPatternButton');
+dropPatternButton.addEventListener('click', dropHere, false);
+
+function dropHere() {
+	let startCoordinate = [0, 0];
+	let startBounds = dropperGrid[0].getBoundingClientRect();
+	startCoordinate[0] = startBounds.x + startBounds.width / 2;
+	startCoordinate[1] = startBounds.y + startBounds.height / 2;
+	patternDropper.style.display = 'none';
+	let startCell = document.elementFromPoint(startCoordinate[0], startCoordinate[1]);
+	let startRow = Number.parseInt(startCell.dataset.y);
+	let startColumn = Number.parseInt(startCell.dataset.x);
+	let currentRow = 0;
+	let currentColumn = 0;
+	dropperGrid.forEach(cell => {
+		if (cell.dataset.alive) {
+			currentRow = startRow + Number.parseInt(cell.dataset.y);
+			currentColumn = startColumn + Number.parseInt(cell.dataset.x);
+			theModel.grid[currentRow][currentColumn].born();
+			theModel.grid[currentRow][currentColumn].color = cell.style.backgroundColor;
+		}
+	});
+	patternDropper.style.display = 'block';
+	theView.redraw(theModel, 'white');
+}

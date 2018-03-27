@@ -20,6 +20,18 @@ Added _color interpolation_ using the d3 library, and a full color palette. You 
 
 http://ian-schu-game-of-life-2.surge.sh/
 
+### Version 3:
+
+Starting to add stretch goal featuers such as population statistics, lots of CSS and layout cleanup. Crude window system for help / save / new game buttons.
+
+http://ian-schu-game-of-life-3.surge.sh/
+
+### Final version:
+
+Finished up 'Pattern Bank' stretch goal, added main landing screen with video background and variable gameboard dimensions. Other styling and layout fixes. A ton of refactoring in the background.
+
+http://chromacon.surge.sh
+
 ---
 
 ## Original proposal submitted to course instructor:
@@ -100,6 +112,6 @@ Most or all of this app will be plain HTML5, CSS, and vanilla JS. It's possible 
 
 ##### Stage 4 (fun / stretch goals):
 
-* At start of game, user is prompted to **enter game board dimensions**, up to some practical limit e.g. 500x500 cells
-* User can select from a dropdown of **starting patterns e.g. Glider Guns, Oscillators, etc.**
+* [x] At start of game, user is prompted to **enter game board dimensions**, up to some practical limit e.g. 500x500 cells
+* [x] User can select from a dropdown of **starting patterns e.g. Glider Guns, Oscillators, etc.**
 * App runs properly on **mobile devices**, with responsive layout, and touch input instead of mouse clicks

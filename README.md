@@ -2,7 +2,10 @@
 A highly-interactive rendition of Conway's Game of Life, built as a 1-week independent study project for the first quarter of the Galvanize Web Dev Immersive course.
 
 **Deployed at: http://chromacon.surge.sh**
+
 **Write-up of the project is [here](https://medium.com/@ianschum/chromacon-a-highly-interactive-conways-game-of-life-built-in-javascript-627153f459ec)**:
+
+**Video walkthrough**: https://vimeo.com/267308057
 
 ### Fun features include:
 * Color interpolation -- simulates different 'populations' of cells which will intermarry or compete with each other when they collide.
